@@ -16,7 +16,7 @@ alias nvquar='NVIM_APPNAME="nvim-quarto" nvim'
 
 # Suspend & Hibernate Shorthand
 alias sus='cd | systemctl suspend'
-# alias hibernate='systemctl hibernate' # Not in use ATM
+alias hib='systemctl hibernate'
 
 # Rank Arch Mirrors
 alias arch-mirror-rank="rate-mirrors --disable-comments-in-file --entry-country=CA --protocol=https arch --max-delay 7200 | sudo tee /etc/pacman.d/mirrorlist"
