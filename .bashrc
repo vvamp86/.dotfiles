@@ -24,4 +24,4 @@ alias arch-mirror-rank="rate-mirrors --disable-comments-in-file --entry-country=
 # Starship
 eval "$(starship init bash)"
 
-alias dc='exec xmodmap -e "clear lock" && exec xmodmap -e "keysym Caps_Lock = Escape"'
+alias dc='exec xmodmap -e "clear lock" | exec xmodmap -e "keysym Caps_Lock = Escape"'
