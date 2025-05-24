@@ -24,6 +24,3 @@ alias arch-mirror-rank="rate-mirrors --disable-comments-in-file --entry-country=
 # Starship
 eval "$(starship init bash)"
 
-
-# Created by `pipx` on 2025-02-27 02:19:14
-export PATH="$PATH:/home/sudowoodo/.local/bin"
