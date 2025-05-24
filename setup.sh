@@ -15,13 +15,11 @@ mkdir -p ~/.config/alacritty ~/.config/i3 ~/.config/nvim ~/.config/picom
 echo -e "${GREEN}==> Symlinking dotfiles...${NC}"
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-ln -sf "$DOTFILES_DIR/alacritty/alacritty.yml" ~/.config/alacritty/alacritty.yml
-ln -sf "$DOTFILES_DIR/i3/config" ~/.config/i3/config
-ln -sf "$DOTFILES_DIR/nvim/init.lua" ~/.config/nvim/init.lua  # or init.vim
-ln -sf "$DOTFILES_DIR/picom/picom.conf" ~/.config/picom/picom.conf
-ln -sf "$DOTFILES_DIR/starship/starship.toml" ~/.config/starship.toml
-
-echo -e "${GREEN}==> Starship configuration...${NC}"
-echo 'eval "$(starship init bash)"' >> ~/.bashrc  # Or ~/.zshrc
+ln -sf "$DOTFILES_DIR/alacritty/" ~/.config/alacritty/
+ln -sf "$DOTFILES_DIR/i3/" ~/.config/i3/
+ln -sf "$DOTFILES_DIR/nvim/" ~/.config/nvim/  # or init.vim
+ln -sf "$DOTFILES_DIR/picom/" ~/.config/picom/
+ln -sf "$DOTFILES_DIR/starship.toml" ~/.config/starship.toml
+ln -sf "$HOME/.bashrc" ~/.config/.bashrc
 
 echo -e "${GREEN}Setup complete.${NC}"
