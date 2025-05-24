@@ -5,3 +5,10 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
+# Things to Include:
+- battery manager
+- control manager
+- nvim keyboard
+- i3wm fixed layouts
+- perpetual capslock -> escape
+
