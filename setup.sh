@@ -18,6 +18,7 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ln -sfn ~/.dotfiles/picom ~/.config/picom
 ln -sfn ~/.dotfiles/i3 ~/.config/i3
 ln -sfn ~/.dotfiles/nvim ~/.config/nvim
+ln -sfn ~/.dotfiles/alacritty/ ~/.config/alacritty
 ln -sfn ~/.dotfiles/picom ~/.config/picom
 ln -sfn ~/.dotfiles/starship.toml ~/.config/starship.toml
 ln -sfn ~/.dotfiles/.bashrc ~/.bashrc
