@@ -13,6 +13,7 @@ PS1='[\u@\h \W]\$ '
 # alias nvkick='NVIM_APPNAME="nvim-kickstart" nvim'
 # alias nvchad='NVIM_APPNAME="nvchad" nvim'
 # alias nvquar='NVIM_APPNAME="nvim-quarto" nvim'
+alias nv='nvim'
 
 # Suspend & Hibernate Shorthand
 alias sus='cd | systemctl suspend'
