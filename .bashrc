@@ -16,7 +16,7 @@ PS1='[\u@\h \W]\$ '
 
 # Suspend & Hibernate Shorthand
 alias sus='cd | systemctl suspend'
-alias hib='systemctl hibernate'
+alias hib='cd | systemctl hibernate'
 
 # Rank Arch Mirrors
 alias arch-mirror-rank="rate-mirrors --disable-comments-in-file --entry-country=CA --protocol=https arch --max-delay 7200 | sudo tee /etc/pacman.d/mirrorlist"
