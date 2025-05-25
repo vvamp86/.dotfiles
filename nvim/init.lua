@@ -1047,6 +1047,13 @@ require('lazy').setup({
       }
     end,
   },
+
+  -- Obsidian.nvim
+  { import = 'Obsidian.plugins' },
+  -- R Config
+  -- { import = 'R.plugins' },
+  -- LaTeX Config
+  -- { import = 'LaTeX.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
