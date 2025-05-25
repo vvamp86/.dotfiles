@@ -12,7 +12,7 @@ sudo pacman -Syu --noconfirm alacritty i3-wm neovim picom starship git ttf-firac
 yay -S gruvbox-material-gtk-theme-git gruvbox-material-icon-theme-git
 
 echo -e "${GREEN}==> Removing existing config directories...${NC}"
-rm -rf ~/.config/alacritty ~/.config/i3 ~/.config/nvim ~/.config/picom ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.bashrc ~/.profile ~/.config/dunst
+rm -rf ~/.config/alacritty ~/.config/i3 ~/.config/nvim ~/.config/picom ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.bashrc ~/.profile ~/.config/dunst ~/.config/rofi
 
 echo -e "${GREEN}==> Symlinking dotfiles...${NC}"
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -27,6 +27,7 @@ ln -sfn ~/.dotfiles/gtk-3.0 ~/.config/gtk-3.0
 ln -sfn ~/.dotfiles/gtk-4.0 ~/.config/gtk-4.0
 ln -sfn ~/.dotfiles/.bashrc ~/.bashrc
 ln -sfn ~/.dotfiles/.profile ~/.profile
-ln -sfn ~/.dotfiles/dunst~/.config/dunst
+ln -sfn ~/.dotfiles/dunst ~/.config/dunst
+ln -sfn ~/.dotfiles/rofi ~/.config/rofi
 
 echo -e "${GREEN}Setup complete.${NCa}"
