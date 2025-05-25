@@ -1049,7 +1049,7 @@ require('lazy').setup({
   },
 
   -- Obsidian.nvim
-  { import = 'Obsidian.plugins' },
+  -- { import = 'Obsidian.plugins' },
   -- R Config
   -- { import = 'R.plugins' },
   -- LaTeX Config
