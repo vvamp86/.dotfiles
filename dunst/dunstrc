@@ -42,7 +42,7 @@
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 1
-    frame_color = "#d3869b"
+    frame_color = "#5a524c"
     gap_size = 0
     separator_color = auto
     sort = yes
@@ -67,7 +67,7 @@
     min_icon_size = 0
     max_icon_size = 32
     icon_path = /usr/share/icons/Gruvbox-Material-Dark/16x16/status:/usr/share/icons/Gruvbox-Material-Dark/16x16/devices/:/usr/share/icons/Gruvbox-Material-Dark/24x24/panel/:/usr/share/icons/Gruvbox-Material-Dark/16x16/apps/:/usr/share/pixmaps/:/usr/share/icons/Gruvbox-Material-Dark/symbolic/apps/
-    icon_path = /usr/share/icons/Gruvbox-Material-Dark/24x24
+
     ### History ###
     sticky_history = false
     history_length = 0
@@ -95,21 +95,21 @@
 
 
 [urgency_low]
-    background = "#945e80"
-    foreground = "#e2cca9"
+    background = "#e2cca9"
+    foreground = "#945e80"
     timeout = 5
     icon = /usr/share/icons/Gruvbox-Material-Dark/16x16/status/package-installed-outdated.svg
 
 [urgency_normal]
-    background = "#945e80"
-    foreground = "#e2cca9"
+    background = "#e2cca9"
+    foreground = "#945e80"
     timeout = 5
     override_pause_level = 30
     icon = /usr/share/icons/Gruvbox-Material-Dark/16x16/emblems/emblem-question.svg
 
 [urgency_critical]
-    background = "#945e80"
-    foreground = "#e2cca9"
+    background = "#e2cca9"
+    foreground = "#945e80"
     frame_color = "#fb4934"
     timeout = 120
     icon = /usr/share/icons/Gruvbox-Material-Dark/16x16/actions/dialog-warning.svg
