@@ -14,7 +14,7 @@ status = check_output(['acpi'], universal_newlines=True)
 
 if not status:
     # stands for no battery found
-    color = config.get("color_10", "red")
+    color = config.get("color_10", "#ea6962")
     fulltext = "<span color='{}'><span font='FontAwesome'>\uf00d \uf240</span></span>".format(color)
     percentleft = 100
 else:
@@ -52,7 +52,7 @@ else:
         percentleft = 0
 
     # stands for charging
-    color = config.get("color_charging", "yellow")
+    color = config.get("color_charging", "#d8a657")
     FA_LIGHTNING = "<span color='{}'><span font='FontAwesome'>\uf0e7</span></span>".format(color)
 
     # stands for plugged in
@@ -79,22 +79,22 @@ else:
     def color(percent):
         if percent < 10:
             # exit code 33 will turn background red
-            return config.get("color_10", "#FFFFFF")
+            return config.get("color_10", "#fbf1c7")
         if percent < 20:
-            return config.get("color_20", "#FF3300")
+            return config.get("color_20", "#fb4934")
         if percent < 30:
-            return config.get("color_30", "#FF6600")
+            return config.get("color_30", "#fe8019")
         if percent < 40:
-            return config.get("color_40", "#FF9900")
+            return config.get("color_40", "#d79921")
         if percent < 50:
-            return config.get("color_50", "#FFCC00")
+            return config.get("color_50", "#fabd2f")
         if percent < 60:
-            return config.get("color_60", "#FFFF00")
+            return config.get("color_60", "#f2c300")
         if percent < 70:
-            return config.get("color_70", "#FFFF33")
+            return config.get("color_70", "#f2e5bc")
         if percent < 80:
-            return config.get("color_80", "#FFFF66")
-        return config.get("color_full", "#FFFFFF")
+            return config.get("color_80", "#ebdbb2")
+        return config.get("color_full", "#fbf1c7")
 
     form =  '<span color="{}">{}%</span>'
     fulltext += form.format(color(percentleft), percentleft)
