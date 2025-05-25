@@ -7,12 +7,12 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 echo -e "${GREEN}==> Installing dependencies...${NC}"
-sudo pacman -Syu --noconfirm alacritty i3-wm neovim picom starship git ttf-firacode-nerd xclip
+sudo pacman -Syu --noconfirm alacritty i3-wm neovim picom starship git ttf-firacode-nerd xclip dunst brightnessctl
 
 yay -S gruvbox-material-gtk-theme-git gruvbox-material-icon-theme-git
 
 echo -e "${GREEN}==> Removing existing config directories...${NC}"
-rm -rf ~/.config/alacritty ~/.config/i3 ~/.config/nvim ~/.config/picom ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.bashrc ~/.profile
+rm -rf ~/.config/alacritty ~/.config/i3 ~/.config/nvim ~/.config/picom ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.bashrc ~/.profile ~/.config/dunst
 
 echo -e "${GREEN}==> Symlinking dotfiles...${NC}"
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -27,5 +27,6 @@ ln -sfn ~/.dotfiles/gtk-3.0 ~/.config/gtk-3.0
 ln -sfn ~/.dotfiles/gtk-4.0 ~/.config/gtk-4.0
 ln -sfn ~/.dotfiles/.bashrc ~/.bashrc
 ln -sfn ~/.dotfiles/.profile ~/.profile
+ln -sfn ~/.dotfiles/dunst~/.config/dunst
 
 echo -e "${GREEN}Setup complete.${NCa}"
