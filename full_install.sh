@@ -43,7 +43,7 @@ CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0)
 for config in "${CONFIGS[@]}"; do
   rm -rf "$HOME/.config/$config"
 done
-rm -f ~/.bashrc ~/.profile
+rm -f ~/.bashrc ~/.profile ~/.Xresources
 
 ### Start Symlinking Dotfiles
 echo -e "${GREEN}==> Symlinking dotfiles...${NC}"
@@ -61,6 +61,7 @@ declare -A SYMLINKS=(
   [~/.config/starship.toml]=$DOTFILES_DIR/starship.toml
   [~/.bashrc]=$DOTFILES_DIR/.bashrc
   [~/.profile]=$DOTFILES_DIR/.profile
+  [~/.Xresources]=$DOTFILES_DIR/.Xresources
 )
 
 for target in "${!SYMLINKS[@]}"; do
