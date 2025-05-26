@@ -9,7 +9,7 @@ NC='\033[0m' # No Color
 echo -e "${GREEN}==> Installing dependencies...${NC}"
 sudo pacman -Syu --noconfirm alacritty i3-wm neovim picom starship git ttf-firacode-nerd xclip dunst brightnessctl
 
-yay -S gruvbox-material-gtk-theme-git gruvbox-material-icon-theme-git
+yay -S gruvbox-material-gtk-theme-git gruvbox-material-icon-theme-git xcursor-simple-gruvbox-dark
 
 echo -e "${GREEN}==> Removing existing config directories...${NC}"
 rm -rf ~/.config/alacritty ~/.config/i3 ~/.config/nvim ~/.config/picom ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.bashrc ~/.profile ~/.config/dunst ~/.config/rofi
