@@ -15,5 +15,7 @@ chmod +x setup.sh
 - perpetual capslock -> escape
 - nvim for Latex, R, & Obsidian
 - plover stenography
-- 
+- customize bootloader
+- straighten X11 and have options to switch to wayland
+- get scrolling artifacts fixed
 
