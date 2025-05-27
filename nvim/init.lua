@@ -158,6 +158,12 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- Auto Trailing Whitespace Remover
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*',
+  command = [[%s/\s\+$//e]],
+})
+
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
