@@ -2,7 +2,6 @@
 # original source: https://gitlab.com/Nmoleo/i3-volume-brightness-indicator
 
 # See README.md for usage instructions
-bar_color="#ddc7a1"
 volume_step=1
 brightness_step=5
 max_volume=100
