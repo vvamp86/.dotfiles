@@ -122,6 +122,11 @@ end)
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Enable tabs as spaces
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+
 -- Save undo history
 vim.o.undofile = true
 
