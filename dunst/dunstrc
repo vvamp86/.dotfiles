@@ -33,7 +33,7 @@
     progress_bar_max_width = 300
     progress_bar_corner_radius = 4
     progress_bar_corners = all
-    highlight = "#8ec07c"
+    highlight = "#89b482"
     icon_corner_radius = 0
     icon_corners = all
     indicate_hidden = yes
