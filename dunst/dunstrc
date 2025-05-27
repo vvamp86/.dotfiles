@@ -37,7 +37,7 @@
     icon_corner_radius = 0
     icon_corners = all
     indicate_hidden = yes
-    transparency = 40
+    transparency = 20
     separator_height = 2
     padding = 8
     horizontal_padding = 8
