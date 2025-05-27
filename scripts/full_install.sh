@@ -7,7 +7,7 @@ NC='\033[0m'
 
 ### Pacman Packages
 echo -e "${GREEN}==> Installing pacman dependencies...${NC}"
-sudo pacman -Syu --noconfirm \
+sudo pacman --needed -Syu --noconfirm \
   alacritty i3-wm neovim picom starship git \
   ttf-firacode-nerd xclip dunst brightnessctl xfce4-screenshooter \
   fwupd blueman rate-mirrors keepassxc qemu-full \
@@ -16,13 +16,13 @@ sudo pacman -Syu --noconfirm \
 
 ### AUR Packages
 echo -e "${GREEN}==> Installing yay (AUR) packages...${NC}"
-yay -S --noconfirm \
+yay -S --needed \
   gruvbox-material-gtk-theme-git \
   gruvbox-material-icon-theme-git \
   xcursor-simp1e-gruvbox-dark \
   discord_arch_electron obsidian cloudflare-warp-bin \
   proton-vpn-gtk-app brave-bin spotify-adblock \
-  timeshift quickemu
+  timeshift quickemu i3lock-color
 
 ### Enable Services
 echo -e "${GREEN}==> Enabling services...${NC}"
@@ -43,7 +43,7 @@ CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0)
 for config in "${CONFIGS[@]}"; do
   rm -rf "$HOME/.config/$config"
 done
-rm -f ~/.bashrc ~/.profile ~/.Xresources
+rm -f ~/.bashrc ~/.profile ~/.Xresources ~/.gtkrc-2.0
 
 ### Start Symlinking Dotfiles
 echo -e "${GREEN}==> Symlinking dotfiles...${NC}"
@@ -59,6 +59,7 @@ declare -A SYMLINKS=(
   [~/.config/gtk-3.0]=$DOTFILES_DIR/gtk-3.0
   [~/.config/gtk-4.0]=$DOTFILES_DIR/gtk-4.0
   [~/.config/starship.toml]=$DOTFILES_DIR/starship.toml
+  [~/.gtkrc-2.0]=$DOTFILES_DIR/gtkrc-2.0
   [~/.bashrc]=$DOTFILES_DIR/.bashrc
   [~/.profile]=$DOTFILES_DIR/.profile
   [~/.Xresources]=$DOTFILES_DIR/.Xresources
