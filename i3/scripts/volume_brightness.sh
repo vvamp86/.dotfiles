@@ -6,6 +6,8 @@ bar_color="#ddc7a1"
 volume_step=1
 brightness_step=5
 max_volume=100
+show_album_art=true
+show_music_in_volume_indicator=true
 
 # Uses regex to get volume from pactl
 function get_volume {

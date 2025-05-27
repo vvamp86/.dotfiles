@@ -7,5 +7,25 @@ BLUR="5x4"
 
 $SCREENSHOT
 magick $PICTURE -blur $BLUR $PICTURE
-i3lock -i $PICTURE
+i3lock -i $PICTURE \
+--inside-color=282828ff \
+--ring-color=928374ff \
+--line-color=00000000 \
+--separator-color=ebdbb2ff \
+--keyhl-color=d79921ff \
+--bshl-color=cc241dff \
+--ringver-color=b8bb26ff \
+--ringwrong-color=fb4934ff \
+--insidever-color=3c3836ff \
+--insidewrong-color=3c3836ff \
+--verif-color=ebdbb2ff \
+--wrong-color=fb4934ff \
+--time-color=ebdbb2ff \
+--date-color=ebdbb2ff \
+--layout-color=ebdbb2ff \
+--greeter-color=ebdbb2ff \
+--radius=120 \
+--clock \
+--indicator
+
 rm $PICTURE
