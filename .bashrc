@@ -15,6 +15,9 @@ PS1='[\u@\h \W]\$ '
 # alias nvquar='NVIM_APPNAME="nvim-quarto" nvim'
 alias nv='nvim'
 
+# man page customization
+export MANPAGER="nvim +Man!"
+
 # Suspend & Hibernate Shorthand
 alias sus='cd | systemctl suspend'
 alias hib='cd | systemctl hibernate'
