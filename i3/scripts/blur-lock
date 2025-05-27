@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+BLANK='#28282800'        # Transparent Gruvbox background (Dark0 + 00 alpha)
+CLEAR='#92837422'        # Inactive ring (Gruvbox Gray + low alpha)
+DEFAULT='#ebdbb2cc'      # Default ring color (Gruvbox Light1 + 80% alpha)
+TEXT='#ebdbb2ff'         # Time/Date/Text color (Gruvbox Light1, opaque)
+WRONG='#fb4934cc'        # Wrong password (Gruvbox Red + 80% alpha)
+VERIFYING='#b8bb26cc'    # Verifying ring (Gruvbox Green + 80% alpha)
 
 PICTURE=/tmp/i3lock.png
 SCREENSHOT="scrot -z $PICTURE"
@@ -8,24 +14,28 @@ BLUR="5x4"
 $SCREENSHOT
 magick $PICTURE -blur $BLUR $PICTURE
 i3lock -i $PICTURE \
---inside-color=282828ff \
---ring-color=928374ff \
---line-color=00000000 \
---separator-color=ebdbb2ff \
---keyhl-color=d79921ff \
---bshl-color=cc241dff \
---ringver-color=b8bb26ff \
---ringwrong-color=fb4934ff \
---insidever-color=3c3836ff \
---insidewrong-color=3c3836ff \
---verif-color=ebdbb2ff \
---wrong-color=fb4934ff \
---time-color=ebdbb2ff \
---date-color=ebdbb2ff \
---layout-color=ebdbb2ff \
---greeter-color=ebdbb2ff \
---radius=120 \
---clock \
---indicator
+--insidever-color=$CLEAR     \
+--ringver-color=$VERIFYING   \
+\
+--insidewrong-color=$CLEAR   \
+--ringwrong-color=$WRONG     \
+\
+--inside-color=$BLANK        \
+--ring-color=$DEFAULT        \
+--line-color=$BLANK          \
+--separator-color=$DEFAULT   \
+\
+--verif-color=$TEXT          \
+--wrong-color=$TEXT          \
+--time-color=$TEXT           \
+--date-color=$TEXT           \
+--layout-color=$TEXT         \
+--keyhl-color=$WRONG         \
+--bshl-color=$WRONG          \
+\
+--clock                      \
+--indicator                  \
+--time-str="%H:%M:%S"        \
+--date-str="%A, %Y-%m-%d"    \
 
 rm $PICTURE

@@ -10,7 +10,7 @@
 
     ### Geometry ###
     width = 300
-    
+
     # dynamic height from 0 to 300
     # The maximum height of a single notification, excluding the frame.
     height = (0, 300)
@@ -31,12 +31,13 @@
     progress_bar_frame_width = 1
     progress_bar_min_width = 150
     progress_bar_max_width = 300
-    progress_bar_corner_radius = 0
+    progress_bar_corner_radius = 4
     progress_bar_corners = all
+    highlight = "#8ec07c"
     icon_corner_radius = 0
     icon_corners = all
     indicate_hidden = yes
-    transparency = 16
+    transparency = 40
     separator_height = 2
     padding = 8
     horizontal_padding = 8
