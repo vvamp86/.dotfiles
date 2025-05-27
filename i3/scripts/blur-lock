@@ -13,7 +13,9 @@ flameshot full -p $PICTURE
 
 BLUR="5x4"
 
-magick $PICTURE -blur $BLUR $PICTURE
+magick "$PICTURE" -blur "$BLUR" \( -size $(identify -format "%wx%h" "$PICTURE") xc:'rgba(0,0,0,0.5)' \) \
+-compose over -composite "$PICTURE"
+
 i3lock -i $PICTURE \
 --insidever-color=$CLEAR     \
 --ringver-color=$VERIFYING   \
