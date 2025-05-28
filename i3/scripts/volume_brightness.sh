@@ -3,8 +3,15 @@
 
 # See README.md for usage instructions
 volume_step=1
-brightness_step=5
+keyboard_brightness_step=5
+screen_brightness_step=2
 max_volume=100
+notification_timeout=1000
+
+# Specify Icon Theme here
+volume_theme_icon=""                # audio-volume-high works
+screen_brightness_theme_icon=""     # Nothing known
+keyboard_brightness_theme_icon=""   # Nothing known
 
 # Uses regex to get volume from pactl
 function get_volume {
@@ -16,9 +23,16 @@ function get_mute {
     pactl get-sink-mute @DEFAULT_SINK@ | grep -Po '(?<=Mute: )(yes|no)'
 }
 
-# Uses regex to get brightness from xbacklight
-function get_brightness {
+# Uses regex to get keyboard_brightness from xbacklight
+function get_keyboard_brightness {
     xbacklight | grep -Po '[0-9]{1,3}' | head -n 1
+}
+
+# Grabs screen brightness and formats it out of 100
+function get_screen_brightness {
+    curr=$(brightnessctl -q get)
+    max=$(brightnessctl -q max)
+    echo $(( curr * 100 / max ))
 }
 
 # Returns a mute icon, a volume-low icon, or a volume-high icon, depending on the volume
@@ -27,7 +41,7 @@ function get_volume_icon {
     mute=$(get_mute)
     if [ "$volume" -eq 0 ] || [ "$mute" == "yes" ] ; then
         volume_icon=""
-    elif [ "$volume" -lt 50 ]; then
+    elif [ "$volume" -lt 50 ] ; then
         volume_icon=""
     else
         volume_icon=""
@@ -35,26 +49,53 @@ function get_volume_icon {
 }
 
 # Always returns the same icon - I couldn't get the brightness-low icon to work with fontawesome
-function get_brightness_icon {
-    brightness_icon=""
+function get_keyboard_brightness_icon {
+    kb_brightness=$(get_keyboard_brightness)
+    if [ "$kb_brightness" -eq 0 ] ; then
+        keyboard_brightness_icon=""  # unfilled circle
+    elif [ "$kb_brightness" -lt 50 ] ; then
+        keyboard_brightness_icon=""  # fa-adjust (low brightness)
+    else
+        keyboard_brightness_icon=""  # full circle (high brightness)
+    fi
+}
+
+function get_screen_brightness_icon {
+    sc_brightness=$(get_screen_brightness)
+    if [ "$sc_brightness" -eq 0 ] ; then
+        screen_brightness_icon=""  # unfilled circle
+    elif [ "$sc_brightness" -lt 50 ] ; then
+        screen_brightness_icon=""  # fa-adjust (low brightness)
+    else
+        screen_brightness_icon=""  # full circle (high brightness)
+    fi
 }
 
 # Displays a volume notification using notify-send
 function show_volume_notif {
-    volume=$(get_mute)
+    mute=$(get_mute)
+    volume=$(get_volume)
     get_volume_icon
-    notify-send -i audio-volume-muted -t 1000 "Volume" "$volume_icon $volume%" -h int:value:$volume -h string:x-canonical-private-synchronous:volume
+    notify-send -i $volume_theme_icon -t $notification_timeout "Volume" "$volume_icon $volume%" -h int:value:$volume -h string:x-canonical-private-synchronous:volume
 }
 
-# Displays a brightness notification using dunstify
-function show_brightness_notif {
-    brightness=$(get_brightness)
-    echo $brightness
-    get_brightness_icon
-    notify-send -t $notification_timeout -h string:x-dunst-stack-tag:brightness_notif -h int:value:$brightness "$brightness_icon $brightness%"
+# Displays a keyboard_brightness notification using dunstify
+function show_keyboard_brightness_notif {
+    keyboard_brightness=$(get_keyboard_brightness)
+    echo $keyboard_brightness
+    get_keyboard_brightness_icon
+    notify-send -i $keyboard_brightness_theme_icon -t $notification_timeout "Keyboard Brightness" -h string:x-dunst-stack-tag:keyboard_brightness_notif -h int:value:$keyboard_brightness "$keyboard_brightness_icon $keyboard_brightness%"
 }
 
-# Main function - Takes user input, "volume_up", "volume_down", "brightness_up", or "brightness_down"
+# Displays a screen_brightness notification
+function show_screen_brightness_notif {
+    screen_brightness=$(get_screen_brightness)
+    echo $screen_brightness
+    get_screen_brightness_icon
+    notify-send -i $screen_brightness_theme_icon -t $notification_timeout "Screen Brightness" -h string:x-dunst-stack-tag:screen_brightness_notif -h int:value:$screen_brightness "$screen_brightness_icon $screen_brightness%"
+}
+
+# Main function - Takes user input, "volume_up", "volume_down", "keyboard_brightness_up", "keyboard_brightness_down", "brightness_up", or "brightness_down"
 case $1 in
     volume_up)
     # Unmutes and increases volume, then displays the notification
@@ -80,15 +121,25 @@ case $1 in
     show_volume_notif
     ;;
 
-    brightness_up)
-    # Increases brightness and displays the notification
-    xbacklight -A $brightness_step 
-    show_brightness_notif
+    keyboard_brightness_up)
+    # Increases keyboard_brightness and displays the notification
+    xbacklight -A $keyboard_brightness_step
+    show_keyboard_brightness_notif
     ;;
 
-    brightness_down)
-    # Decreases brightness and displays the notification
-    xbacklight -U $brightness_step
-    show_brightness_notif
+    keyboard_brightness_down)
+    # Decreases keyboard_brightness and displays the notification
+    xbacklight -U $keyboard_brightness_step
+    show_keyboard_brightness_notif
+    ;;
+
+    screen_brightness_up)
+    brightnessctl -q set ${screen_brightness_step}%+
+    show_screen_brightness_notif
+    ;;
+
+    screen_brightness_down)
+    brightnessctl -q set ${screen_brightness_step}%-
+    show_screen_brightness_notif
     ;;
 esac
