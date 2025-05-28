@@ -20,7 +20,7 @@ export MANPAGER="nvim +Man!"
 
 # Suspend & Hibernate Shorthand
 alias sus='cd | systemctl suspend'
-alias hib='cd | systemctl hibernate'
+# alias hib='cd | systemctl hibernate'  # Not in use
 
 # Rank Arch Mirrors
 alias arch-mirror-rank="rate-mirrors --disable-comments-in-file --entry-country=CA --protocol=https arch --max-delay 7200 | sudo tee /etc/pacman.d/mirrorlist"
