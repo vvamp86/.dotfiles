@@ -9,9 +9,9 @@ max_volume=100
 notification_timeout=1000
 
 # Specify Icon Theme here
-volume_theme_icon=""                # audio-volume-high works
-screen_brightness_theme_icon=""     # Nothing known
-keyboard_brightness_theme_icon=""   # Nothing known
+volume_theme_icon="none"               # audio-volume-high works
+screen_brightness_theme_icon="none"    # Nothing known
+keyboard_brightness_theme_icon="none"  # Nothing known
 
 # Uses regex to get volume from pactl
 function get_volume {
