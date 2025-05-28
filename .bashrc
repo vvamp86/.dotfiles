@@ -28,4 +28,12 @@ alias arch-mirror-rank="rate-mirrors --disable-comments-in-file --entry-country=
 # Starship
 eval "$(starship init bash)"
 
+# Lazy dumb git function
+function acp() {
+    git add .
+    git commit -a -m "$1"
+    git push
+}
+
+# Remove caps lock and replae it with escape
 alias dc='exec xmodmap -e "clear lock" | exec xmodmap -e "keysym Caps_Lock = Escape"'
