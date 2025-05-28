@@ -13,6 +13,19 @@ volume_theme_icon="none"               # audio-volume-high works
 screen_brightness_theme_icon="none"    # Nothing known
 keyboard_brightness_theme_icon="none"  # Nothing known
 
+# Keyboard Backlight grep here
+device="chromeos::kbd_backlight"
+
+### Auto-detect keyboard and cache alternative here: (uncomment and delete device if wanted)
+# device_cache="/tmp/kbd_backlight_device"
+#
+# if [ -f "$device_cache" ]; then         # If there is cache, load it into device
+#     device=$(cat "$device_cache")
+# else                                    # If there is no cache, create one
+#     device=$(brightnessctl --list | grep -Po '\w+::kbd_backlight')
+#     echo "$device" > "$device_cache"
+# fi
+
 # Uses regex to get volume from pactl
 function get_volume {
     pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]{1,3}(?=%)' | head -1
@@ -23,10 +36,16 @@ function get_mute {
     pactl get-sink-mute @DEFAULT_SINK@ | grep -Po '(?<=Mute: )(yes|no)'
 }
 
-# Uses regex to get keyboard_brightness from xbacklight
+# Get keyboard_brightness from brightnessctl
 function get_keyboard_brightness {
-    xbacklight | grep -Po '[0-9]{1,3}' | head -n 1
+    if [ -n "$device" ]; then
+        curr=$(brightnessctl -d "$device" get)
+        echo $(( curr ))
+    else
+        echo "No keyboard backlight device found"
+    fi
 }
+
 
 # Grabs screen brightness and formats it out of 100
 function get_screen_brightness {
@@ -79,10 +98,11 @@ function show_volume_notif {
     notify-send -i $volume_theme_icon -t $notification_timeout "Volume" "$volume_icon $volume%" -h int:value:$volume -h string:x-canonical-private-synchronous:volume
 }
 
-# Displays a keyboard_brightness notification using dunstify
+# Displays a keyboard_brightness notification
 function show_keyboard_brightness_notif {
     keyboard_brightness=$(get_keyboard_brightness)
-    echo $keyboard_brightness
+    # Debug Purposes:
+    # echo $keyboard_brightness
     get_keyboard_brightness_icon
     notify-send -i $keyboard_brightness_theme_icon -t $notification_timeout "Keyboard Brightness" -h string:x-dunst-stack-tag:keyboard_brightness_notif -h int:value:$keyboard_brightness "$keyboard_brightness_icon $keyboard_brightness%"
 }
@@ -90,7 +110,8 @@ function show_keyboard_brightness_notif {
 # Displays a screen_brightness notification
 function show_screen_brightness_notif {
     screen_brightness=$(get_screen_brightness)
-    echo $screen_brightness
+    # Debug Purposes:
+    # echo $screen_brightness
     get_screen_brightness_icon
     notify-send -i $screen_brightness_theme_icon -t $notification_timeout "Screen Brightness" -h string:x-dunst-stack-tag:screen_brightness_notif -h int:value:$screen_brightness "$screen_brightness_icon $screen_brightness%"
 }
@@ -123,13 +144,13 @@ case $1 in
 
     keyboard_brightness_up)
     # Increases keyboard_brightness and displays the notification
-    xbacklight -A $keyboard_brightness_step
+    brightnessctl -d "$device" set ${keyboard_brightness_step}+
     show_keyboard_brightness_notif
     ;;
 
     keyboard_brightness_down)
     # Decreases keyboard_brightness and displays the notification
-    xbacklight -U $keyboard_brightness_step
+    brightnessctl -d "$device" set ${keyboard_brightness_step}-
     show_keyboard_brightness_notif
     ;;
 
