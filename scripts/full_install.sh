@@ -1,13 +1,23 @@
 #!/bin/bash
 
-set -e  # Exit on any error
+set -euo pipefail  # Exit on any error
 
 GREEN='\033[0;32m'
 NC='\033[0m'
 
+print_step() {
+  echo -e "${GREEN}==> $1...${NC}"
+}
+
+### Confirm paru exists
+if ! command -v paru &> /dev/null; then
+  print_step "Installing paru (AUR helper)"
+  sudo pacman -S --needed --noconfirm paru
+fi
+
 ### Pacman Packages
-echo -e "${GREEN}==> Installing pacman dependencies...${NC}"
-sudo pacman --needed -Syu --noconfirm \
+print_step "Installing pacman dependencies"
+sudo pacman -Syu --needed --noconfirm \
   alacritty i3-wm neovim picom starship git \
   ttf-firacode-nerd xclip dunst brightnessctl flameshot \
   fwupd blueman rate-mirrors keepassxc qemu-full \
@@ -15,7 +25,7 @@ sudo pacman --needed -Syu --noconfirm \
   clamav
 
 ### AUR Packages
-echo -e "${GREEN}==> Installing yay (AUR) packages...${NC}"
+print_step "Installing AUR packages"
 yay -S --needed \
   gruvbox-material-gtk-theme-git \
   gruvbox-material-icon-theme-git \
@@ -24,56 +34,62 @@ yay -S --needed \
   proton-vpn-gtk-app brave-bin spotify-adblock \
   timeshift quickemu i3lock-color texlive-binextra
 
-### Enable Services (Currently Disabled)
-echo -e "${GREEN}==> Enabling services...${NC}"
+### Enable Services
+print_step "Enabling optional services..."
 
 # Bluetooth
-read -p "Do you want to enable Bluetooth? [y/N]: " choice1
-if [[ "$choice1" == [yY] ]]; then
-    echo "Enabling Bluetooth..."
-    sudo systemctl enable --now bluetooth
+read -p "Enable Bluetooth? [y/N]: " enable_bt
+if [[ "$enable_bt" == [yY] ]]; then
+  print_step "Enabling Bluetooth"
+  sudo systemctl enable --now bluetooth
 fi
 
-
 # Cloudflare Warp
-read -p "Do you want to enable Cloudflare Warp? [y/N]: " choice2
-if [[ "$choice2" == [yY] ]]; then
-    echo "Enabling Cloudflare Warp..."
-    sudo systemctl enable --now warp-svc
-    warp-cli registration new
-    warp-cli connect
+read -p "Enable Cloudflare Warp? [y/N]: " enable_warp
+if [[ "$enable_warp" == [yY] ]]; then
+  print_step "Enabling Cloudflare Warp"
+  sudo systemctl enable --now warp-svc
+  warp-cli registration new
+  warp-cli connect
 fi
 
 # ProtonVPN
 # Unimplemented
 
 ### Remove Existing Directories for Symlinking
-echo -e "${GREEN}==> Removing existing config directories...${NC}"
+print_step "Removing existing config directories"
+
+#NOTE: INSERT CONFIGS in `.config` HERE
 CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot)
+
 for config in "${CONFIGS[@]}"; do
   rm -rf "$HOME/.config/$config"
 done
+
+#NOTE: INSERT CONFIGS IN `~` HERE
 rm -f ~/.bashrc ~/.profile ~/.Xresources ~/.gtkrc-2.0
 
 ### Start Symlinking Dotfiles
-echo -e "${GREEN}==> Symlinking dotfiles...${NC}"
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+print_step "Symlinking dotfiles"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
+#NOTE: INSERT CONFIGS IN THIS MANNER:
+# `[SYMLINK LOCATION]=DOTFILES/name_of_folder`
 declare -A SYMLINKS=(
-  [~/.config/alacritty]=$DOTFILES_DIR/alacritty
-  [~/.config/i3]=$DOTFILES_DIR/i3
-  [~/.config/nvim]=$DOTFILES_DIR/nvim
-  [~/.config/picom]=$DOTFILES_DIR/picom
-  [~/.config/dunst]=$DOTFILES_DIR/dunst
-  [~/.config/rofi]=$DOTFILES_DIR/rofi
-  [~/.config/gtk-3.0]=$DOTFILES_DIR/gtk-3.0
-  [~/.config/gtk-4.0]=$DOTFILES_DIR/gtk-4.0
-  [~/.config/flameshot]=$DOTFILES_DIR/flameshot
-  [~/.config/starship.toml]=$DOTFILES_DIR/starship.toml
-  [~/.gtkrc-2.0]=$DOTFILES_DIR/gtkrc-2.0
-  [~/.bashrc]=$DOTFILES_DIR/.bashrc
-  [~/.profile]=$DOTFILES_DIR/.profile
-  [~/.Xresources]=$DOTFILES_DIR/.Xresources
+  [~/.config/alacritty]=$DOTFILES/alacritty
+  [~/.config/i3]=$DOTFILES/i3
+  [~/.config/nvim]=$DOTFILES/nvim
+  [~/.config/picom]=$DOTFILES/picom
+  [~/.config/dunst]=$DOTFILES/dunst
+  [~/.config/rofi]=$DOTFILES/rofi
+  [~/.config/gtk-3.0]=$DOTFILES/gtk-3.0
+  [~/.config/gtk-4.0]=$DOTFILES/gtk-4.0
+  [~/.config/flameshot]=$DOTFILES/flameshot
+  [~/.config/starship.toml]=$DOTFILES/starship.toml
+  [~/.gtkrc-2.0]=$DOTFILES/gtkrc-2.0
+  [~/.bashrc]=$DOTFILES/.bashrc
+  [~/.profile]=$DOTFILES/.profile
+  [~/.Xresources]=$DOTFILES/.Xresources
 )
 
 for target in "${!SYMLINKS[@]}"; do
@@ -81,4 +97,4 @@ for target in "${!SYMLINKS[@]}"; do
 done
 
 ### Successful Completion
-echo -e "${GREEN}==> Setup complete.${NC}"
+print_step "Setup complete"
