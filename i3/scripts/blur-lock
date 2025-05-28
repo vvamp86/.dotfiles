@@ -5,6 +5,7 @@ DEFAULT='#ebdbb2cc'      # Default ring color (Gruvbox Light1 + 80% alpha)
 TEXT='#ebdbb2ff'         # Time/Date/Text color (Gruvbox Light1, opaque)
 WRONG='#fb4934cc'        # Wrong password (Gruvbox Red + 80% alpha)
 VERIFYING='#b8bb26cc'    # Verifying ring (Gruvbox Green + 80% alpha)
+TYPING='#076678cc'       # Typing color in the ring (Gruvbox Blue + 80% alpha)
 
 PICTURE=/tmp/i3lock.png
 
@@ -33,7 +34,7 @@ i3lock -i $PICTURE \
 --time-color=$TEXT           \
 --date-color=$TEXT           \
 --layout-color=$TEXT         \
---keyhl-color=$WRONG         \
+--keyhl-color=$TYPING        \
 --bshl-color=$WRONG          \
 \
 --clock                      \
