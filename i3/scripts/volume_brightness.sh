@@ -3,8 +3,8 @@
 
 # See README.md for usage instructions
 volume_step=1
-keyboard_brightness_step=5
-screen_brightness_step=2
+keyboard_brightness_step=20
+screen_brightness_step=1
 max_volume=100
 notification_timeout=1000
 
