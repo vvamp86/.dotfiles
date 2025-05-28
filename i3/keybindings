@@ -12,7 +12,7 @@ https://discovery.endeavouros.com/window-tiling-managers/i3-wm/
  = windows key
 
 # start xfce4-terminal
-+Return 
++Return
 
 # kill focused window
 +q
@@ -55,10 +55,10 @@ F1
 +Right focus right
 
 # move a focused window
-+Shift+j move left
-+Shift+k move down
-+Shift+b move up
-+Shift+o move right
++Shift+h move left
++Shift+j move down
++Shift+k move up
++Shift+l move right
 
 # alternatively, you can use the cursor keys:
 +Shift+Left move left
@@ -103,4 +103,6 @@ F1
 ## App shortcuts
 +w starts Brave
 +n starts Thunar
++o starts Obsidian
++m starts Spotify
  Button screenshot
