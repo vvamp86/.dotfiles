@@ -24,18 +24,28 @@ yay -S --needed \
   proton-vpn-gtk-app brave-bin spotify-adblock \
   timeshift quickemu i3lock-color texlive-binextra
 
-### Enable Services
+### Enable Services (Currently Disabled)
 echo -e "${GREEN}==> Enabling services...${NC}"
+
 # Bluetooth
-sudo systemctl enable --now bluetooth
+read -p "Do you want to enable Bluetooth? [y/N]: " choice1
+if [[ "$choice1" == [yY] ]]; then
+    echo "Enabling Bluetooth..."
+    sudo systemctl enable --now bluetooth
+fi
+
 
 # Cloudflare Warp
-sudo systemctl enable --now warp-svc
-warp-cli registration new
-warp-cli connect
+read -p "Do you want to enable Cloudflare Warp? [y/N]: " choice2
+if [[ "$choice2" == [yY] ]]; then
+    echo "Enabling Cloudflare Warp..."
+    sudo systemctl enable --now warp-svc
+    warp-cli registration new
+    warp-cli connect
+fi
 
 # ProtonVPN
-#
+# Unimplemented
 
 ### Remove Existing Directories for Symlinking
 echo -e "${GREEN}==> Removing existing config directories...${NC}"
@@ -47,7 +57,7 @@ rm -f ~/.bashrc ~/.profile ~/.Xresources ~/.gtkrc-2.0
 
 ### Start Symlinking Dotfiles
 echo -e "${GREEN}==> Symlinking dotfiles...${NC}"
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 declare -A SYMLINKS=(
   [~/.config/alacritty]=$DOTFILES_DIR/alacritty
