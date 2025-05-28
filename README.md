@@ -1,21 +1,21 @@
 # Dotfiles for Arch Linux Appearance
 Meant to install after installing EndeavourOS i3wm. Based off and inspired by endeavouros-i3wm-setup, kickstart.nvim, nvchad, and gruvbox
 
-Run the following after cloning and cd'ing into this repository:
+Mostly sane presets with a heavy, ***heavy*** tilt towards vi motions. ❤️
+
+Run the following after cloning this repository:
 ```Bash
-chmod +x setup.sh
-./setup.sh
+cd ~/.dotfiles/scripts
+./full_install.sh
 ```
 
 # Things to Include:
 - battery manager
 - control manager
 - nvim keyboard
-- i3wm fixed layouts
 - perpetual capslock -> escape
 - nvim for Latex, R, & Obsidian
 - plover stenography
 - customize bootloader
 - straighten X11 and have options to switch to wayland
 - get scrolling artifacts fixed
-
