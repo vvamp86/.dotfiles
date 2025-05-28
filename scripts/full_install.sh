@@ -22,7 +22,7 @@ yay -S --needed \
   xcursor-simp1e-gruvbox-dark \
   discord_arch_electron obsidian cloudflare-warp-bin \
   proton-vpn-gtk-app brave-bin spotify-adblock \
-  timeshift quickemu i3lock-color
+  timeshift quickemu i3lock-color texlive-binextra
 
 ### Enable Services
 echo -e "${GREEN}==> Enabling services...${NC}"
