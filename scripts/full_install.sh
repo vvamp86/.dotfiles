@@ -32,7 +32,8 @@ yay -S --needed \
   xcursor-simp1e-gruvbox-dark \
   discord_arch_electron obsidian cloudflare-warp-bin \
   proton-vpn-gtk-app brave-bin spotify-adblock \
-  timeshift quickemu i3lock-color texlive-binextra
+  timeshift quickemu i3lock-color texlive-binextra \
+  autotiling
 
 ### Enable Services
 print_step "Enabling optional services..."
@@ -56,24 +57,27 @@ fi
 # ProtonVPN
 # Unimplemented
 
+# ClamAV
+# Unimplemented
+
 ### Remove Existing Directories for Symlinking
 print_step "Removing existing config directories"
 
-#NOTE: INSERT CONFIGS in `.config` HERE
+# NOTE: INSERT CONFIGS in `.config` HERE
 CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot)
 
 for config in "${CONFIGS[@]}"; do
   rm -rf "$HOME/.config/$config"
 done
 
-#NOTE: INSERT CONFIGS IN `~` HERE
+# NOTE: INSERT CONFIGS IN `~` HERE
 rm -f ~/.bashrc ~/.profile ~/.Xresources ~/.gtkrc-2.0 ~/.tmux.conf
 
 ### Start Symlinking Dotfiles
 print_step "Symlinking dotfiles"
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-#NOTE: INSERT CONFIGS IN THIS MANNER:
+# NOTE: INSERT CONFIGS IN THIS MANNER:
 # `[SYMLINK LOCATION]=DOTFILES/name_of_folder`
 declare -A SYMLINKS=(
   [~/.config/alacritty]=$DOTFILES/alacritty
