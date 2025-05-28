@@ -22,7 +22,7 @@ sudo pacman -Syu --needed --noconfirm \
   ttf-firacode-nerd xclip dunst brightnessctl flameshot \
   fwupd blueman rate-mirrors keepassxc qemu-full \
   easyeffects calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 \
-  clamav
+  clamav tmux
 
 ### AUR Packages
 print_step "Installing AUR packages"
@@ -67,7 +67,7 @@ for config in "${CONFIGS[@]}"; do
 done
 
 #NOTE: INSERT CONFIGS IN `~` HERE
-rm -f ~/.bashrc ~/.profile ~/.Xresources ~/.gtkrc-2.0
+rm -f ~/.bashrc ~/.profile ~/.Xresources ~/.gtkrc-2.0 ~/.tmux.conf
 
 ### Start Symlinking Dotfiles
 print_step "Symlinking dotfiles"
@@ -90,6 +90,7 @@ declare -A SYMLINKS=(
   [~/.bashrc]=$DOTFILES/.bashrc
   [~/.profile]=$DOTFILES/.profile
   [~/.Xresources]=$DOTFILES/.Xresources
+  [~/.tmux.conf]=$DOTFILES/.tmux.conf
 )
 
 for target in "${!SYMLINKS[@]}"; do
