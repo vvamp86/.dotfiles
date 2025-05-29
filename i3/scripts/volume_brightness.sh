@@ -36,8 +36,9 @@ function get_mute {
 # Get keyboard_brightness from brightnessctl
 function get_keyboard_brightness {
     if [ -n "$device" ]; then
-        curr=$(brightnessctl -d "$device" get)
-        echo $(( curr ))
+        keyboard_curr=$(brightnessctl -d "$device" get)
+        keyboard_max=$(brightnessctl -d "$device" max)
+        echo $(( keyboard_curr * 100 / keyboard_max ))
     else
         echo "No keyboard backlight device found"
     fi
@@ -46,9 +47,9 @@ function get_keyboard_brightness {
 
 # Grabs screen brightness and formats it out of 100
 function get_screen_brightness {
-    curr=$(brightnessctl -q get)
-    max=$(brightnessctl -q max)
-    echo $(( curr * 100 / max ))
+    screen_curr=$(brightnessctl -q get)
+    screen_max=$(brightnessctl -q max)
+    echo $(( screen_curr * 100 / screen_max ))
 }
 
 # Returns a mute icon, a volume-low icon, or a volume-high icon, depending on the volume
