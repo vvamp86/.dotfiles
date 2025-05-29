@@ -13,18 +13,15 @@ volume_theme_icon="none"               # audio-volume-high works
 screen_brightness_theme_icon="none"    # Nothing known
 keyboard_brightness_theme_icon="none"  # Nothing known
 
-# Keyboard Backlight grep here
-device="chromeos::kbd_backlight"
-
 ### Auto-detect keyboard and cache alternative here: (uncomment and delete device if wanted)
-# device_cache="/tmp/kbd_backlight_device"
-#
-# if [ -f "$device_cache" ]; then         # If there is cache, load it into device
-#     device=$(cat "$device_cache")
-# else                                    # If there is no cache, create one
-#     device=$(brightnessctl --list | grep -Po '\w+::kbd_backlight')
-#     echo "$device" > "$device_cache"
-# fi
+device_cache="/tmp/kbd_backlight_device"
+
+if [ -f "$device_cache" ]; then         # If there is cache, load it into device
+    device=$(cat "$device_cache")
+else                                    # If there is no cache, create one
+    device=$(brightnessctl --list | grep -Po '\w+::kbd_backlight')
+    echo "$device" > "$device_cache"
+fi
 
 # Uses regex to get volume from pactl
 function get_volume {
