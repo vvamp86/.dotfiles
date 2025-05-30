@@ -13,7 +13,7 @@ volume_theme_icon="none"               # audio-volume-high works
 screen_brightness_theme_icon="none"    # Nothing known
 keyboard_brightness_theme_icon="none"  # Nothing known
 
-### Auto-detect keyboard and cache alternative here: (uncomment and delete device if wanted)
+### Auto-detect keyboard and cache in /tmp/kbd_backlight_device:
 device_cache="/tmp/kbd_backlight_device"
 
 if [ -f "$device_cache" ]; then         # If there is cache, load it into device
@@ -39,8 +39,6 @@ function get_keyboard_brightness {
         keyboard_curr=$(brightnessctl -d "$device" get)
         keyboard_max=$(brightnessctl -d "$device" max)
         echo $(( keyboard_curr * 100 / keyboard_max ))
-    else
-        echo "No keyboard backlight device found"
     fi
 }
 
