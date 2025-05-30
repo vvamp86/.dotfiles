@@ -128,6 +128,14 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 
+-- expand tabs as spaces no matter what
+vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufWritePre' }, {
+  pattern = '*',
+  callback = function()
+    vim.cmd 'retab'
+  end,
+})
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -1061,7 +1069,7 @@ require('lazy').setup({
   },
 
   -- Obsidian.nvim
-  -- { import = 'Obsidian.plugins' },
+  { import = 'Obsidian.plugins' },
   -- R Config
   { import = 'R.plugins' },
   -- LaTeX Config
