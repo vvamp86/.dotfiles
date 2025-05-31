@@ -12,7 +12,7 @@ PS1='[\u@\h \W]\$ '
 # Depreciated NVIM Configs
 # alias nvkick='NVIM_APPNAME="nvim-kickstart" nvim'
 # alias nvchad='NVIM_APPNAME="nvchad" nvim'
-# alias nvquar='NVIM_APPNAME="nvim-quarto" nvim'
+alias nvt='NVIM_APPNAME="nvim-test" nvim'
 alias nv='nvim'
 
 # man page customization
