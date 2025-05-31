@@ -95,16 +95,7 @@ return {
         },
       },
     },
-
-    },
-    config = function()
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = 'markdown',
-        callback = function()
-          vim.wo.conceallevel = 2
-        end,
-      })
-    end,
+  },
   {
     'lervag/vimtex',
     cond = is_in_obsidian_vault,

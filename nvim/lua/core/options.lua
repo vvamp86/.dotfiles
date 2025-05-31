@@ -85,3 +85,5 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- Set conceallevel to 2 for obsidian.nvim
+vim.opt.conceallevel = 2
