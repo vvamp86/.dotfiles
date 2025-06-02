@@ -16,13 +16,14 @@ if ! command -v paru &> /dev/null; then
 fi
 
 ### Pacman Packages
-print_step "Installing pacman dependencies"
+print_step "Installing pacman packages"
 sudo pacman -Syu --needed --noconfirm \
   alacritty i3-wm neovim picom starship git \
   ttf-firacode-nerd xclip dunst brightnessctl flameshot \
   fwupd blueman rate-mirrors keepassxc qemu-full \
   easyeffects calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 \
-  clamav tmux feh yazi btop paru bat eza remake nftables
+  clamav tmux feh yazi btop paru bat eza remake nftables \
+  procs tldr fd duf dust zoxide
 
 ### AUR Packages
 print_step "Installing AUR packages"

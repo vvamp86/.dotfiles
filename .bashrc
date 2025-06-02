@@ -10,6 +10,9 @@
 # Starship
 eval "$(starship init bash)"
 
+# Zoxide
+eval "$(zoxide init bash)"
+
 ###########
 # Exports #
 ###########
@@ -32,6 +35,12 @@ alias make='remake'
 alias ls='eza'
 alias grep='rg'
 alias yay='paru'
+
+alias du='dust'
+alias df='duf'
+alias find='fd'
+alias ps='procs'
+alias cd='z'
 
 ##############
 # Shorthands #
