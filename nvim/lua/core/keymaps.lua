@@ -16,10 +16,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- Open / Close nvim-tree with '<leader>o'
-vim.keymap.set('n', '<leader>o', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+-- Open / Close nvim-tree with `o`
+vim.keymap.set('n', 'o', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
--- Tab movement
+-- Tab movement using `<Tab>`
 vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', { noremap = true, silent = true })
 
