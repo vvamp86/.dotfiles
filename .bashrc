@@ -14,6 +14,12 @@ PS1='[\u@\h \W]\$ '
 # alias nvchad='NVIM_APPNAME="nvchad" nvim'
 alias nv='nvim'
 
+# Export Nvim as default editor
+export EDITOR="nvim"
+
+# yazi shortcut
+alias yz="yazi"
+
 # man page customization
 export MANPAGER="nvim +Man!"
 

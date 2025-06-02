@@ -1,0 +1,6 @@
+[mgr]
+marker_copied   = { attr = "bold", fg = "yellow" }
+marker_cut      = { attr = "italic", fg = "magenta" }
+marker_marked   = { attr = "bold", fg = "cyan" }
+marker_selected = { attr = "reverse", fg = "green" }
+

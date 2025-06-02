@@ -22,18 +22,18 @@ sudo pacman -Syu --needed --noconfirm \
   ttf-firacode-nerd xclip dunst brightnessctl flameshot \
   fwupd blueman rate-mirrors keepassxc qemu-full \
   easyeffects calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 \
-  clamav tmux feh
+  clamav tmux feh yazi htop paru
 
 ### AUR Packages
 print_step "Installing AUR packages"
-yay -S --needed \
+paru -S --needed \
   gruvbox-material-gtk-theme-git \
   gruvbox-material-icon-theme-git \
   xcursor-simp1e-gruvbox-dark \
   discord_arch_electron obsidian cloudflare-warp-bin \
   proton-vpn-gtk-app brave-bin spotify-adblock \
   timeshift quickemu i3lock-color texlive-binextra \
-  autotiling tmux-plugin-manager
+  autotiling r
 
 ### Enable Services
 print_step "Enabling optional services..."
@@ -89,6 +89,7 @@ declare -A SYMLINKS=(
   [~/.config/gtk-3.0]=$DOTFILES/gtk-3.0
   [~/.config/gtk-4.0]=$DOTFILES/gtk-4.0
   [~/.config/flameshot]=$DOTFILES/flameshot
+  [~/.config/yazi]=$DOTFILES/yazi
   [~/.config/starship.toml]=$DOTFILES/starship.toml
   [~/.gtkrc-2.0]=$DOTFILES/gtkrc-2.0
   [~/.bashrc]=$DOTFILES/.bashrc
