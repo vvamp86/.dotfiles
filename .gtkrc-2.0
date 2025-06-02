@@ -1,7 +1,6 @@
 # DO NOT EDIT! This file will be overwritten by nwg-look.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/sudowoodo/.gtkrc-2.0.mine"
 gtk-theme-name="Gruvbox-Material-Dark"
 gtk-icon-theme-name="Gruvbox-Material-Dark"
 gtk-font-name="FiraCode Nerd Font 10"

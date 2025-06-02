@@ -17,6 +17,9 @@ alias nv='nvim'
 # Export Nvim as default editor
 export EDITOR="nvim"
 
+# set GTK2
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
 # yazi shortcut
 alias yz="yazi"
 
