@@ -1,4 +1,7 @@
 [mgr]
+hovered         = { reversed = true }
+preview_hovered = { bold = true }
+
 marker_copied   = { attr = "bold", fg = "yellow" }
 marker_cut      = { attr = "italic", fg = "magenta" }
 marker_marked   = { attr = "bold", fg = "cyan" }
