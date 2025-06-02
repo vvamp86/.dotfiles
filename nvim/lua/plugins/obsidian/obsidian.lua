@@ -16,6 +16,7 @@ return {
       'nvim-lua/plenary.nvim',
     },
     opts = {
+      disable_frontmatter = true,
       workspaces = {
         {
           name = 'notes',
@@ -99,7 +100,7 @@ return {
   {
     'lervag/vimtex',
     cond = is_in_obsidian_vault,
-    ft = 'md', -- Load only for Markdown files
+    ft = 'markdown', -- Load only for Markdown files
     init = function()
       -- Disable all VimTeX features except conceal
       vim.g.vimtex_compiler_enabled = 0
