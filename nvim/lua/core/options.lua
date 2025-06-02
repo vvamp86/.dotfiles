@@ -43,6 +43,15 @@ vim.opt.softtabstop = 4
 -- Save undo history
 vim.o.undofile = true
 
+-- Relative Movement
+vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
+vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
+
+vim.keymap.set('v', 'j', 'gj', { noremap = true, silent = true })
+vim.keymap.set('v', 'k', 'gk', { noremap = true, silent = true })
+
+vim.keymap.set('n', '^', 'g^', { noremap = true })
+
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
 vim.o.smartcase = true
