@@ -33,7 +33,7 @@ yay -S --needed \
   discord_arch_electron obsidian cloudflare-warp-bin \
   proton-vpn-gtk-app brave-bin spotify-adblock \
   timeshift quickemu i3lock-color texlive-binextra \
-  autotiling
+  autotiling tmux-plugin-manager
 
 ### Enable Services
 print_step "Enabling optional services..."
