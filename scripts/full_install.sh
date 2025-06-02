@@ -22,7 +22,7 @@ sudo pacman -Syu --needed --noconfirm \
   ttf-firacode-nerd xclip dunst brightnessctl flameshot \
   fwupd blueman rate-mirrors keepassxc qemu-full \
   easyeffects calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 \
-  clamav tmux feh yazi htop paru
+  clamav tmux feh yazi btop paru
 
 ### AUR Packages
 print_step "Installing AUR packages"
