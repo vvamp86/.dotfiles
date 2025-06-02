@@ -1,7 +1,8 @@
 # Dotfiles for Arch Linux Appearance
-Meant to install after installing EndeavourOS i3wm. Based off and inspired by endeavouros-i3wm-setup, kickstart.nvim, nvchad, and gruvbox
+Meant to install after installing EndeavourOS i3wm. Based off & inspired by endeavouros-i3wm-setup, kickstart.nvim, nvchad, and the gruvbox colorscheme.
 
 Mostly sane presets with a heavy, ***heavy*** tilt towards vi motions. ❤️
+    Also a tilt towards *slightly* more efficient options
 
 Run the following after cloning this repository:
 ```Bash
