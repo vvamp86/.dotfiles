@@ -33,14 +33,14 @@ export MANPAGER="nvim +Man!"
 alias cat='bat'
 alias make='remake'
 alias ls='eza'
-alias grep='rg'
-alias yay='paru'
+alias grep='rg'     # ripgrep
+alias yay='paru'    # paru for efficiency
 
 alias du='dust'
 alias df='duf'
 alias find='fd'
 alias ps='procs'
-alias cd='z'
+alias cd='z'        # zoxide
 alias top='btop'
 
 ##############
