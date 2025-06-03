@@ -63,7 +63,7 @@ read -p "Enable ClamAV? [y/N]: " enable_clamav
 if [[ "$enable_clamav" == [yY] ]]; then
   print_step "Enabling ClamAV"
   sudo freshclam
-  sudo enable --now clamav-daemon.service
+  sudo systemctl enable --now clamav-daemon.service
 fi
 
 ### Remove Existing Directories for Symlinking
