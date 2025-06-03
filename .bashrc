@@ -41,6 +41,7 @@ alias df='duf'
 alias find='fd'
 alias ps='procs'
 alias cd='z'
+alias top='btop'
 
 ##############
 # Shorthands #
