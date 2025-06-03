@@ -1,5 +1,8 @@
 #!/bin/bash
 
+############################
+### Some default options ###
+############################
 set -euo pipefail  # Exit on any error
 
 GREEN='\033[0;32m'
@@ -9,12 +12,17 @@ print_step() {
   echo -e "${GREEN}==> $1...${NC}"
 }
 
-### Confirm paru exists
+###########################
+### Confirm paru exists ###
+###########################
 if ! command -v paru &> /dev/null; then
   print_step "Installing paru (AUR helper)"
   sudo pacman -S --needed --noconfirm paru
 fi
 
+#########################
+### Download Packages ###
+#########################
 ### Pacman Packages
 print_step "Installing pacman packages"
 sudo pacman -Syu --needed --noconfirm \
@@ -22,8 +30,8 @@ sudo pacman -Syu --needed --noconfirm \
   ttf-firacode-nerd xclip dunst brightnessctl flameshot \
   fwupd blueman rate-mirrors keepassxc qemu-full \
   easyeffects calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 \
-  clamav tmux feh yazi btop paru bat eza remake nftables \
-  procs tldr fd duf dust zoxide
+  clamav tmux feh yazi btop bat eza remake nftables \
+  procs tldr fd duf dust zoxide fprintd
 
 ### AUR Packages
 print_step "Installing AUR packages"
@@ -36,17 +44,19 @@ paru -S --needed \
   timeshift quickemu i3lock-color texlive-binextra \
   autotiling r
 
-### Enable Services
+#######################
+### Enable Services ###
+#######################
 print_step "Enabling optional services..."
 
-# Bluetooth
+### Bluetooth
 read -p "Enable Bluetooth? [y/N]: " enable_bt
 if [[ "$enable_bt" == [yY] ]]; then
   print_step "Enabling Bluetooth"
   sudo systemctl enable --now bluetooth
 fi
 
-# Cloudflare Warp
+### Cloudflare Warp
 read -p "Enable Cloudflare Warp? [y/N]: " enable_warp
 if [[ "$enable_warp" == [yY] ]]; then
   print_step "Enabling Cloudflare Warp"
@@ -55,10 +65,10 @@ if [[ "$enable_warp" == [yY] ]]; then
   warp-cli connect
 fi
 
-# ProtonVPN
+### ProtonVPN
 # Unimplemented
 
-# ClamAV
+### ClamAV
 read -p "Enable ClamAV? [y/N]: " enable_clamav
 if [[ "$enable_clamav" == [yY] ]]; then
   print_step "Enabling ClamAV"
@@ -66,11 +76,26 @@ if [[ "$enable_clamav" == [yY] ]]; then
   sudo systemctl enable --now clamav-daemon.service
 fi
 
-### Remove Existing Directories for Symlinking
+######################
+### Enable Devices ###
+######################
+
+### Fingerprint Registration
+# read -p "Enable fingerprint reader? [y/N]: " enable_fprintd
+# if [[ "$enable_fprintd" == [yY] ]]; then
+#   fprintd-delete "$USER"
+#   for finger in {left,right}-{thumb,{index,middle,ring,little}-finger}; do
+#     fprintd-enroll -f "$finger" "$USER";
+#   done
+# fi
+
+##################################################
+### Remove Existing Directories for Symlinking ###
+##################################################
 print_step "Removing existing config directories"
 
 # NOTE: INSERT CONFIGS in `.config` HERE
-CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot)
+CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot yazi starship.toml)
 
 for config in "${CONFIGS[@]}"; do
   rm -rf "$HOME/.config/$config"
@@ -79,7 +104,9 @@ done
 # NOTE: INSERT CONFIGS IN `~` HERE
 rm -f ~/.bashrc ~/.profile ~/.Xresources ~/.gtkrc-2.0 ~/.tmux.conf
 
-### Start Symlinking Dotfiles
+#################################
+### Start Symlinking Dotfiles ###
+#################################
 print_step "Symlinking dotfiles"
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
@@ -108,5 +135,7 @@ for target in "${!SYMLINKS[@]}"; do
   ln -sfn "${SYMLINKS[$target]}" "${target/#\~/$HOME}"
 done
 
-### Successful Completion
+#############################
+### Successful Completion ###
+#############################
 print_step "Setup complete"
