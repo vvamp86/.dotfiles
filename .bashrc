@@ -27,6 +27,9 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # man page customization
 export MANPAGER="nvim +Man!"
 
+# terminal environment
+export TERMINAL=alacritty
+
 ########################
 # Replacement Commands #
 ########################
