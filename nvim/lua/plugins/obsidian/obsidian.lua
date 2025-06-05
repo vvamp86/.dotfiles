@@ -26,8 +26,9 @@ return {
       completion = {
         nvim_cmp = true,
         min_chars = 2,
+        prepend_note_id = true,
       },
-      wiki_link_func = "use_alias_only",
+      wiki_link_func = "prepend_note_id",
       templates = {
         folder = "Template",
         date_format = "%Y-%m-%d",
