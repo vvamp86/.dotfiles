@@ -74,7 +74,13 @@ return {
         },
 
         sources = {
-          default = { 'lsp', 'path', 'snippets', 'lazydev', 'obsidian' },
+          default = {
+            { name = 'nvim_lsp' },
+            { name = 'path', option = { label_trailing_slash = true } },
+            { name = 'snippets' },
+            { name = 'lazydev' },
+            { name = 'obsidian' },
+          },
           providers = {
             lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
           },
