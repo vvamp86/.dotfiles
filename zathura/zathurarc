@@ -1,3 +1,5 @@
+# All credit goes to eastack/zathura-gruvbox
+# (https://github.com/eastack/zathura-gruvbox)
 set notification-error-bg       "rgba(50,48,47,1)"     # bg
 set notification-error-fg       "rgba(251,73,52,1)"    # bright:red
 set notification-warning-bg     "rgba(50,48,47,1)"     # bg
