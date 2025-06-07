@@ -31,7 +31,8 @@ sudo pacman -Syu --needed --noconfirm \
   fwupd blueman rate-mirrors keepassxc qemu-full \
   easyeffects calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 \
   clamav tmux feh yazi btop bat eza remake nftables \
-  procs tldr fd duf dust zoxide fprintd
+  procs tldr fd duf dust zoxide fprintd \
+  zathura zathura-pdf-mupdf
 
 ### AUR Packages
 print_step "Installing AUR packages"
@@ -123,6 +124,7 @@ declare -A SYMLINKS=(
   [~/.config/gtk-4.0]=$DOTFILES/gtk-4.0
   [~/.config/flameshot]=$DOTFILES/flameshot
   [~/.config/yazi]=$DOTFILES/yazi
+  [~/.config/zathura]=$DOTFILES/zathura
   [~/.config/starship.toml]=$DOTFILES/starship.toml
   [~/.gtkrc-2.0]=$DOTFILES/.gtkrc-2.0
   [~/.bashrc]=$DOTFILES/.bashrc
