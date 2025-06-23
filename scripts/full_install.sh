@@ -143,8 +143,8 @@ done
 read -p "Change Grub Bootloader? [y/N]: " grub_change
 if [[ "$grub_change" == [yY] ]]; then
   print_step "Changing Grub"
-  sudo ln -sfn ~/.config/grub/grub /etc/default/grub
-  sudo ln -sfn ~/.config/grub/grub-theme /boot/grub/themes/grub-theme
+  sudo ln -sfn ~/.dotfiles/grub/grub /etc/default/grub
+  sudo ln -sfn ~/.dotfiles/grub/grub-theme /boot/grub/themes/grub-theme
   sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
