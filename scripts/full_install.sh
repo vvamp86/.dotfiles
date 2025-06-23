@@ -137,6 +137,17 @@ for target in "${!SYMLINKS[@]}"; do
   ln -sfn "${SYMLINKS[$target]}" "${target/#\~/$HOME}"
 done
 
+###################
+### Update Grub ###
+###################
+read -p "Change Grub Bootloader? [y/N]: " grub_change
+if [[ "$grub_change" == [yY] ]]; then
+  print_step "Changing Grub"
+  sudo ln -sfn ~/.config/grub/grub /etc/default/grub
+  sudo ln -sfn ~/.config/grub/grub-theme /boot/grub/themes/grub-theme
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
+fi
+
 #############################
 ### Successful Completion ###
 #############################
