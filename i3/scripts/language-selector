@@ -1,32 +1,61 @@
 #!/bin/bash
 
-# Fetch installed engines
-engines=($(ibus list-engine | awk -F'::' '{print $1}'))
+# Fcitx5 profile file (default location)
+profile="${XDG_CONFIG_HOME:-$HOME/.config}/fcitx5/profile"
 
-# Get current engine
-current=$(ibus engine)
+# Check if profile exists
+if [[ ! -f "$profile" ]]; then
+    echo "Fcitx5 profile not found at $profile"
+    exit 1
+fi
 
-# Human-readable names
-declare -A engine_names=(
-    ["xkb:us"]="English (xkb)"
-    ["mozc-jp"]="Japanese (mozc)"
-    ["rime"]="Chinese (rime)"
-)
+# Get current input method
+current=$(fcitx5-remote -n)
 
-# Generate Rofi menu
-options=()
+# Parse enabled input methods from profile
+mapfile -t engines < <(grep -E '^IMList=' "$profile" | cut -d= -f2 | tr ',' '\n' | sed 's/|.*//')
+
+# Map to human-readable names (optionally add your own mappings)
+declare -A names
 for engine in "${engines[@]}"; do
-    options+=("${engine_names[$engine]:-$engine}")
+    case "$engine" in
+        mozc) names[$engine]="Japanese (Mozc)" ;;
+        pinyin) names[$engine]="Chinese (Pinyin)" ;;
+        rime) names[$engine]="Chinese (Rime)" ;;
+        keyboard-us) names[$engine]="English (US)" ;;
+        *) names[$engine]="$engine" ;;
+    esac
 done
 
-# Show menu and apply selection
-selected=$(printf "%s\n" "${options[@]}" | rofi -dmenu -p "Language" -config ~/.config/rofi/rofidmenu.rasi -selected-row "$(echo "${options[@]}" | grep -n "$current" | cut -d: -f1)")
+# Build options list for rofi
+options=()
+for engine in "${engines[@]}"; do
+    options+=("${names[$engine]}")
+done
 
-# Extract engine (e.g., "xkb:us" from "English (xkb)")
-new_engine=$(for key in "${!engine_names[@]}"; do
-    [[ "${engine_names[$key]}" == "$selected" ]] && echo "$key"; done
-)
+# Determine selected index
+selected_index=0
+for i in "${!engines[@]}"; do
+    if [[ "${engines[$i]}" == "$current" ]]; then
+        selected_index="$i"
+        break
+    fi
+done
 
-# Apply change
-[ -n "$new_engine" ] && ibus engine "$new_engine"
+# Show Rofi menu
+selected=$(printf "%s\n" "${options[@]}" | rofi -dmenu -p "Language" -config ~/.config/rofi/rofidmenu.rasi -selected-row "$selected_index")
+
+# Reverse-lookup the engine
+new_engine=""
+for key in "${!names[@]}"; do
+    if [[ "${names[$key]}" == "$selected" ]]; then
+        new_engine="$key"
+        break
+    fi
+done
+
+# Set the selected input method
+if [[ -n "$new_engine" ]]; then
+    fcitx5-remote -s "$new_engine"
+fi
 

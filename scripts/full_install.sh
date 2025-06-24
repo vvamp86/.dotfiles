@@ -33,7 +33,7 @@ sudo pacman -Syu --needed --noconfirm \
   clamav tmux feh yazi btop bat eza remake nftables \
   procs tldr fd duf dust zoxide fprintd \
   zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter \
-  xdotools
+  xdotools fcitx5
 
 ### AUR Packages
 print_step "Installing AUR packages"
@@ -90,6 +90,13 @@ fi
 #     fprintd-enroll -f "$finger" "$USER";
 #   done
 # fi
+
+read -p "Use fcitx5? [y/N]: " fcitx_enable
+if [[ "$fcitx_enable" == [yY] ]]; then
+  systemctl --user enable fcitx5
+  systemctl --user start fcitx5
+  echo -e "\e[1;31mPlease Install Languages On Your Own\e[0m"
+fi
 
 ##################
 ### Symlinking ###

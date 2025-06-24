@@ -33,6 +33,13 @@ export TERMINAL=alacritty
 # rofi export
 export MENU='rofi -dmenu -theme mytheme -config ~/.config/rofi/config.rasi'
 
+# keyboard exports
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=fcitx # GLFW works better with ibus but can try fcitx
+
 ########################
 # Replacement Commands #
 ########################
