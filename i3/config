@@ -296,6 +296,9 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 # toggle between audio devices for output
 bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/audio-device-switch
 
+# open unicode selector
+bindsym $mod+u exec --no-startup-id ~/.config/i3/scripts/unicode-picker-insert
+
 ## App shortcuts
 bindsym $mod+w exec --no-startup-id /usr/bin/brave
 bindsym $mod+y exec --no-startup-id alacritty -e yazi

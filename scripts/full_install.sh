@@ -32,7 +32,8 @@ sudo pacman -Syu --needed --noconfirm \
   easyeffects calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 \
   clamav tmux feh yazi btop bat eza remake nftables \
   procs tldr fd duf dust zoxide fprintd \
-  zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter
+  zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter \
+  xdotools
 
 ### AUR Packages
 print_step "Installing AUR packages"
@@ -43,7 +44,7 @@ paru -S --needed \
   discord_arch_electron obsidian cloudflare-warp-bin \
   proton-vpn-gtk-app brave-bin spotify-adblock \
   timeshift quickemu i3lock-color texlive-binextra \
-  autotiling r
+  autotiling r unipicker
 
 #######################
 ### Enable Services ###
@@ -151,8 +152,8 @@ fi
 read -p "Change Grub Bootloader? [y/N]: " grub_change
 if [[ "$grub_change" == [yY] ]]; then
   print_step "Changing Grub"
-  sudo ln -sfn ~/.dotfiles/grub/grub /etc/default/grub
-  sudo ln -sfn ~/.dotfiles/grub/grub-theme /boot/grub/themes/grub-theme
+  sudo cp -r ~/.dotfiles/grub/grub /etc/default/grub
+  sudo cp -r ~/.dotfiles/grub/grub-theme /boot/grub/themes/grub-theme
   sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 

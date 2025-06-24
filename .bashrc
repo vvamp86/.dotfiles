@@ -30,6 +30,9 @@ export MANPAGER="nvim +Man!"
 # terminal environment
 export TERMINAL=alacritty
 
+# rofi export
+export MENU='rofi -dmenu -theme mytheme -config ~/.config/rofi/config.rasi'
+
 ########################
 # Replacement Commands #
 ########################
