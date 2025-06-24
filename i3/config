@@ -142,6 +142,10 @@ bindcode $mod+Shift+80   move container to workspace  $ws8
 bindcode $mod+Shift+81   move container to workspace  $ws9
 bindcode $mod+Shift+90   move container to workspace  $ws10
 
+#################
+# Special Modes #
+#################
+
 # resize window (you can also use the mouse for that):
 mode "resize" {
 # These bindings trigger as soon as you enter the resize mode
@@ -166,6 +170,9 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Language Selection
+bindsym $mod+plus exec --no-startup-id ~/.config/i3/scripts/language-selector
 
 ######################################
 # keybindings for different actions: #

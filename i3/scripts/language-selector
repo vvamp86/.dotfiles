@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Fetch installed engines
+engines=($(ibus list-engine | awk -F'::' '{print $1}'))
+
+# Get current engine
+current=$(ibus engine)
+
+# Human-readable names
+declare -A engine_names=(
+    ["xkb:us"]="English (xkb)"
+    ["mozc-jp"]="Japanese (mozc)"
+    ["rime"]="Chinese (rime)"
+)
+
+# Generate Rofi menu
+options=()
+for engine in "${engines[@]}"; do
+    options+=("${engine_names[$engine]:-$engine}")
+done
+
+# Show menu and apply selection
+selected=$(printf "%s\n" "${options[@]}" | rofi -dmenu -p "Language" -config ~/.config/rofi/rofidmenu.rasi -selected-row "$(echo "${options[@]}" | grep -n "$current" | cut -d: -f1)")
+
+# Extract engine (e.g., "xkb:us" from "English (xkb)")
+new_engine=$(for key in "${!engine_names[@]}"; do
+    [[ "${engine_names[$key]}" == "$selected" ]] && echo "$key"; done
+)
+
+# Apply change
+[ -n "$new_engine" ] && ibus engine "$new_engine"
+
