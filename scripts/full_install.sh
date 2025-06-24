@@ -145,8 +145,6 @@ if [[ "$symlinked" == [yY] ]]; then
   done
 fi
 
-
-
 ###################
 ### Update Grub ###
 ###################
