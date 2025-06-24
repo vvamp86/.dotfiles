@@ -171,7 +171,7 @@ if [[ "$lightdm_change" == [yY] ]]; then
 -compose over -composite "$OUTPUT"
 
   sudo rm -rf /etc/lightdm
-  sudo ln -sfn ~/.dotfiles/lightdm /etc/lightdm
+  sudo cp -r ~/.dotfiles/lightdm /etc/lightdm
 fi
 
 #############################
