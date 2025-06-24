@@ -90,52 +90,62 @@ fi
 #   done
 # fi
 
-##################################################
-### Remove Existing Directories for Symlinking ###
-##################################################
-print_step "Removing existing config directories"
+##################
+### Symlinking ###
+##################
 
-# NOTE: INSERT CONFIGS in `.config` HERE
-CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot yazi starship.toml)
+read -p "Auto Symlink? [y/N]: " symlinked
+if [[ "$symlinked" == [yY] ]]; then
+  ##########################################
+  ### Remove Existing Config Directories ###
+  ##########################################
+  print_step "Removing existing config directories"
 
-for config in "${CONFIGS[@]}"; do
-  rm -rf "$HOME/.config/$config"
-done
+  # NOTE: INSERT CONFIGS in `.config` HERE
+  CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot yazi starship.toml)
 
-# NOTE: INSERT CONFIGS IN `~` HERE
-rm -f ~/.bashrc ~/.profile ~/.Xresources ~/.gtkrc-2.0 ~/.tmux.conf
+  for config in "${CONFIGS[@]}"; do
+    rm -rf "$HOME/.config/$config"
+  done
 
-#################################
-### Start Symlinking Dotfiles ###
-#################################
-print_step "Symlinking dotfiles"
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+  # NOTE: INSERT CONFIGS IN `~` HERE
+  rm -f ~/.bashrc ~/.profile ~/.Xresources ~/.gtkrc-2.0 ~/.tmux.conf
 
-# NOTE: INSERT CONFIGS IN THIS MANNER:
-# `[SYMLINK LOCATION]=DOTFILES/name_of_folder`
-declare -A SYMLINKS=(
-  [~/.config/alacritty]=$DOTFILES/alacritty
-  [~/.config/i3]=$DOTFILES/i3
-  [~/.config/nvim]=$DOTFILES/nvim
-  [~/.config/picom]=$DOTFILES/picom
-  [~/.config/dunst]=$DOTFILES/dunst
-  [~/.config/rofi]=$DOTFILES/rofi
-  [~/.config/gtk-3.0]=$DOTFILES/gtk-3.0
-  [~/.config/gtk-4.0]=$DOTFILES/gtk-4.0
-  [~/.config/flameshot]=$DOTFILES/flameshot
-  [~/.config/yazi]=$DOTFILES/yazi
-  [~/.config/zathura]=$DOTFILES/zathura
-  [~/.config/starship.toml]=$DOTFILES/starship.toml
-  [~/.gtkrc-2.0]=$DOTFILES/.gtkrc-2.0
-  [~/.bashrc]=$DOTFILES/.bashrc
-  [~/.profile]=$DOTFILES/.profile
-  [~/.Xresources]=$DOTFILES/.Xresources
-  [~/.tmux.conf]=$DOTFILES/.tmux.conf
-)
+  ########################
+  ### Begin Symlinking ###
+  ########################
+  print_step "Symlinking dotfiles"
 
-for target in "${!SYMLINKS[@]}"; do
-  ln -sfn "${SYMLINKS[$target]}" "${target/#\~/$HOME}"
-done
+  DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+  # NOTE: INSERT CONFIGS IN THIS MANNER:
+  # `[SYMLINK LOCATION]=DOTFILES/name_of_folder`
+  declare -A SYMLINKS=(
+    [~/.config/alacritty]=$DOTFILES/alacritty
+    [~/.config/i3]=$DOTFILES/i3
+    [~/.config/nvim]=$DOTFILES/nvim
+    [~/.config/picom]=$DOTFILES/picom
+    [~/.config/dunst]=$DOTFILES/dunst
+    [~/.config/rofi]=$DOTFILES/rofi
+    [~/.config/gtk-3.0]=$DOTFILES/gtk-3.0
+    [~/.config/gtk-4.0]=$DOTFILES/gtk-4.0
+    [~/.config/flameshot]=$DOTFILES/flameshot
+    [~/.config/yazi]=$DOTFILES/yazi
+    [~/.config/zathura]=$DOTFILES/zathura
+    [~/.config/starship.toml]=$DOTFILES/starship.toml
+    [~/.gtkrc-2.0]=$DOTFILES/.gtkrc-2.0
+    [~/.bashrc]=$DOTFILES/.bashrc
+    [~/.profile]=$DOTFILES/.profile
+    [~/.Xresources]=$DOTFILES/.Xresources
+    [~/.tmux.conf]=$DOTFILES/.tmux.conf
+  )
+
+  for target in "${!SYMLINKS[@]}"; do
+    ln -sfn "${SYMLINKS[$target]}" "${target/#\~/$HOME}"
+  done
+fi
+
+
 
 ###################
 ### Update Grub ###
