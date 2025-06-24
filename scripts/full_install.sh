@@ -32,7 +32,7 @@ sudo pacman -Syu --needed --noconfirm \
   easyeffects calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 \
   clamav tmux feh yazi btop bat eza remake nftables \
   procs tldr fd duf dust zoxide fprintd \
-  zathura zathura-pdf-mupdf
+  zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter
 
 ### AUR Packages
 print_step "Installing AUR packages"
@@ -154,6 +154,24 @@ if [[ "$grub_change" == [yY] ]]; then
   sudo ln -sfn ~/.dotfiles/grub/grub /etc/default/grub
   sudo ln -sfn ~/.dotfiles/grub/grub-theme /boot/grub/themes/grub-theme
   sudo grub-mkconfig -o /boot/grub/grub.cfg
+fi
+
+######################
+### Update LightDM ###
+######################
+
+read -p "Update LightDM? [y/N]: " lightdm_change
+if [[ "$lightdm_change" == [yY] ]]; then
+  print_step "Creating Blurred Background Image"
+  PICTURE="/usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png"
+  OUTPUT="/usr/share/endeavouros/backgrounds/endeavouros-wallpaper-blur.png"
+  BLUR="5x4"
+
+  sudo magick "$PICTURE" -blur "$BLUR" \( -size $(identify -format "%wx%h" "$PICTURE") xc:'rgba(0,0,0,0.5)' \) \
+-compose over -composite "$OUTPUT"
+
+  sudo rm -rf /etc/lightdm
+  sudo ln -sfn ~/.dotfiles/lightdm /etc/lightdm
 fi
 
 #############################

@@ -1,8 +1,0 @@
-#!/bin/bash
-
-PICTURE="/usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png"
-OUTPUT="/usr/share/endeavouros/backgrounds/endeavouros-wallpaper-blur.png"
-BLUR="5x4"
-
-sudo magick "$PICTURE" -blur "$BLUR" \( -size $(identify -format "%wx%h" "$PICTURE") xc:'rgba(0,0,0,0.5)' \) \
--compose over -composite "$OUTPUT"
