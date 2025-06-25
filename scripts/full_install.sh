@@ -33,7 +33,7 @@ sudo pacman -Syu --needed --noconfirm \
   clamav tmux feh yazi btop bat eza remake nftables \
   procs tldr fd duf dust zoxide fprintd \
   zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter \
-  xdotools fcitx5
+  xdotools fcitx5 stow plymouth
 
 ### AUR Packages
 print_step "Installing AUR packages"
@@ -44,7 +44,7 @@ paru -S --needed \
   discord_arch_electron obsidian cloudflare-warp-bin \
   proton-vpn-gtk-app brave-bin spotify-adblock \
   timeshift quickemu i3lock-color texlive-binextra \
-  autotiling r unipicker
+  autotiling r unipicker spicetify-cli
 
 #######################
 ### Enable Services ###
@@ -102,6 +102,10 @@ fi
 ### Symlinking ###
 ##################
 
+### WILL BE REPLACED WITH STOW FOR EASIER MANAGEMENT IN THE FUTURE
+### Plymouth not implemented or tested :P
+
+
 read -p "Auto Symlink? [y/N]: " symlinked
 if [[ "$symlinked" == [yY] ]]; then
   ##########################################
@@ -110,7 +114,7 @@ if [[ "$symlinked" == [yY] ]]; then
   print_step "Removing existing config directories"
 
   # NOTE: INSERT CONFIGS in `.config` HERE
-  CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot yazi starship.toml)
+  CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot yazi starship.toml spicetify)
 
   for config in "${CONFIGS[@]}"; do
     rm -rf "$HOME/.config/$config"
@@ -140,6 +144,7 @@ if [[ "$symlinked" == [yY] ]]; then
     [~/.config/flameshot]=$DOTFILES/flameshot
     [~/.config/yazi]=$DOTFILES/yazi
     [~/.config/zathura]=$DOTFILES/zathura
+    [~/.config/spicetify]=$DOTFILES/spicetify
     [~/.config/starship.toml]=$DOTFILES/starship.toml
     [~/.gtkrc-2.0]=$DOTFILES/.gtkrc-2.0
     [~/.bashrc]=$DOTFILES/.bashrc
@@ -151,6 +156,18 @@ if [[ "$symlinked" == [yY] ]]; then
   for target in "${!SYMLINKS[@]}"; do
     ln -sfn "${SYMLINKS[$target]}" "${target/#\~/$HOME}"
   done
+fi
+
+########################
+### Spicetify Update ###
+########################
+read -p "Update Spotify Appearance with Spicetify? [y/N]: " spicetify
+if [[ "$spicetify" == [yY] ]]; then
+  sudo chmod a+wr /opt/spotify
+  sudo chmod -R a+wr /opt/spotify/Apps
+  spicetify backup apply
+  sudo chmod a-w /opt/spotify
+  sudo chmod -R a-w /opt/spotify/Apps
 fi
 
 ###################

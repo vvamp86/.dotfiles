@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Gruvbox Overlay
+Description=Gruvbox splash with FiraCode and optional log view
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/gruvbox-overlay
+ScriptFile=/usr/share/plymouth/themes/gruvbox-overlay/script.js
