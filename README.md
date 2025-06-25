@@ -9,6 +9,12 @@ Run the following after cloning this repository:
 cd ~/.dotfiles/scripts
 ./full_install.sh
 ```
+# Note: Brave Settings
+Must be manual:
+- toggle (Use GTK) for theme in [appearance](brave://settings/appearance)
+- install [Stylus](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
+- install "Gruvbox Dark Everywhere - Global Dark Style"
+- enable the style
 
 # Things to Include:
 - battery manager
