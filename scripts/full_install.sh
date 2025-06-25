@@ -43,7 +43,7 @@ if [[ "$download" == [yY] ]]; then
     gruvbox-material-gtk-theme-git \
     gruvbox-material-icon-theme-git \
     xcursor-simp1e-gruvbox-dark \
-    discord_arch_electron obsidian cloudflare-warp-bin \
+    vencord-bin obsidian cloudflare-warp-bin \
     proton-vpn-gtk-app brave-bin spotify-adblock \
     timeshift quickemu i3lock-color texlive-binextra \
     autotiling r unipicker spicetify-cli

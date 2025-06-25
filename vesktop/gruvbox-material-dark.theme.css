@@ -1,0 +1,26 @@
+:root {
+  /* Base Gruvbox Material Dark */
+  --background-primary:   #1e1e2e;
+  --background-secondary: #282828;
+  --background-tertiary:  #32302f;
+  --background-floating:  #3c3836;
+  --channeltextarea-background: #1d2021;
+
+  /* Text colors */
+  --header-primary: #d4be98;
+  --header-secondary: #a89984;
+  --text-normal: #d4be98;
+  --text-muted: #928374;
+
+  /* Interactive / accents */
+  --interactive-normal: #d8a657;
+  --interactive-hover:  #e0af68;
+  --interactive-active: #a9b665;
+  --interactive-muted:  #7c6f64;
+
+  /* Brand colors (can be overridden) */
+  --brand-experiment: #7daea3;
+  --status-positive:  #a9b665;
+  --status-danger:    #ea6962;
+  --status-warning:   #d8a657;
+}
