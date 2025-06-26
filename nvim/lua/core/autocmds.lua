@@ -22,6 +22,9 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufWritePre' }, {
   pattern = '*',
   callback = function()
-    vim.cmd 'retab'
+    if vim.bo.modifiable and vim.bo.buftype == '' then
+      vim.cmd 'retab'
+    end
   end,
 })
+
