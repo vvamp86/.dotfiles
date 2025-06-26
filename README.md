@@ -35,3 +35,5 @@ Must be manual:
     - Vimtex concealer / auto replacement with unicode characters
     - Latex Suite Shorthands in vimtex
     - html rendering
+- keep currently opened applications as cache as a list after reboot / restart for simple continuation
+    - maybe tmux equivalent with resurrect?
