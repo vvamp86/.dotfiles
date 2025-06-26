@@ -99,3 +99,8 @@ vim.opt.conceallevel = 1
 
 -- vimtex requirement
 vim.g.vimtex_view_method = "zathura"
+
+-- vimtex sanity patch, remove for showing warnings
+vim.g.vimtex_quickfix_ignore_filters = {
+  [[Warning:]],
+}
