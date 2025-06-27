@@ -37,5 +37,6 @@ Must be manual:
     - html rendering
     - paste relative to indentation
     - latex to unicode
+    - luasnips for latex
 - keep currently opened applications as cache as a list after reboot / restart for simple continuation
     - maybe tmux equivalent with resurrect?
