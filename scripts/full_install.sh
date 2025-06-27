@@ -46,7 +46,7 @@ if [[ "$download" == [yY] ]]; then
     vencord-bin obsidian cloudflare-warp-bin \
     proton-vpn-gtk-app brave-bin spotify-adblock \
     timeshift quickemu i3lock-color texlive-full \
-    autotiling r unipicker spicetify-cli
+    autotiling r unipicker spicetify-cli python-pylatexenc
 fi
 
 #######################
