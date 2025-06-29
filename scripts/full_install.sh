@@ -35,7 +35,8 @@ if [[ "$download" == [yY] ]]; then
     clamav tmux feh yazi btop bat eza remake nftables \
     procs tldr fd duf dust zoxide fprintd \
     zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter \
-    xdotool fcitx5 stow plymouth myrepos
+    xdotool fcitx5 stow plymouth myrepos qt5ct qt6ct kvantum \
+    kvantum-qt5
 
   ### AUR Packages
   print_step "Installing AUR packages"
@@ -46,7 +47,8 @@ if [[ "$download" == [yY] ]]; then
     vencord-bin obsidian cloudflare-warp-bin \
     proton-vpn-gtk-app brave-bin spotify-adblock \
     timeshift quickemu i3lock-color texlive-full \
-    autotiling r unipicker spicetify-cli python-pylatexenc
+    autotiling r unipicker spicetify-cli python-pylatexenc \
+    kvantum-theme-gruvbox-git
 fi
 
 ###########################
