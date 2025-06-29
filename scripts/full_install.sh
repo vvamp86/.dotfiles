@@ -173,6 +173,16 @@ if [[ "$spicetify" == [yY] ]]; then
   sudo chmod -R a-w /opt/spotify/Apps
 fi
 
+######################
+### Plymouth Setup ###
+######################
+read -p "Install Plymouth Splash? [y/N]: " plymouth_splash
+if [[ "$plymouth_splash" == [yY] ]]; then
+  sudo cp -r ~/.dotfiles/plymouth/gruvbox-overlay /usr/share/plymouth/themes/
+  sudo plymouth-set-default-theme gruvbox-overlay
+  sudo dracut --regenerate-all --force
+fi
+
 ###################
 ### Update Grub ###
 ###################
