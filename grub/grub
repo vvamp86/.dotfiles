@@ -3,7 +3,7 @@
 GRUB_DEFAULT='0'
 GRUB_TIMEOUT='10'
 GRUB_DISTRIBUTOR='EndeavourOS'
-GRUB_CMDLINE_LINUX_DEFAULT='nowatchdog nvme_load=YES resume=UUID=0bfbb4c4-5ac2-40d9-b97d-216937e30ea3 loglevel=3 quiet splash rd.udev.log_priority=3 vt.global_cursor_default=0'
+GRUB_CMDLINE_LINUX_DEFAULT='nowatchdog nvme_load=YES loglevel=3 quiet splash rd.udev.log_priority=3 vt.global_cursor_default=0'
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
