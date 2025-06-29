@@ -148,7 +148,7 @@ fi
 ######################
 read -p "Install Plymouth Splash? [y/N]: " plymouth_splash
 if [[ "$plymouth_splash" == [yY] ]]; then
-  sudo cp -r ~/.dotfiles/plymouth/gruvbox-overlay /usr/share/plymouth/themes/
+  sudo cp -r ~/.dotfiles/boot-stuff/plymouth/gruvbox-overlay /usr/share/plymouth/themes/
   sudo plymouth-set-default-theme gruvbox-overlay
   sudo dracut --regenerate-all --force
 fi
@@ -159,8 +159,8 @@ fi
 read -p "Change Grub Bootloader? [y/N]: " grub_change
 if [[ "$grub_change" == [yY] ]]; then
   print_step "Changing Grub"
-  sudo cp -r ~/.dotfiles/grub/grub /etc/default/grub
-  sudo cp -r ~/.dotfiles/grub/grub-theme /boot/grub/themes/grub-theme
+  sudo cp -r ~/.dotfiles/boot-stuff/grub/grub /etc/default/grub
+  sudo cp -r ~/.dotfiles/boot-stuff/grub/grub-theme /boot/grub/themes/grub-theme
   sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
@@ -179,7 +179,7 @@ if [[ "$lightdm_change" == [yY] ]]; then
 -compose over -composite "$OUTPUT"
 
   sudo rm -rf /etc/lightdm
-  sudo cp -r ~/.dotfiles/lightdm /etc/lightdm
+  sudo cp -r ~/.dotfiles/boot-stuff/lightdm /etc/lightdm
 fi
 
 #############################
