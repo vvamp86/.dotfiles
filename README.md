@@ -16,6 +16,18 @@ Must be manual:
 - install "Gruvbox Dark Everywhere - Global Dark Style"
 - enable the style
 
+# Note: Local Obsidian Nvim File
+Manual currently for security reasons:
+- make a file in .dotfiles/nvim/lua/config/ called obsidian_local.lua
+- Insert the following
+```lua
+return {
+  vault_path = '~/path/to/value',
+}
+```
+- then obsidian.nvim will detect properly :D
+
+
 # Things to Include:
 - battery manager
 - control manager
