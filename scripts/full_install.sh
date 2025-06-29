@@ -35,7 +35,7 @@ if [[ "$download" == [yY] ]]; then
     clamav tmux feh yazi btop bat eza remake nftables \
     procs tldr fd duf dust zoxide fprintd \
     zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter \
-    xdotool fcitx5 stow plymouth
+    xdotool fcitx5 stow plymouth myrepos
 
   ### AUR Packages
   print_step "Installing AUR packages"
