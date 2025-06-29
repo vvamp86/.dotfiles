@@ -106,3 +106,6 @@ git() {
 # Remove caps lock and replae it with escape
 alias dc='exec xmodmap -e "clear lock" | exec xmodmap -e "keysym Caps_Lock = Escape"'
 
+
+# Created by `pipx` on 2025-06-29 20:59:44
+export PATH="$PATH:/home/sudowoodo/.local/bin"
