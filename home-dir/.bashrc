@@ -74,12 +74,35 @@ alias sus='cd | systemctl suspend'
 # Rank Arch Mirrors
 alias arch-mirror-rank="rate-mirrors --disable-comments-in-file --entry-country=CA --protocol=https arch --max-delay 7200 | sudo tee /etc/pacman.d/mirrorlist"
 
-# Lazy dumb git function
+###############################
+### Lazy dumb git functions ###
+###############################
 function acp() {
     git add .
     git commit -a -m "$1"
     git push
 }
 
+# Minimal git wrapper: register all clones + remote adds with mr
+git() {
+  if [[ "$1" == "clone" ]]; then
+    command git "$@"
+    local dest="${@: -1}"
+    dest="${dest%.git}"
+    [[ -d "$dest" ]] && mr register "$dest"
+
+  elif [[ "$1" == "remote" && "$2" == "add" ]]; then
+    command git "$@"
+    mr register "$(pwd)"
+
+  else
+    command git "$@"
+  fi
+}
+
+########################
+### caps lock -> esc ###
+########################
 # Remove caps lock and replae it with escape
 alias dc='exec xmodmap -e "clear lock" | exec xmodmap -e "keysym Caps_Lock = Escape"'
+
