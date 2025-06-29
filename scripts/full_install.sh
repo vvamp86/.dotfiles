@@ -49,10 +49,58 @@ if [[ "$download" == [yY] ]]; then
     autotiling r unipicker spicetify-cli python-pylatexenc
 fi
 
+###########################
+### Wallpaper Choice :D ###
+read -p "Set Wallpaper? [y/N] " wallpaper
+if [[ "$wallpaper" == [yY] ]]; then
+  # Default directory is current dir or use first argument
+  WP="$HOME/.dotfiles/wallpapers"
+
+  # Get sorted list of files only (ignore dirs)
+  mapfile -t files < <(find "$WP" -maxdepth 1 -type f | sort)
+
+  # Check if files were found
+  if [[ ${#files[@]} -eq 0 ]]; then
+    print_step "No files found in $WP"
+    exit 1
+  fi
+
+  # Display files with numbers
+  echo "Files in $WP:"
+  for i in "${!files[@]}"; do
+    printf "[%2d] %s\n" "$((i + 1))" "${files[i]##*/}"
+  done
+
+  # Prompt user for selection
+  read -p "Enter file number: " num
+
+  # Validate input
+  if ! [[ "$num" =~ ^[0-9]+$ ]] || (( num < 1 || num > ${#files[@]} )); then
+    print_step "Invalid selection."
+    exit 1
+  fi
+
+  # Output the selected file
+  WALL="${files[$((num - 1))]}"
+  print_step "You selected: $WALL"
+
+  sudo mkdir /usr/share/backgrounds/
+  sudo cp $WALL /usr/share/backgrounds/wallpaper.png
+
+  # Blurred Background Image Creation
+  print_step "Creating Blurred Background Image"
+  PICTURE="/usr/share/backgrounds/wallpaper.png"
+  OUTPUT="/usr/share/backgrounds/wallpaper-blur.png"
+  BLUR="5x4"
+
+  sudo magick "$PICTURE" -blur "$BLUR" \( -size $(identify -format "%wx%h" "$PICTURE") xc:'rgba(0,0,0,0.5)' \) \
+  -compose over -composite "$OUTPUT"
+fi
+
 #######################
 ### Enable Services ###
 #######################
-print_step "Enabling optional services..."
+print_step "Optional services"
 
 ### Bluetooth
 read -p "Enable Bluetooth? [y/N]: " enable_bt
@@ -170,14 +218,6 @@ fi
 
 read -p "Update LightDM? [y/N]: " lightdm_change
 if [[ "$lightdm_change" == [yY] ]]; then
-  print_step "Creating Blurred Background Image"
-  PICTURE="/usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png"
-  OUTPUT="/usr/share/endeavouros/backgrounds/endeavouros-wallpaper-blur.png"
-  BLUR="5x4"
-
-  sudo magick "$PICTURE" -blur "$BLUR" \( -size $(identify -format "%wx%h" "$PICTURE") xc:'rgba(0,0,0,0.5)' \) \
--compose over -composite "$OUTPUT"
-
   sudo rm -rf /etc/lightdm
   sudo cp -r ~/.dotfiles/boot-stuff/lightdm /etc/lightdm
 fi

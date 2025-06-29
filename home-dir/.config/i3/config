@@ -435,7 +435,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
+exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/backgrounds/wallpaper.png
 # alternative is to use something from wallpapers: ~/.dotfiles/wallpapers/skull-girl.png
 # Recommend using the given for multiple devices to keep separate backgrounds
 
