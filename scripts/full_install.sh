@@ -84,6 +84,7 @@ if [[ "$wallpaper" == [yY] ]]; then
   WALL="${files[$((num - 1))]}"
   print_step "You selected: $WALL"
 
+  sudo rm -rf /usr/share/backgrounds/
   sudo mkdir /usr/share/backgrounds/
   sudo cp $WALL /usr/share/backgrounds/wallpaper.png
 
