@@ -152,6 +152,8 @@ if [[ "$fcitx_enable" == [yY] ]]; then
   echo -e "\e[1;31mPlease Install Languages On Your Own\e[0m"
 fi
 
+###############################################################################
+print_step "Symlinking and Config Options"
 
 ##################
 ### Stow Setup ###
@@ -193,6 +195,10 @@ if [[ "$spicetify" == [yY] ]]; then
   sudo chmod a-w /opt/spotify
   sudo chmod -R a-w /opt/spotify/Apps
 fi
+
+###############################################################################
+print_step "Boot Appearance Options"
+
 
 ######################
 ### Plymouth Setup ###
