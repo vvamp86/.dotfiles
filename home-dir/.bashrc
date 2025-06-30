@@ -40,6 +40,9 @@ export XMODIFIERS="@im=fcitx"
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=fcitx # GLFW works better with ibus but can try fcitx
 
+# For `pipx`
+export PATH="$PATH:/home/sudowoodo/.local/bin"
+
 ########################
 # Replacement Commands #
 ########################
@@ -100,12 +103,24 @@ git() {
   fi
 }
 
+log_dmesg() {
+  local log_dir="$HOME/dmesg_logs"
+  mkdir -p "$log_dir"
+
+  local timestamp
+  timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
+
+  local log_file="$log_dir/dmesg_$timestamp.log"
+
+  echo "Logging dmesg to: $log_file"
+  echo "Press Ctrl+C to stop logging."
+
+  sudo dmesg -wT | tee "$log_file"
+}
+
 ########################
 ### caps lock -> esc ###
 ########################
 # Remove caps lock and replae it with escape
 alias dc='exec xmodmap -e "clear lock" | exec xmodmap -e "keysym Caps_Lock = Escape"'
 
-
-# Created by `pipx` on 2025-06-29 20:59:44
-export PATH="$PATH:/home/sudowoodo/.local/bin"

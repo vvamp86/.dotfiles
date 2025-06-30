@@ -92,7 +92,7 @@ if [[ "$wallpaper" == [yY] ]]; then
   print_step "You selected: $WALL"
 
   sudo rm -rf /usr/share/backgrounds/
-  sudo mkdir /usr/share/backgrounds/
+  sudo mkdir -p /usr/share/backgrounds/
   sudo cp $WALL /usr/share/backgrounds/wallpaper.png
 
   # Blurred Background Image Creation
@@ -141,6 +141,14 @@ fi
 ### Enable Devices ###
 ######################
 
+### fcitx5
+read -p "Enable fcitx5? [y/N]: " fcitx_enable
+if [[ "$fcitx_enable" == [yY] ]]; then
+  systemctl --user enable fcitx5
+  systemctl --user start fcitx5
+  echo -e "\e[1;31mPlease Install Languages On Your Own\e[0m"
+fi
+
 ### Fingerprint Registration
 # read -p "Enable fingerprint reader? [y/N]: " enable_fprintd
 # if [[ "$enable_fprintd" == [yY] ]]; then
@@ -149,13 +157,6 @@ fi
 #     fprintd-enroll -f "$finger" "$USER";
 #   done
 # fi
-
-read -p "Enable fcitx5? [y/N]: " fcitx_enable
-if [[ "$fcitx_enable" == [yY] ]]; then
-  systemctl --user enable fcitx5
-  systemctl --user start fcitx5
-  echo -e "\e[1;31mPlease Install Languages On Your Own\e[0m"
-fi
 
 ###############################################################################
 print_step "Symlinking and Config Options"
