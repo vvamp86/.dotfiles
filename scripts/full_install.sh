@@ -12,6 +12,9 @@ print_step() {
   echo -e "${GREEN}==> $1...${NC}"
 }
 
+##############################################################3
+print_step "==> Initial Importance"
+
 ###########################
 ### Confirm paru exists ###
 ###########################
@@ -53,6 +56,8 @@ fi
 
 ###########################
 ### Wallpaper Choice :D ###
+###########################
+
 read -p "Set Wallpaper? [y/N] " wallpaper
 if [[ "$wallpaper" == [yY] ]]; then
   # Default directory is current dir or use first argument
@@ -145,7 +150,7 @@ fi
 #   done
 # fi
 
-read -p "Use fcitx5? [y/N]: " fcitx_enable
+read -p "Enable fcitx5? [y/N]: " fcitx_enable
 if [[ "$fcitx_enable" == [yY] ]]; then
   systemctl --user enable fcitx5
   systemctl --user start fcitx5
@@ -187,7 +192,7 @@ fi
 ########################
 ### Spicetify Update ###
 ########################
-read -p "Update Spotify Appearance with Spicetify? [y/N]: " spicetify
+read -p "Update Spotify Appearance with Spicetify? (must login in spotify first) [y/N]: " spicetify
 if [[ "$spicetify" == [yY] ]]; then
   sudo chmod a+wr /opt/spotify
   sudo chmod -R a+wr /opt/spotify/Apps
@@ -199,17 +204,6 @@ fi
 ###############################################################################
 print_step "Boot Appearance Options"
 
-
-######################
-### Plymouth Setup ###
-######################
-read -p "Install Plymouth Splash? [y/N]: " plymouth_splash
-if [[ "$plymouth_splash" == [yY] ]]; then
-  sudo cp -r ~/.dotfiles/boot-stuff/plymouth/gruvbox-overlay /usr/share/plymouth/themes/
-  sudo plymouth-set-default-theme gruvbox-overlay
-  sudo dracut --regenerate-all --force
-fi
-
 ###################
 ### Update Grub ###
 ###################
@@ -219,6 +213,16 @@ if [[ "$grub_change" == [yY] ]]; then
   sudo cp -r ~/.dotfiles/boot-stuff/grub/grub /etc/default/grub
   sudo cp -r ~/.dotfiles/boot-stuff/grub/grub-theme /boot/grub/themes/grub-theme
   sudo grub-mkconfig -o /boot/grub/grub.cfg
+fi
+
+######################
+### Plymouth Setup ###
+######################
+read -p "Install Plymouth Splash? [y/N]: " plymouth_splash
+if [[ "$plymouth_splash" == [yY] ]]; then
+  sudo cp -r ~/.dotfiles/boot-stuff/plymouth/gruvbox-overlay /usr/share/plymouth/themes/
+  sudo plymouth-set-default-theme gruvbox-overlay
+  sudo dracut --regenerate-all --force
 fi
 
 ######################
