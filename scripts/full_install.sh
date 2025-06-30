@@ -168,7 +168,7 @@ if [[ "$symlinked" == [yY] ]]; then
   # Clean up existing conflicting files/directories if needed
   print_step "Removing existing dotfiles to prevent conflict"
   CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot yazi zathura spicetify qt5ct qt6ct Kvantum)
-  FILES=(.bashrc .profile .Xresources .gtkrc-2.0 .tmux.conf .xprofile .config/starship.toml .config/vesktop/themes/gruvbox-material-dark.theme.css )
+  FILES=(.bashrc .profile .Xresources .gtkrc-2.0 .tmux.conf .xprofile .config/starship.toml .config/vesktop/themes/gruvbox-material-dark.theme.css .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml )
 
   for config in "${CONFIGS[@]}"; do
     rm -rf "$HOME/.config/$config"
