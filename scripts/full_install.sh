@@ -13,7 +13,7 @@ print_step() {
 }
 
 ##############################################################3
-print_step "==> Initial Importance"
+print_step "Initial Importance"
 
 ###########################
 ### Confirm paru exists ###
@@ -58,7 +58,7 @@ fi
 ### Wallpaper Choice :D ###
 ###########################
 
-read -p "Set Wallpaper? [y/N] " wallpaper
+read -p "Set Wallpaper? [y/N]: " wallpaper
 if [[ "$wallpaper" == [yY] ]]; then
   # Default directory is current dir or use first argument
   WP="$HOME/.dotfiles/wallpapers"
@@ -238,4 +238,4 @@ fi
 #############################
 ### Successful Completion ###
 #############################
-print_step "Setup complete"
+echo -e "${GREEN}Setup Completed!${NC}"
