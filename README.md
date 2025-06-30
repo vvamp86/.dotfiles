@@ -39,9 +39,6 @@ return {
     - add a way to choose screen size in full_setup.sh script to fix this
 - straighten X11 and have options to switch to wayland
 - get scrolling artifacts fixed
-- setup simlinker to gnu stow for convenience (this is really easy, I'm just lazy)
-- add vesktop & plymouth to the full_setup.sh script
-- add a way to choose wallpaper in full_setup.sh script
 - nvim efficiencies needed:
     - vertical selection like in SQL / R Studio
     - Vimtex concealer / auto replacement with unicode characters
