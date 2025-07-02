@@ -31,14 +31,19 @@ vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
 
--- Enable break indent
-vim.o.breakindent = true
-
 -- Enable tabs as spaces
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
+
+-- Enable automatic & break indentation
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.o.breakindent = true
+
+-- Wrap long lines
+vim.opt.wrap = true
 
 -- Save undo history
 vim.o.undofile = true
