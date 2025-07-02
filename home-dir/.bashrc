@@ -118,9 +118,3 @@ log_dmesg() {
   sudo dmesg -wT | tee "$log_file"
 }
 
-########################
-### caps lock -> esc ###
-########################
-# Remove caps lock and replae it with escape
-alias dc='exec xmodmap -e "clear lock" | exec xmodmap -e "keysym Caps_Lock = Escape"'
-

@@ -402,10 +402,6 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
 # autostart applications/services on login: #
 #############################################
 
-# Replace caps-lock with esc
-exec xmodmap -e "clear lock" #disable caps lock switch
-exec xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
-
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 

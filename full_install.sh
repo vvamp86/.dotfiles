@@ -51,7 +51,7 @@ if [[ "$download" == [yY] ]]; then
     proton-vpn-gtk-app brave-bin spotify-adblock \
     timeshift quickemu i3lock-color texlive-full \
     autotiling r unipicker spicetify-cli python-pylatexenc \
-    kvantum-theme-gruvbox-git
+    kvantum-theme-gruvbox-git interception-tools interception-caps2esc
 fi
 
 ###########################
@@ -135,6 +135,13 @@ if [[ "$enable_clamav" == [yY] ]]; then
   print_step "Enabling ClamAV"
   sudo freshclam
   sudo systemctl enable --now clamav-daemon.service
+fi
+
+### Interception-Tools: caps2esc
+read -p "Enable Interception Tools for caps2esc? [y/N] " enable_interception
+if [[ "$enable_interception" == [yY] ]]; then
+  sudo cp $HOME/.dotfiles/boot-stuff/interception-tools/udevmon.yaml /etc/interception
+  sudo systemctl enable --now udevmon.service
 fi
 
 ######################
