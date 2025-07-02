@@ -32,15 +32,14 @@ return {
 - battery manager
 - control manager
 - nvim keyboard
-- perpetual capslock -> escape
 - nvim for Latex, R, & Obsidian
 - plover stenography
 - customize bootloader (partially completed)
     - add a way to choose screen size in full_setup.sh script to fix this
 - straighten X11 and have options to switch to wayland
+    - There's a lot to be deleted
 - get scrolling artifacts fixed
 - nvim efficiencies needed:
-    - vertical selection like in SQL / R Studio
     - Vimtex concealer / auto replacement with unicode characters
     - Latex Suite Shorthands in vimtex
     - html rendering
