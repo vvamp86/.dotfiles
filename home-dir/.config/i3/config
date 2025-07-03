@@ -569,10 +569,10 @@ strip_workspace_numbers yes
             background         $darkgrey
             statusline         $white
 #                           border              background          txt
-        focused_workspace   $gray               $white              $purple
-        active_workspace    $lightblue          $darkgrey           $purple
-        inactive_workspace  $darkgrey           $grey               $purple
-        urgent_workspace    $urgentred          $white              $purple
+        focused_workspace   $mediumgrey         $grey               $darkgrey
+        active_workspace    $lightblue          $mediumgrey         $darkgrey
+        inactive_workspace  $darkgrey           $darkgrey           $grey
+        urgent_workspace    $urgentred          $urgentred          $white
     }
 }
 
