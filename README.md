@@ -10,6 +10,10 @@ cd ~/.dotfiles/scripts
 ./full_install.sh
 ```
 
+NOTE:
+- this is currently all x11, there are issues but they aren't severe enough to address immediately
+- this repo will gradually move towards wayland, but that will take time, likely far in the future
+
 # Note: Brave Settings
 Must be manual:
 - toggle (Use GTK) for theme in [appearance](brave://settings/appearance)
@@ -37,7 +41,18 @@ return {
 - customize bootloader (partially completed)
     - add a way to choose screen size in full_setup.sh script to fix this
 - straighten X11 and have options to switch to wayland
-    - There's a lot to be deleted
+    - There's a lot to be changed in i3wm config to sway defaults
+    - workspace maanger change
+    - get bluetooth working & get workarounds for other tray icons
+    - rofi -> wofi
+    - xclip -> wl-clipboard
+    - xdotool -> prob swaymsg scripts
+    - feh -> swayimg
+    - lightdm-gtk-greeter & lightdm  -> greetd & gtkgreet
+    - i3lock-color - swaylock-effects
+    - picom deleted as it is useless
+    - autotiling deleted as it is built in
+    - consider replacing the remainder of xfce tools
 - get scrolling artifacts fixed
 - nvim efficiencies needed:
     - Vimtex concealer / auto replacement with unicode characters
