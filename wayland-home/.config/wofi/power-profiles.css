@@ -1,0 +1,95 @@
+/* Converted from Rofi Power Menu Theme for EndeavourOS */
+
+window {
+    background-color: rgba(50, 48, 47, 0.88); /* @background */
+    border: none;
+    padding: 10px;
+    min-width: 170px;
+    color: rgba(80, 73, 69, 1.0);             /* @normal-foreground */
+}
+
+/* list of entries */
+#entry {
+    padding: 1px;
+    background-color: rgba(50, 48, 47, 0.01); /* @normal-background (approx) */
+    color: rgba(80, 73, 69, 1.0);             /* @normal-foreground */
+}
+
+#entry:selected {
+    background-color: rgba(37, 36, 35, 1.0);  /* @selected-normal-background */
+    color: rgba(221, 199, 161, 1.0);          /* @selected-normal-foreground */
+}
+
+#entry:active {
+    background-color: rgba(20, 22, 23, 0.17); /* @active-background */
+    color: rgba(137, 180, 144, 1.0);          /* @active-foreground */
+}
+
+#entry:selected:active {
+    background-color: rgba(64, 73, 70, 1.0);  /* @selected-active-background */
+    color: rgba(234, 105, 98, 1.0);           /* @selected-active-foreground */
+}
+
+#entry:alternate {
+    background-color: rgba(50, 48, 47, 0.01); /* @alternate-normal-background */
+    color: rgba(80, 73, 69, 1.0);             /* @alternate-normal-foreground */
+}
+
+#entry:alternate:active {
+    background-color: rgba(50, 48, 47, 0.88); /* @alternate-active-background */
+    color: rgba(137, 180, 144, 1.0);          /* @alternate-active-foreground */
+}
+
+#entry:urgent {
+    background-color: rgba(50, 48, 47, 0.15); /* @urgent-background */
+    color: rgba(193, 74, 74, 1.0);            /* @urgent-foreground */
+}
+
+#entry:selected:urgent {
+    background-color: rgba(174, 88, 88, 1.0); /* @selected-urgent-background */
+    color: rgba(249, 245, 215, 1.0);          /* @selected-urgent-foreground */
+}
+
+#entry:alternate:urgent {
+    background-color: rgba(40, 40, 40, 0.9);  /* @alternate-urgent-background */
+    color: rgba(193, 74, 74, 1.0);            /* @alternate-urgent-foreground */
+}
+
+/* text inside entries */
+#text {
+    color: rgba(80, 73, 69, 1.0);             /* @foreground */
+}
+
+#text:selected {
+    color: rgba(221, 199, 161, 1.0);          /* @selected-normal-foreground */
+}
+
+#text:active {
+    color: rgba(137, 180, 144, 1.0);          /* @active-foreground */
+}
+
+#text:urgent {
+    color: rgba(193, 74, 74, 1.0);            /* @urgent-foreground */
+}
+
+/* search bar */
+#input {
+    padding: 1px;
+    color: rgba(80, 73, 69, 1.0);             /* @normal-foreground */
+    background-color: rgba(50, 48, 47, 0.88); /* same as window bg */
+    border: none;
+}
+
+/* scrollbar */
+scrollbar {
+    width: 4px;
+    background-color: transparent;
+}
+
+scrollbar slider {
+    background-color: rgba(80, 73, 69, 1.0);  /* @normal-foreground */
+    min-width: 8px;
+}
+
+/* no support for prompt colon text or inline 'children' structure in Wofi */
+
