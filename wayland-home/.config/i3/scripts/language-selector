@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Fcitx5 profile file (default location)
+profile="${XDG_CONFIG_HOME:-$HOME/.config}/fcitx5/profile"
+
+# Check if profile exists
+if [[ ! -f "$profile" ]]; then
+    echo "Fcitx5 profile not found at $profile"
+    exit 1
+fi
+
+# Get current input method
+current=$(fcitx5-remote -n)
+
+# Parse enabled input methods from profile
+mapfile -t engines < <(grep -E '^IMList=' "$profile" | cut -d= -f2 | tr ',' '\n' | sed 's/|.*//')
+
+# Map to human-readable names (optionally add your own mappings)
+declare -A names
+for engine in "${engines[@]}"; do
+    case "$engine" in
+        mozc) names[$engine]="Japanese (Mozc)" ;;
+        pinyin) names[$engine]="Chinese (Pinyin)" ;;
+        rime) names[$engine]="Chinese (Rime)" ;;
+        keyboard-us) names[$engine]="English (US)" ;;
+        *) names[$engine]="$engine" ;;
+    esac
+done
+
+# Build options list for rofi
+options=()
+for engine in "${engines[@]}"; do
+    options+=("${names[$engine]}")
+done
+
+# Determine selected index
+selected_index=0
+for i in "${!engines[@]}"; do
+    if [[ "${engines[$i]}" == "$current" ]]; then
+        selected_index="$i"
+        break
+    fi
+done
+
+# Show Rofi menu
+selected=$(printf "%s\n" "${options[@]}" | rofi -dmenu -p "Language" -config ~/.config/rofi/rofidmenu.rasi -selected-row "$selected_index")
+
+# Reverse-lookup the engine
+new_engine=""
+for key in "${!names[@]}"; do
+    if [[ "${names[$key]}" == "$selected" ]]; then
+        new_engine="$key"
+        break
+    fi
+done
+
+# Set the selected input method
+if [[ -n "$new_engine" ]]; then
+    fcitx5-remote -s "$new_engine"
+fi
+

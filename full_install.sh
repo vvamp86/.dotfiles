@@ -51,7 +51,8 @@ if [[ "$download" == [yY] ]]; then
     proton-vpn-gtk-app brave-bin spotify-adblock \
     timeshift quickemu i3lock-color texlive-full \
     autotiling r unipicker spicetify-cli python-pylatexenc \
-    kvantum-theme-gruvbox-git interception-tools interception-caps2esc
+    kvantum-theme-gruvbox-git interception-tools \
+    interception-caps2esc tmux-plugin-manager
 fi
 
 ###########################
