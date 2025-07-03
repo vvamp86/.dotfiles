@@ -39,7 +39,7 @@ if [[ "$download" == [yY] ]]; then
     procs tldr fd duf dust zoxide fprintd \
     zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter \
     xdotool fcitx5 stow plymouth myrepos qt5ct qt6ct kvantum \
-    kvantum-qt5 wofi swaybg swaymsg
+    kvantum-qt5 wofi swaybg swaymsg waybar
 
   ### AUR Packages
   print_step "Installing AUR packages"

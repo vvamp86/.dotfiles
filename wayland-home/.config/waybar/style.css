@@ -1,0 +1,80 @@
+* {
+  font-family: "FiraCode Nerd Font";
+  font-size: 10pt;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(13, 49, 56, 0.9); /* $darkbluetrans */
+  color: #e2cca9; /* $white */
+}
+
+#workspaces button {
+  padding: 0 5px;
+  margin: 0 2px;
+  background-color: #282828; /* $darkgrey */
+  color: #e2cca9; /* $white */
+}
+
+#workspaces button.focused {
+  background-color: #80aa9e; /* $lightblue */
+  color: #0d3138; /* $darkblue */
+}
+
+#workspaces button.urgent {
+  background-color: #fb4934; /* $urgentred */
+  color: #e2cca9;
+}
+
+#clock,
+#custom-terminal,
+#custom-browser,
+#custom-files,
+#custom-mail,
+#custom-text,
+#custom-music,
+#custom-notes,
+#custom-sep0,
+#custom-cpu_usage,
+#custom-memory,
+#custom-disk,
+#custom-CPU-temperature,
+#custom-volume,
+#custom-pavucontrol,
+#custom-battery,
+#custom-bandwidth,
+#custom-keybindings,
+#custom-ppd_menu,
+#custom-ppd-status,
+#custom-shutdown_menu {
+  padding: 0 10px;
+  background-color: #0d3138; /* $darkblue */
+}
+
+#custom-sep0 {
+  padding: 0 5px;
+  color: #3c3836; /* $grey */
+}
+
+#custom-pavucontrol,
+#custom-volume {
+  color: #d3869b; /* $purple */
+}
+
+#custom-battery {
+  color: #e9b143; /* $yellowbrown */
+}
+
+#custom-shutdown_menu {
+  color: #fb4934; /* $urgentred */
+}
+
+#custom-keybindings {
+  color: #83a598;
+}
+
+#custom-ppd_menu {
+  color: #407437;
+}

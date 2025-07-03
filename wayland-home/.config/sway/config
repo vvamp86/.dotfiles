@@ -431,13 +431,16 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --auto-reload --bg-fill /usr/share/backgrounds/wallpaper.png
+exec --no-startup-id sleep 1 && output * bg /usr/share/backgrounds/wallpaper.png fill
 # alternative is to use something from wallpapers: ~/.dotfiles/wallpapers/skull-girl.png
 # Recommend using the given for multiple devices to keep separate backgrounds
 
 # set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
-
+exec swayidle -w \
+    timeout 480 'swaylock -f' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f'
 # disable power saving (for example if using xscreensaver)
 #exec --no-startup-id xset -dpms
 
@@ -548,33 +551,7 @@ client.urgent               $urgentred  $urgentred  $white      $yellowbrown    
 
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
-bar {
-        font pango: FiraCode Nerd Font 10
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-            position bottom
-#           i3bar_command i3bar --transparency
-# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-# reference: https://i3wm.org/docs/userguide.html#_tray_output
-            #tray_output primary
-            tray_padding 0
-
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-strip_workspace_numbers yes
-##strip_workspace_name no
-
-            colors {
-            separator          $purple
-            background         $darkgrey
-            statusline         $white
-#                           border              background          txt
-        focused_workspace   $mediumgrey         $grey               $darkgrey
-        active_workspace    $lightblue          $mediumgrey         $darkgrey
-        inactive_workspace  $darkgrey           $darkgrey           $grey
-        urgent_workspace    $urgentred          $urgentred          $white
-    }
-}
+exec waybar
 
 #####################################
 # Application menu handled by wofi: #

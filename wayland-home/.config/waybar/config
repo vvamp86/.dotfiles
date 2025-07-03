@@ -1,0 +1,100 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 30,
+  "modules-left": ["custom/terminal", "custom/browser", "custom/files", "custom/mail", "custom/text", "custom/music", "custom/notes", "custom/sep0"],
+  "modules-center": ["custom/cpu_usage", "custom/memory", "custom/disk", "custom/CPU-temperature"],
+  "modules-right": ["custom/ppd-status", "custom/ppd_menu", "custom/keybindings", "custom/volume", "custom/pavucontrol", "custom/battery", "custom/bandwidth", "clock", "custom/shutdown_menu"],
+
+  "custom/terminal": {
+    "format": "",
+    "tooltip": false,
+    "exec": "i3-msg -q exec alacritty"
+  },
+  "custom/browser": {
+    "format": "",
+    "tooltip": false,
+    "exec": "i3-msg -q exec brave"
+  },
+  "custom/files": {
+    "format": "",
+    "tooltip": false,
+    "exec": "i3-msg -q exec thunar ~/"
+  },
+  "custom/mail": {
+    "format": "",
+    "tooltip": false,
+    "exec": "i3-msg -q exec thunderbird"
+  },
+  "custom/text": {
+    "format": "",
+    "tooltip": false,
+    "exec": "i3-msg -q exec discord"
+  },
+  "custom/music": {
+    "format": "",
+    "tooltip": false,
+    "exec": "i3-msg -q exec LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify"
+  },
+  "custom/notes": {
+    "format": "",
+    "tooltip": false,
+    "exec": "obsidian"
+  },
+  "custom/sep0": {
+    "format": "|",
+    "tooltip": false
+  },
+
+  "custom/cpu_usage": {
+    "exec": "~/.config/i3/scripts/cpu_usage",
+    "interval": 2
+  },
+  "custom/memory": {
+    "exec": "~/.config/i3/scripts/memory",
+    "interval": 2
+  },
+  "custom/disk": {
+    "exec": "~/.config/i3/scripts/disk",
+    "interval": 30
+  },
+  "custom/CPU-temperature": {
+    "exec": "~/.config/i3/scripts/temperature",
+    "interval": 30
+  },
+  "custom/volume": {
+    "exec": "~/.config/i3/scripts/volume",
+    "interval": 1
+  },
+  "custom/pavucontrol": {
+    "format": "",
+    "exec": "pavucontrol"
+  },
+  "custom/battery": {
+    "exec": "~/.config/i3/scripts/battery2",
+    "interval": 30
+  },
+  "custom/bandwidth": {
+    "exec": "~/.config/i3/scripts/bandwidth2"
+  },
+  "custom/keybindings": {
+    "format": "",
+    "exec": "~/.config/i3/scripts/keyhint"
+  },
+  "custom/ppd_menu": {
+    "format": "",
+    "exec": "~/.config/i3/scripts/power-profiles"
+  },
+  "custom/ppd-status": {
+    "exec": "~/.config/i3/scripts/ppd-status",
+    "interval": 5
+  },
+  "custom/shutdown_menu": {
+    "format": "",
+    "exec": "~/.config/i3/scripts/powermenu"
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M:%S}",
+    "interval": 1
+  }
+}
