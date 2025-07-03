@@ -30,8 +30,8 @@ export MANPAGER="nvim +Man!"
 # terminal environment
 export TERMINAL=alacritty
 
-# rofi export
-export MENU='rofi -dmenu -theme mytheme -config ~/.config/rofi/config.rasi'
+# wofi export
+export MENU='wofi -dmenu -theme mytheme -config ~/.config/wofi/style.css'
 
 # keyboard exports
 export GTK_IM_MODULE=fcitx
