@@ -48,7 +48,7 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-new_window pixel 1
+default_border pixel 1
 
 # thin borders
 # hide_edge_borders both
@@ -527,16 +527,16 @@ set $darkbluetrans  #0d3138e6
 set $darkblue       #0d3138
 set $lightblue      #80aa9e
 set $urgentred      #fb4934
-set $white      #e2cca9
-set $black      #141617
-set $purple     #d3869b
+set $white          #e2cca9
+set $black          #141617
+set $purple         #d3869b
 set $darkgrey       #282828
-set $grey       #3c3836
+set $grey           #3c3836
 set $mediumgrey     #504945
 set $yellowbrown    #e9b143
 
 # define colors for windows:
-#class                  border      bground     text        indicator   child_border
+#class                      border      bground     text        indicator   child_border
 client.focused              $lightblue  $darkblue   $white      $mediumgrey $mediumgrey
 client.unfocused            $darkblue   $darkblue   $grey       $darkgrey   $darkgrey
 client.focused_inactive     $darkblue   $darkblue   $grey       $black      $black
@@ -568,44 +568,13 @@ strip_workspace_numbers yes
             separator          $purple
             background         $darkgrey
             statusline         $white
-#                           border              bg                  txt                 indicator
-        focused_workspace   $mediumgrey         $grey               $darkgrey           $purple
-        active_workspace    $lightblue          $mediumgrey         $darkgrey           $purple
-        inactive_workspace  $darkgrey           $darkgrey           $grey               $purple
-        urgent_workspace    $urgentred          $urgentred          $white              $purple
+#                           border              background          txt
+        focused_workspace   $gray               $white              $purple
+        active_workspace    $lightblue          $darkgrey           $purple
+        inactive_workspace  $darkgrey           $grey               $purple
+        urgent_workspace    $urgentred          $white              $purple
     }
 }
-
-# you can add different bars for multidisplay setups on each display:
-# set output HDMI-0 to the display you want the bar, --transparency can be set.
-# Transparency needs rgba color codes to be used where the last two letters are the transparency factor see here:
-# https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-# #08052be6 --> e6=90%
-
-# bar {
-#   font pango: Noto Sans Regular 10
-#   status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#   i3bar_command i3bar --transparency
-#   output HDMI-0
-#   position bottom
-#
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-#strip_workspace_numbers yes
-##strip_workspace_name no
-#
-#   colors {
-#       separator          $purple
-#       background         $darkbluetrans
-#           statusline         $white
-#                   border      bg      txt     indicator
-#       focused_workspace   $lighterblue    $lighterblue    $darkblue   $purple
-#       active_workspace    $lightdblue $lightdblue $darkblue   $purple
-#       inactive_workspace  $darkblue   $darkblue   $lightdblue $purple
-#       urgent_workspace    $urgentred  $urgentred  $white      $purple
-#   }
-#}
 
 #####################################
 # Application menu handled by rofi: #
