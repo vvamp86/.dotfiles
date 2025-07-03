@@ -17,29 +17,26 @@ BLUR="5x4"
 magick "$PICTURE" -blur "$BLUR" \( -size $(identify -format "%wx%h" "$PICTURE") xc:'rgba(0,0,0,0.5)' \) \
 -compose over -composite "$PICTURE"
 
-i3lock -i $PICTURE \
---insidever-color=$CLEAR     \
---ringver-color=$VERIFYING   \
+swaylock \
+--image "$PICTURE" \
+--ring-ver-color "$VERIFYING" \
+--inside-ver-color "$CLEAR" \
 \
---insidewrong-color=$CLEAR   \
---ringwrong-color=$WRONG     \
+--ring-wrong-color "$WRONG" \
+--inside-wrong-color "$CLEAR" \
 \
---inside-color=$BLANK        \
---ring-color=$DEFAULT        \
---line-color=$BLANK          \
---separator-color=$DEFAULT   \
+--ring-color "$DEFAULT" \
+--inside-color "$BLANK" \
+--line-color "$BLANK" \
+--separator-color "$DEFAULT" \
 \
---verif-color=$TEXT          \
---wrong-color=$TEXT          \
---time-color=$TEXT           \
---date-color=$TEXT           \
---layout-color=$TEXT         \
---keyhl-color=$TYPING        \
---bshl-color=$WRONG          \
+--text-color "$TEXT" \
+--key-hl-color "$TYPING" \
+--bs-hl-color "$WRONG" \
 \
---clock                      \
---indicator                  \
---time-str="%H:%M:%S"        \
---date-str="%A, %Y-%m-%d"
+--clock \
+--indicator \
+--time-str "%H:%M:%S" \
+--date-str "%A, %Y-%m-%d"
 
 rm $PICTURE
