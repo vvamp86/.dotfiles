@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-  background-color: rgba(13, 49, 56, 0.9); /* $darkbluetrans */
+  background-color: #3c3836; /* $darkbluetrans */
   color: #e2cca9; /* $white */
 }
 
@@ -50,7 +50,7 @@ window#waybar {
 #custom-ppd-status,
 #custom-shutdown_menu {
   padding: 0 10px;
-  background-color: #0d3138; /* $darkblue */
+  background-color: #3c3836; /* $darkblue */
 }
 
 #custom-sep0 {

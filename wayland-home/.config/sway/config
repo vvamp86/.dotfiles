@@ -18,6 +18,12 @@
 #######################
 # config starts here: #
 #######################
+exec_always {
+  export GTK_THEME="Gruvbox-Material-Dark"
+  export XDG_CURRENT_DESKTOP=sway
+  export XDG_SESSION_DESKTOP=sway
+  export GTK_ICON_THEME=Gruvbox-Material-Dark
+}
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -431,9 +437,8 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && output * bg /usr/share/backgrounds/wallpaper.png fill
+exec --no-startup-id sleep 1 && swaybg -i /usr/share/backgrounds/wallpaper.png -m fill
 # alternative is to use something from wallpapers: ~/.dotfiles/wallpapers/skull-girl.png
-# Recommend using the given for multiple devices to keep separate backgrounds
 
 # set powersavings for display:
 exec swayidle -w \
@@ -441,6 +446,7 @@ exec swayidle -w \
     timeout 600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f'
+
 # disable power saving (for example if using xscreensaver)
 #exec --no-startup-id xset -dpms
 
@@ -466,7 +472,6 @@ exec --no-startup-id /usr/bin/dunst
 exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
-#exec --no-startup-id sleep 2 && xfce4-terminal
 #exec --no-startup-id sleep 7 && brave && obsidian
 #exec --no-startup-id sleep 3 && thunar
 

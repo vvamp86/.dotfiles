@@ -2,10 +2,40 @@
   "layer": "top",
   "position": "bottom",
   "height": 30,
-  "modules-left": ["custom/terminal", "custom/browser", "custom/files", "custom/mail", "custom/text", "custom/music", "custom/notes", "custom/sep0"],
-  "modules-center": ["custom/cpu_usage", "custom/memory", "custom/disk", "custom/CPU-temperature"],
-  "modules-right": ["custom/ppd-status", "custom/ppd_menu", "custom/keybindings", "custom/volume", "custom/pavucontrol", "custom/battery", "custom/bandwidth", "clock", "custom/shutdown_menu"],
+  "modules-left": [],
+  "modules-center": [],
+  "modules-right": [
+    "custom/terminal",
+    "custom/browser",
+    "custom/files",
+    "custom/mail",
+    "custom/text",
+    "custom/music",
+    "custom/notes",
+    "custom/sep",
+    "custom/cpu_usage",
+    "custom/memory",
+    "custom/disk",
+    "custom/CPU-temperature",
+    "custom/ppd-status",
+    "custom/ppd_menu",
+    "custom/keybindings",
+    "custom/sep",
+    "custom/volume",
+    "custom/pavucontrol",
+    "custom/battery",
+    "custom/bandwidth",
+    "clock",
+    "custom/shutdown_menu",
+    "custom/sep",
+    "tray"
+  ],
 
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false,
+    "background": "#3c3836"
+  },
   "custom/terminal": {
     "format": "",
     "tooltip": false,
@@ -41,11 +71,6 @@
     "tooltip": false,
     "exec": "obsidian"
   },
-  "custom/sep0": {
-    "format": "|",
-    "tooltip": false
-  },
-
   "custom/cpu_usage": {
     "exec": "~/.config/i3/scripts/cpu_usage",
     "interval": 2
