@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Gruvbox Overlay
+Description=Gruvbox splash with FiraCode text and optional log view
+ModuleName=script
+
+[script]
+ScriptFile=script
+Font=FiraCodeNerd.pf2

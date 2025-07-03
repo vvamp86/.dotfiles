@@ -1,0 +1,17 @@
+title-text: ""
+title-color: "#dadada"
+desktop-image: "background.png"
+terminal-left: "0%"
+terminal-top: "0%"
+terminal-width: "100%"
+terminal-height: "100%"
+
++ progress_bar {
+    id = "__timeout__"
+    left = 0%
+    width = 100%
+    top = 100%
+    height = 10
+    text = "%d seconds left"
+    text-color = "#dadada"
+}

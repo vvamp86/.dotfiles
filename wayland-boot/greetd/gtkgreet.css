@@ -1,0 +1,17 @@
+* {
+    background-image: url("/usr/share/backgrounds/wallpaper-blur.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "FiraCode Nerd Font";
+    font-size: 10pt;
+    color: #ebdbb2;
+}
+
+window {
+    background-color: #1d2021;
+}
+
+#power-button, #a11y-button {
+    display: none;
+}
