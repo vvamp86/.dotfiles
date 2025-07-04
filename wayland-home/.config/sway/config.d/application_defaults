@@ -46,3 +46,23 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable
 
 # currently broken, but set spotify to move to scratchpad
 # for_window [class=spotify] move to scratchpad
+#
+####################
+# Disabled Options #
+####################
+# bind program to workspace and focus to them on startup:
+# assign [class="alacrity"] $ws1
+# assign [class="(?i)brave"] $ws2
+# assign [class="Thunar"] $ws3
+# assign [class="thunderbird"] $ws4
+# assign [class="vesktop"] $ws5
+# assign [class="spotify"] $ws6
+# assign [class="obsidian"] $ws7
+
+# automatic set focus new window if it opens on another workspace than the current:
+# for_window [class=alacritty] focus
+# for_window [class=(?i)brave] focus
+# for_window [class=Thunar] focus
+# for_window [class=Thunderbird] focus
+# for_window [class=vesktop] focus
+# for_window [class=obsidian] focus
