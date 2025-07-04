@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-BLANK='#28282800'        # Transparent Gruvbox background (Dark0 + 00 alpha)
-CLEAR='#92837422'        # Inactive ring (Gruvbox Gray + low alpha)
-DEFAULT='#ebdbb2cc'      # Default ring color (Gruvbox Light1 + 80% alpha)
-TEXT='#ebdbb2ff'         # Time/Date/Text color (Gruvbox Light1, opaque)
-WRONG='#fb4934cc'        # Wrong password (Gruvbox Red + 80% alpha)
-VERIFYING='#b8bb26cc'    # Verifying ring (Gruvbox Green + 80% alpha)
-TYPING='#076678cc'       # Typing color in the ring (Gruvbox Blue + 80% alpha)
+BLANK=      '#28282800'        # Transparent Gruvbox background (Dark0 + 00 alpha)
+CLEAR=      '#92837422'        # Inactive ring (Gruvbox Gray + low alpha)
+DEFAULT=    '#ebdbb2cc'      # Default ring color (Gruvbox Light1 + 80% alpha)
+TEXT=       '#ebdbb2ff'         # Time/Date/Text color (Gruvbox Light1, opaque)
+WRONG=      '#fb4934cc'        # Wrong password (Gruvbox Red + 80% alpha)
+VERIFYING=  '#b8bb26cc'    # Verifying ring (Gruvbox Green + 80% alpha)
+TYPING=     '#076678cc'       # Typing color in the ring (Gruvbox Blue + 80% alpha)
 
 PICTURE=/tmp/i3lock.png
 
