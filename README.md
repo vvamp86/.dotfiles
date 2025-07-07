@@ -63,3 +63,12 @@ return {
     - luasnips for latex
 - keep currently opened applications as cache as a list after reboot / restart for simple continuation
     - maybe tmux equivalent with resurrect?
+
+
+Consider Doing the Following too for waybar:
+- Add Options to restore previous sessions:
+    -  fa-window-close-o [&#xf2d4;]4.7 fa-window-maximize [&#xf2d0;]4.7 fa-window-minimize [&#xf2d1;]4.7
+- add spotify interaction in bar: 
+- time-shift save button: 
+- battery settings: 
+- diagnostic settings of the device hardware: 
