@@ -116,6 +116,7 @@ typeset -A menu
 menu=(
   [ Shutdown]="systemctl poweroff"
   [ Reboot]="systemctl reboot"
+  [ UEFI/BIOS]="systemctl reboot --firmware-setup"
   [ Suspend]="systemctl suspend"
   [ Hibernate]="systemctl hibernate"
   [ Lock]="~/.config/i3/scripts/blur-lock"

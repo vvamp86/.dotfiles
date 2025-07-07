@@ -22,7 +22,7 @@ default_border pixel 1
 font pango: FiraCode Nerd Font 10
 
 # Set wallpaper:
-exec swaybg -i "${HOME}/.config/sway/EndeavourOS_SpaceStation__3840x2160.png" -m fill &
+exec swaybg -i "/usr/share/backgrounds/wallpaper.png" -m fill &
 
 # Title format for windows
 for_window [shell="xdg_shell"] title_format "%title (%app_id)"
@@ -49,7 +49,7 @@ set $yellowbrown    #e9b143
 client.focused              $lightblue  $darkblue   $white      $mediumgrey     $mediumgrey
 client.unfocused            $darkblue   $darkblue   $grey       $darkgrey       $darkgrey
 client.focused_inactive     $darkblue   $darkblue   $grey       $black          $black
-client.urgent               $urgentred  $urgentred  $white      $yellowbrown    $yellowbrown#
+client.urgent               $urgentred  $urgentred  $white      $yellowbrown    $yellowbrown
 client.background           $white
 
 ##############
