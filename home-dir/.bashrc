@@ -75,6 +75,7 @@ alias yz="yazi"
 
 # Suspend & Hibernate Shorthand
 alias sus='cd | systemctl suspend'
+alias suspend=sus
 # alias hib='cd | systemctl hibernate'  # Not in use
 
 # Rank Arch Mirrors
