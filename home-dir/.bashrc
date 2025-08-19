@@ -43,6 +43,9 @@ export GLFW_IM_MODULE=fcitx # GLFW works better with ibus but can try fcitx
 # For `pipx`
 export PATH="$PATH:/home/sudowoodo/.local/bin"
 
+# for `nvm` (nodejs version manager)
+source /usr/share/nvm/init-nvm.sh
+
 ########################
 # Replacement Commands #
 ########################
