@@ -180,9 +180,11 @@ bindsym $mod+plus exec --no-startup-id ~/.config/i3/scripts/language-selector
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id alacritty
+bindsym Ctrl+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+q kill
+bindsym Ctrl+q kill
 
 # exit-menu
 bindsym $mod+Shift+e exec --no-startup-id ~/.config/i3/scripts/powermenu
@@ -194,7 +196,6 @@ bindsym $mod+Shift+e exec --no-startup-id ~/.config/i3/scripts/powermenu
 bindsym $mod+Shift+Mod1+l exec --no-startup-id ~/.config/i3/scripts/blur-lock
 # lock in case after sleep
 exec --no-startup-id xss-lock -l ~/.config/i3/scripts/blur-lock
-exec --no-startup-id xss-lock -- ~/.config/i3/scripts/blur-lock
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -437,7 +438,7 @@ exec --no-startup-id sleep 1 && feh --auto-reload --bg-fill /usr/share/backgroun
 # Recommend using the given for multiple devices to keep separate backgrounds
 
 # set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
+exec --no-startup-id xset s 300 dpms 480 480 480
 
 # disable power saving (for example if using xscreensaver)
 #exec --no-startup-id xset -dpms
