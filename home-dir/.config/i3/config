@@ -180,7 +180,6 @@ bindsym $mod+plus exec --no-startup-id ~/.config/i3/scripts/language-selector
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id alacritty
-bindsym Ctrl+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+q kill
