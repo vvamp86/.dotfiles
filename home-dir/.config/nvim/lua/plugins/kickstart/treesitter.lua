@@ -18,7 +18,7 @@ return {
         'query',
         'vim',
         'vimdoc',
-        -- 'latex', -- add LaTeX here once working
+        'latex', -- add LaTeX here once working
       },
       -- Autoinstall languages that are not installed
       auto_install = true,

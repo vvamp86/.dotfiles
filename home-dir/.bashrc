@@ -46,6 +46,12 @@ export PATH="$PATH:/home/sudowoodo/.local/bin"
 # for `nvm` (nodejs version manager)
 source /usr/share/nvm/init-nvm.sh
 
+# for Anaconda
+[ -f /opt/anaconda/etc/profile.d/conda.sh ] && source /opt/anaconda/etc/profile.d/conda.sh
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=true
+
+# for ocaml's `opam`
+eval $(opam env --switch=default)
 ########################
 # Replacement Commands #
 ########################
@@ -61,6 +67,7 @@ alias find='fd'
 alias ps='procs'
 alias cd='z'        # zoxide
 alias top='btop'
+
 
 ##############
 # Shorthands #
