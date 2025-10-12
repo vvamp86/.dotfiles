@@ -27,3 +27,16 @@ vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufWritePre' }, {
     end
   end,
 })
+
+-- Autosave every 30 minutes (1800000 ms)
+vim.fn.timer_start(1800000, function()
+  -- Save all modified buffers
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_get_option(buf, "modified") then
+      vim.api.nvim_buf_call(buf, function()
+        vim.cmd("silent! write")
+        print("autosaved")
+      end)
+    end
+  end
+end, { ["repeat"] = -1 })
