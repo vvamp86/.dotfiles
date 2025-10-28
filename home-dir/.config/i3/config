@@ -464,8 +464,8 @@ exec --no-startup-id /usr/bin/dunst
 exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
-#exec --no-startup-id sleep 2 && xfce4-terminal
-#exec --no-startup-id sleep 7 && brave && obsidian
+exec --no-startup-id sleep 1 && vesktop
+exec --no-startup-id sleep 2 && brave && obsidian
 #exec --no-startup-id sleep 3 && thunar
 
 ###############
