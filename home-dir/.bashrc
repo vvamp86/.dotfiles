@@ -21,6 +21,9 @@ eval "$(zoxide init bash)"
 export EDITOR=nvim
 export VISUAL=nvim
 
+# Export Brave as default browser
+export BROWSER=brave
+
 # set GTK2
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
@@ -52,6 +55,13 @@ export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=true
 
 # for ocaml's `opam`
 eval $(opam env --switch=default)
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 ########################
 # Replacement Commands #
 ########################
@@ -76,6 +86,10 @@ alias top='btop'
 # nvim shortcut
 # alias nvchad='NVIM_APPNAME="nvchad" nvim' # Old shortcut
 alias nv='nvim'
+alias n='!nvim'
+
+# zathura shortcut
+alias za='zathura'
 
 # yazi shortcut
 alias yz="yazi"
@@ -129,3 +143,21 @@ log_dmesg() {
   sudo dmesg -wT | tee "$log_file"
 }
 
+function codediff() {
+    local file1="$1"
+    local file2="$2"
+
+    # Simple comment removal for common languages
+    case "${file1##*.}" in
+        py|pl|rb|sh)
+            diff <(grep -v '^[[:space:]]*#' "$file1") <(grep -v '^[[:space:]]*#' "$file2")
+            ;;
+        c|cpp|java|js)
+            diff <(grep -v '^[[:space:]]*//' "$file1" | grep -v '^[[:space:]]*/\*' | grep -v '\*/') \
+                 <(grep -v '^[[:space:]]*//' "$file2" | grep -v '^[[:space:]]*/\*' | grep -v '\*/')
+            ;;
+        *)
+            echo "Unsupported file type"
+            ;;
+    esac
+}
