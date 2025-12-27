@@ -3,7 +3,7 @@
 # Copyright (C) 2021 Andreas Lindlbauer
 # Licensed under the terms of EUPLv1.2.
 #
-# i3blocks blocklet script to monitor the (nord)vpn connection
+# i3blocks blocklet script to monitor the dns (1.1.1.1) / proton vpn connection
 
 vpnstatus="📢"
 nordvpn_output=$(nordvpn status | cat -v | head -1 | sed -e 's/\^M-^M  ^M//g' )

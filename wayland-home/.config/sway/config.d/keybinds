@@ -1,0 +1,361 @@
+
+
+####################
+### Key bindings ###
+####################
+##########
+# Basics #
+##########
+    # Launch the terminal
+    bindsym $mod+Return exec --no-startup-id $term
+
+    # Open the power menu
+    bindsym $mod+Shift+e exec --no-startup-id $powermenu
+
+    # Power Profiles menu switcher (wofi)
+    bindsym $mod+Shift+p exec --no-startup-id ~/.config/sway/scripts/power-profiles
+
+    # Kill focused window
+    bindsym $mod+q kill
+    bindsym Ctrl+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $launcher
+
+    # Menu
+    bindsym $mod+Shift+d exec $menu
+
+    # Lock screen
+    bindsym $mod+f1 exec gtklock
+
+    # Activities
+    bindsym $mod+Shift+s exec ~/.config/sway/scripts/window_switcher.sh
+
+    # Move windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Change "normal" to "inverse" to switch left and right
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+r reload
+
+    # restart sway inplace (preserves your layout/session, can be used to update i3)
+    bindsym $mod+Shift+Mod1+r restart
+
+    ###################
+    # Advanced Basics #
+    ###################
+        # Language Selection
+        bindsym $mod+plus exec --no-startup-id ~/.config/sway/scripts/language-selector
+
+        # Launch the clipboard manager
+        bindsym $mod+Ctrl+v exec cliphist list | fuzzel -d -w 90 -l 30 -p "Select an entry to copy it to your clipboard buffer:"| cliphist decode | wl-copy
+
+        # Delete an entry from the clipboard manager
+        bindsym $mod+Ctrl+x exec cliphist list | fuzzel -d -w 90 -l 30 -t cc9393ff -S cc9393ff -p "Select an entry to delete it from cliphist:"| cliphist delete
+        # Note: you can clear all cliphist entries by running `cliphist wipe`
+
+        # open unicode selector
+        bindsym $mod+u exec --no-startup-id ~/.config/sway/scripts/unicode-picker-insert
+
+    ############
+    # Movement #
+    ############
+    bindsym {
+        # Change window focus
+        $mod+Left focus left
+        $mod+Down focus down
+        $mod+Up focus up
+        $mod+Right focus right
+
+        # Vim key support
+        $mod+$left focus left
+        $mod+$down focus down
+        $mod+$up focus up
+        $mod+$right focus right
+
+        # Move the focused window
+        $mod+Shift+Left move left
+        $mod+Shift+Down move down
+        $mod+Shift+Up move up
+        $mod+Shift+Right move right
+
+        # Vim key support
+        $mod+Shift+$left move left
+        $mod+Shift+$down move down
+        $mod+Shift+$up move up
+        $mod+Shift+$right move right
+    }
+
+    #######################
+    # resize window binds #
+    #######################
+        bindsym $mod+r mode "resize"
+
+        mode "resize" {
+            bindsym $left   resize shrink width 10 px or 10 ppt
+            bindsym $down   resize grow height 10 px or 10 ppt
+            bindsym $up     resize shrink height 10 px or 10 ppt
+            bindsym $right  resize grow width 10 px or 10 ppt
+
+            # same bindings, but for the arrow keys
+            bindsym Left    resize shrink width 10 px or 10 ppt
+            bindsym Down    resize grow height 10 px or 10 ppt
+            bindsym Up      resize shrink height 10 px or 10 ppt
+            bindsym Right   resize grow width 10 px or 10 ppt
+
+            # back to normal: Enter or Escape
+            bindsym Return mode "default"
+            bindsym Escape mode "default"
+        }
+
+##############
+# Workspaces #
+##############
+    # Workspace bindings are using bindcode instead of bindsym for better Azerty compatibility.
+    # https://github.com/EndeavourOS-Community-Editions/sway/pull/81
+    # Use wev to find keycodes for setting up other bindings this way.
+
+    # Define names for default workspaces for which we configure key bindings later on.
+    # We use variables to avoid repeating the names in multiple places.
+    set $ws1    "1:    "
+    set $ws2    "2:    "
+    set $ws3    "3:    "
+    set $ws4    "4:    "
+    set $ws5    "5:    "
+    set $ws6    "6:    "
+    set $ws7    "7:    "
+    set $ws8    "8"
+    set $ws9    "9"
+    set $ws10   "10"
+
+    bindsym $mod+Tab workspace next
+    bindsym $mod+Shift+Tab workspace prev
+
+    bindcode {
+        # Switch to workspace
+        $mod+10 workspace number $ws1
+        $mod+11 workspace number $ws2
+        $mod+12 workspace number $ws3
+        $mod+13 workspace number $ws4
+        $mod+14 workspace number $ws5
+        $mod+15 workspace number $ws6
+        $mod+16 workspace number $ws7
+        $mod+17 workspace number $ws8
+        $mod+18 workspace number $ws9
+        $mod+19 workspace number $ws10
+
+        # switch to workspace with numpad keys
+        $mod+87 workspace $ws1
+        $mod+88 workspace $ws2
+        $mod+89 workspace $ws3
+        $mod+83 workspace $ws4
+        $mod+84 workspace $ws5
+        $mod+85 workspace $ws6
+        $mod+79 workspace $ws7
+        $mod+80 workspace $ws8
+        $mod+81 workspace $ws9
+        $mod+90 workspace $ws10
+
+        # switch to workspace with numlock numpad keys
+        $mod+Mod2+87 workspace $ws1
+        $mod+Mod2+88 workspace $ws2
+        $mod+Mod2+89 workspace $ws3
+        $mod+Mod2+83 workspace $ws4
+        $mod+Mod2+84 workspace $ws5
+        $mod+Mod2+85 workspace $ws6
+        $mod+Mod2+79 workspace $ws7
+        $mod+Mod2+80 workspace $ws8
+        $mod+Mod2+81 workspace $ws9
+        $mod+Mod2+90 workspace $ws10
+
+        # Move focused container to workspace
+        $mod+Shift+10 move container to workspace number $ws1
+        $mod+Shift+11 move container to workspace number $ws2
+        $mod+Shift+12 move container to workspace number $ws3
+        $mod+Shift+13 move container to workspace number $ws4
+        $mod+Shift+14 move container to workspace number $ws5
+        $mod+Shift+15 move container to workspace number $ws6
+        $mod+Shift+16 move container to workspace number $ws7
+        $mod+Shift+17 move container to workspace number $ws8
+        $mod+Shift+18 move container to workspace number $ws9
+        $mod+Shift+19 move container to workspace number $ws10
+
+        # move focused container to workspace with numpad keys
+        $mod+Shift+87   move container to workspace  $ws1
+        $mod+Shift+88   move container to workspace  $ws2
+        $mod+Shift+89   move container to workspace  $ws3
+        $mod+Shift+83   move container to workspace  $ws4
+        $mod+Shift+84   move container to workspace  $ws5
+        $mod+Shift+85   move container to workspace  $ws6
+        $mod+Shift+79   move container to workspace  $ws7
+        $mod+Shift+80   move container to workspace  $ws8
+        $mod+Shift+81   move container to workspace  $ws9
+        $mod+Shift+90   move container to workspace  $ws10
+
+        # move focused container to workspace with numlock numpad keys
+        $mod+Shift+Mod2+87     move container to workspace  $ws1
+        $mod+Shift+Mod2+88     move container to workspace  $ws2
+        $mod+Shift+Mod2+89     move container to workspace  $ws3
+        $mod+Shift+Mod2+83     move container to workspace  $ws4
+        $mod+Shift+Mod2+84     move container to workspace  $ws5
+        $mod+Shift+Mod2+85     move container to workspace  $ws6
+        $mod+Shift+Mod2+79     move container to workspace  $ws7
+        $mod+Shift+Mod2+80     move container to workspace  $ws8
+        $mod+Shift+Mod2+81     move container to workspace  $ws9
+        $mod+Shift+Mod2+90     move container to workspace  $ws10
+    }
+
+    ################
+    # Layout stuff #
+    ################
+    # Set how the current window will be split
+    # Split the window vertically
+    bindsym $mod+v splitv
+    # Split the window horizontally
+    bindsym $mod+b splith
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout toggle stacking
+    bindsym $mod+g layout toggle tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen toggle
+
+    # Toggle between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+    ##############
+    # Scratchpad #
+    ##############
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+    #######################
+    # Resizing containers #
+    #######################
+    bindsym {
+        # Resize with arrow keys
+        $mod+ctrl+Right resize shrink width 10 px
+        $mod+ctrl+Up resize grow height 10 px
+        $mod+ctrl+Down resize shrink height 10 px
+        $mod+ctrl+Left resize grow width 10 px
+        # Resize with Vim keys
+        $mod+ctrl+$right resize shrink width 10 px
+        $mod+ctrl+$up resize grow height 10 px
+        $mod+ctrl+$down resize shrink height 10 px
+        $mod+ctrl+$left resize grow width 10 px
+    }
+
+    # Resize floating windows with mouse scroll:
+    bindsym --whole-window --border {
+        # Resize vertically
+        $mod+button4 resize shrink height 5 px or 5 ppt
+        $mod+button5 resize grow height 5 px or 5 ppt
+        # Resize horizontally
+        $mod+Shift+button4 resize shrink width 5 px or 5 ppt
+        $mod+Shift+button5 resize grow width 5 px or 5 ppt
+    }
+
+    ##############
+    # Media Keys #
+    ##############
+    bindsym {
+        # Volume
+        #XF86AudioRaiseVolume exec pamixer -ui 2    # simpler config, increase volume
+        #XF86AudioLowerVolume exec pamixer -ud 2    # simpler config, decrease volume
+        #XF86AudioMute exec pamixer --toggle-mute   # simpler config, mute volume
+        #
+        #$mod+XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 swayblocks    # granular volume control, increase volume
+        #$mod+XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 1%- && pkill -RTMIN+1 swayblocks    # granular volume control, decrease volume
+
+        XF86AudioRaiseVolume exec --no-startup-id ~/.config/sway/scripts/volume_brightness.sh volume_up
+        XF86AudioLowerVolume exec --no-startup-id ~/.config/sway/scripts/volume_brightness.sh volume_down
+        XF86AudioMute exec --no-startup-id ~/.config/sway/scripts/volume_brightness.sh volume_mute
+
+        # Toggle Between Audio Devices
+        $mod+p exec --no-startup-id ~/.config/sway/scripts/audio-device-switch
+
+        # Microphone
+        XF86AudioMicMute exec amixer sset Capture toggle
+
+        # Player
+        XF86AudioPlay exec --no-startup-id playerctl play-pause
+        XF86AudioNext exec --no-startup-id playerctl next
+        XF86AudioPrev exec --no-startup-id playerctl previous
+
+        # Brightness
+            # Screen Brightness
+            XF86MonBrightnessUp   exec --no-startup-id ~/.config/sway/scripts/volume_brightness.sh screen_brightness_up
+            XF86MonBrightnessDown exec --no-startup-id ~/.configwsway/scripts/volume_brightness.sh screen_brightness_down
+
+            # Keyboard Brightness
+            Mod1+space       exec --no-startup-id ~/.config/sway/scripts/volume_brightness.sh keyboard_brightness_up
+            Mod1+Shift+space exec --no-startup-id ~/.config/sway/scripts/volume_brightness.sh keyboard_brightness_down
+    }
+
+    #################
+    # App shortcuts #
+    #################
+    # Launch the file explorers
+    bindsym $mod+Shift+f exec thunar
+    bindsym $mod+y exec --no-startup-id alacritty -e yazi
+
+    # Talk
+    bindsym $mod+n exec --no-startup-id vesktop
+
+    # Notes
+    bindsym $mod+o exec --no-startup-id obsidian
+
+    # Music
+    bindsym $mod+m exec --no-startup-id env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify
+
+    # Launch the browser
+    bindsym $mod+w exec --no-startup-id /usr/bin/brave
+
+    # File viewer
+    bindsym $mod+z exec --no-startup-id zathura
+
+    ###############
+    # Screenshots #
+    ###############
+    bindsym Print exec --no-startup-id flameshot gui
+
+#####################################
+######################### Old Stuff #
+#####################################
+
+## wofi bindings for window menu ($mod+t)
+bindsym $mod+t exec --no-startup-id rofi -show window \
+        -config ~/.config/rofi/rofidmenu.rasi
+
+## wofi bindings to manage clipboard (install wofi-greenclip from the AUR)
+exec --no-startup-id greenclip daemon>/dev/null
+bindsym $mod+c exec --no-startup-id rofi -mode "clipboard:greenclip print"\
+        -config ~/.config/rofi/rofidmenu.rasi
+
+# open new empty workspace
+bindsym $mod+Shift+n exec --no-startup-id ~/.config/sway/scripts/empty_workspace
+
+# lock by blurring the screen:
+bindsym $mod+Shift+Mod1+l exec --no-startup-id ~/.config/sway/scripts/blur-lock
+
+# lock in case after sleep
+exec --no-startup-id xss-lock -l ~/.config/sway/scripts/blur-lock
+
+# keybinding in fancy wofi (automated):
+bindsym F1 exec --no-startup-id ~/.config/sway/scripts/keyhint-2

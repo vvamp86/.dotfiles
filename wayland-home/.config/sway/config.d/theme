@@ -1,5 +1,5 @@
 # Apply gtk theming
-exec_always ~/.config/sway/scripts/import-gsettings
+exec_always ~/.config/sway/scripts/import-gnome-settings
 
 # scale settings
 output eDP-1 scale 1
