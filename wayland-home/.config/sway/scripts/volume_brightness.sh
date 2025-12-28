@@ -104,10 +104,10 @@ function get_keyboard_brightness_icon {
     if [ -z "$kb_brightness" ]; then
         kb_brightness=0
     fi
-    if [ "$kb_brightness" -eq 33 ] ; then
+    if [ "$kb_brightness" -lt 33 ] ; then
         keyboard_brightness_icon="󰃞"  # brightness off
     elif [ "$kb_brightness" -lt 67 ] ; then
-        keyboard_brightness_icon="󰃝"  # brightness low
+        keyboard_brightness_icon="󰃟"  # brightness low
     else
         keyboard_brightness_icon="󰃠"  # brightness high
     fi
@@ -115,10 +115,10 @@ function get_keyboard_brightness_icon {
 
 function get_screen_brightness_icon {
     sc_brightness=$(get_screen_brightness)
-    if [ "$sc_brightness" -eq 33 ] ; then
+    if [ "$sc_brightness" -lt 33] ; then
         screen_brightness_icon="󰃞"  # brightness off
     elif [ "$sc_brightness" -lt 67 ] ; then
-        screen_brightness_icon="󰃝"  # brightness low
+        screen_brightness_icon="󰃟"  # brightness low
     else
         screen_brightness_icon="󰃠"  # brightness high
     fi

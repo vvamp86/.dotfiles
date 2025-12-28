@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
-#
-# power-profiles-daemon implementation:
-# needs package power-profiles-daemon installed and the service running see here:
-# https://wiki.archlinux.org/title/CPU_frequency_scaling#power-profiles-daemon
-# used in i3-blocks: ~/.config/i3/i3blocks.conf together with: ~/.config/i3/scripts/power-profiles
 
-# script to show current power profile
+# Get current profile
+current_profile=$(powerprofilesctl get 2>/dev/null || echo "unknown")
 
-# assign tags or translations to each profile
-declare -A tags
-tags=(
-  [performance]="Perf"
-  [balanced]="Baln"
-  [power-saver]="Save"
-)
+# Choose icon based on profile
+case "$current_profile" in
+    "power-saver")
+        icon=""  # Battery saver icon
+        ;;
+    "balanced")
+        icon=""  # Balanced icon
+        ;;
+    "performance")
+        icon=""  # Performance icon
+        ;;
+    *)
+        icon="󰂭"  # Unknown icon
+        ;;
+esac
 
-# Get current profile 
-current_profile=$(/usr/bin/powerprofilesctl get)
-
-# Get tag from the array
-profile_tag=${tags[$current_profile]}
-
-# Show tag on i3block
-echo "${profile_tag:-$current_profile}"
+# Output JSON for Waybar
+echo "{\"text\": \"$icon\", \"class\": \"$current_profile\", \"tooltip\": \"Power Profile: $current_profile\"}"
