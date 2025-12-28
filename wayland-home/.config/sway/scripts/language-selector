@@ -27,7 +27,7 @@ for engine in "${engines[@]}"; do
     esac
 done
 
-# Build options list for wofi
+# Build options list for rofi
 options=()
 for engine in "${engines[@]}"; do
     options+=("${names[$engine]}")
@@ -42,8 +42,8 @@ for i in "${!engines[@]}"; do
     fi
 done
 
-# Show wofi menu
-selected=$(printf "%s\n" "${options[@]}" | wofi -dmenu -p "Language" -config ~/.config/wofi/wofidmenu.rasi -selected-row "$selected_index")
+# Show rofi menu
+selected=$(printf "%s\n" "${options[@]}" | rofi -dmenu -p "Language" -config ~/.config/rofi/rofidmenu.rasi -selected-row "$selected_index")
 
 # Reverse-lookup the engine
 new_engine=""

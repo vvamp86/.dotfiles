@@ -299,7 +299,7 @@
         # Brightness
             # Screen Brightness
             XF86MonBrightnessUp   exec --no-startup-id ~/.config/sway/scripts/volume_brightness.sh screen_brightness_up
-            XF86MonBrightnessDown exec --no-startup-id ~/.configwsway/scripts/volume_brightness.sh screen_brightness_down
+            XF86MonBrightnessDown exec --no-startup-id ~/.config/sway/scripts/volume_brightness.sh screen_brightness_down
 
             # Keyboard Brightness
             Mod1+space       exec --no-startup-id ~/.config/sway/scripts/volume_brightness.sh keyboard_brightness_up
