@@ -1,0 +1,290 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "output": ["HDMI-A-1", "DP-1", "eDP-1"],
+
+  "modules-left": [
+    "custom/launcher",
+    "sway/workspaces"
+/*  "sway/mode",    */
+/*  "sway/window",  */
+  ],
+
+  "modules-center": [
+    "custom/terminal",
+    "custom/browser",
+    "custom/files",
+    "custom/mail",
+    "custom/text",
+    "custom/music",
+    "custom/notes",
+    "mpris",
+  ],
+
+  "modules-right": [
+    "clock",
+    "backlight",
+    "wireplumber",
+    "cpu",
+    "memory",
+    "tray",
+    "custom/ppd-status",
+    "battery",
+/*  "custom/updates", */
+    "custom/powermenu"
+  ],
+
+  // Screen Brightness
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-click": "brightnessctl set 5%+",
+    "on-click-right": "brightnessctl set 5%-",
+    "on-scroll-up": "brightnessctl set 0.5%+",
+    "on-scroll-down": "brightnessctl set 0.5%-"
+  },
+
+  // Audio
+  "wireplumber": {
+    "tooltip": false,
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "format-bluetooth": " {icon} {volume}%",
+    "format-headphones": " {volume}%",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute   @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up":   "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.5%-",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+  },
+
+/*
+  "network": {
+    "tooltip": true,
+    "format-wifi": " ",
+    "rotate": 0,
+    "format-ethernet": "󰈀 ",
+    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰖪 ",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 2,
+    "on-click": "iwgtk"
+  },
+*/
+
+  // Battery
+  "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "rotate": 0,
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+  "clock": {
+    "format": "  {:%H:%M  •  󰃭  %d/%m/%Y}",
+    "tooltip": false
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "rotate": 0,
+    "spacing": 5
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+    "on-click": "alacritty btop",
+    "tooltip": true
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "  {used:0.1f}/{total:0.1f}G",
+    "max-length": 20
+  },
+
+  "custom/launcher": {
+    "format": " ",
+    "on-click": "rofi -show window -config ~/.config/rofi/rofidmenu.rasi",
+    "on-click-right":"killall rofi"
+  },
+
+/*
+  "custom/bluetooth": {
+    "format": " {}",
+    "exec": "~/.config/waybar/bluetooth-display.sh",
+    "interval": 10,
+    "on-click": "blueman-manager",
+    "return-type": "plain",
+    "tooltip": false,
+    "max-length": 25
+  },
+*/
+
+  // Music
+  "mpris": {
+    "format": "{player_icon}  {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "format-stopped": "",
+    "ignore-list": ["vesktop,Discord"],
+    "player-icons": {
+      "brave": "",
+      "default": "",
+      "spotify": "",
+      "vlc": "",
+      "mpv": ""
+    },
+    "status-icons": {
+      "paused": "▶",
+      "playing": "⏸"
+    },
+    "max-length": 40,
+    "tooltip": true
+  },
+
+  // SWAY WORKSPACES
+  "sway/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "10"
+    },
+    "active": "",
+    "sort-by-number": true
+  },
+
+/* No systemupdate.sh created yet
+  "custom/updates": {
+    "exec": "systemupdate.sh",
+    "return-type": "json",
+    "format": "{}",
+    "rotate": 0,
+    "on-click": "hyprctl dispatch exec 'systemupdate.sh up'",
+    "interval": 43200,
+    "tooltip": true,
+    "signal": 20
+  },
+*/
+
+  // Taskbar
+/*
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 10,
+    "icon-theme": "Gruvbox-Dark-Hard",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": ["alacritty", "vesktop"],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "markup": true,
+    "all-outputs": false
+  },
+*/
+
+/* ======================================================== */
+/* Power Related                                            */
+/* ======================================================== */
+  "custom/ppd-status": {
+    "exec": "~/.config/sway/scripts/ppd-status",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 5,
+    "tooltip": true,
+    "on-click": "~/.config/sway/scripts/power-profiles",
+    "on-click-right": "powerprofilesctl set $(powerprofilesctl get | sed -e 's/power-saver/balanced/' -e 's/balanced/performance/' -e 's/performance/power-saver/')",
+    "on-scroll-up": "powerprofilesctl set performance",
+    "on-scroll-down": "powerprofilesctl set power-saver"
+  },
+
+  "custom/powermenu": {
+    "format": " ",
+    "tooltip": "Power Menu",
+    "on-click": "~/.config/sway/scripts/powermenu",
+    "on-click-right": "swaymsg exec '~/.config/sway/scripts/powermenu'"
+  },
+
+/* ======================================================== */
+/* Application Launchers                                    */
+/* ======================================================== */
+  "custom/terminal": {
+    "format": " ",
+    "tooltip": "Terminal",
+    "on-click": "swaymsg exec alacritty",
+//  "on-click-right": "swaymsg exec kitty",  // Optional: right click for different terminal
+    "interval": "once"
+  },
+
+  "custom/browser": {
+    "format": " ",
+    "tooltip": "Browser",
+    "on-click": "swaymsg exec brave",
+    "on-click-right": "swaymsg exec librewolf",
+    "interval": "once"
+  },
+
+  "custom/files": {
+    "format": " ",
+    "tooltip": "File Manager",
+    "on-click": "swaymsg exec thunar ~/",
+    "on-click-right": "swaymsg exec alacritty yazi",
+    "interval": "once"
+  },
+
+  "custom/mail": {
+    "format": " ",
+    "tooltip": "Email",
+    "on-click": "swaymsg exec thunderbird",
+    "interval": "once"
+  },
+
+  "custom/text": {
+    "format": " ",
+    "tooltip": "Discord",
+    "on-click": "swaymsg exec vesktop",
+//  "on-click-right": "swaymsg exec slack",
+    "interval": "once"
+  },
+
+  "custom/music": {
+    "format": " ",
+    "tooltip": "Spotify",
+    "on-click": "swaymsg exec LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify",
+    "on-click-right": "swaymsg exec youtube-music",
+    "interval": "once"
+  },
+
+  "custom/notes": {
+    "format": " ",
+    "tooltip": "Obsidian",
+    "on-click": "swaymsg exec obsidian",
+    "interval": "once"
+  }
+}

@@ -6,16 +6,16 @@ current_profile=$(powerprofilesctl get 2>/dev/null || echo "unknown")
 # Choose icon based on profile
 case "$current_profile" in
     "power-saver")
-        icon=""  # Battery saver icon
+        icon=" "  # Battery saver icon
         ;;
     "balanced")
-        icon=""  # Balanced icon
+        icon=" "  # Balanced icon
         ;;
     "performance")
-        icon=""  # Performance icon
+        icon=" "  # Performance icon
         ;;
     *)
-        icon="󰂭"  # Unknown icon
+        icon="󰂭 "  # Unknown icon
         ;;
 esac
 
