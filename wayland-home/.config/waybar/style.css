@@ -15,7 +15,7 @@ window#waybar {
 }
 
 window#waybar.hidden {
-  opacity: 0.98;
+  opacity: 0.90;
 }
 
 #window,
@@ -30,9 +30,10 @@ window#waybar.hidden {
 #cpu,
 #custom-launcher,
 #custom-bluetooth,
-#mpris {
-  font-family: CaskaydiaMono Nerd Font;
-  font-size: 11.5px;
+#mpris,
+#custom-powermenu {
+  font-family: FiraCode Nerd Font;
+  font-size: 10px;
   color: #282828;
   margin-right: 6px;
   margin-left: 6px;
@@ -46,8 +47,8 @@ window#waybar.hidden {
 /* workspaces module */
 /* ======================================================== */
 #workspaces {
-  font-family: CaskaydiaMono Nerd Font;
-  font-size: 11.5px;
+  font-family: FiraCode Nerd Font;
+  font-size: 10px;
   font-weight: 600;
   color: #282828;
   padding: 3px 7px;
@@ -76,6 +77,9 @@ window#waybar.hidden {
 #workspaces button.active {
   background: #b8bb26;
   color: #282828;
+  font-weight: bold;
+  box-shadow: 0 0 5px rgba(184, 187, 38, 0.5);
+
 }
 
 #workspaces button.urgent {
@@ -196,7 +200,7 @@ window#waybar.empty #window {
 /* ======================================================== */
 #custom-launcher {
   color: #076678;
-  font-size: 12px;
+  font-size: 10px;
   margin-left: 6px;
   margin-right: 6px;
   border-bottom-color: #076678;
@@ -263,4 +267,52 @@ window#waybar.empty #window {
 
 #taskbar button.urgent {
   border-bottom-color: #fb4934;
+}
+
+/* ======================================================== */
+/* Power Profile Status                                     */
+/* ======================================================== */
+#custom-ppd-status {
+    font-family: FiraCode Nerd Font;
+    font-size: 10px;
+    padding: 3px 7px;
+    margin-right: 6px;
+    margin-left: 6px;
+    border-bottom: 2px solid;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+#custom-ppd-status.power-saver {
+    color: #689d6a; /* Gruvbox green */
+    border-bottom-color: #689d6a;
+    background-color: rgba(104, 157, 106, 0.1);
+}
+
+#custom-ppd-status.balanced {
+    color: #fabd2f; /* Gruvbox yellow */
+    border-bottom-color: #fabd2f;
+    background-color: rgba(250, 189, 47, 0.1);
+}
+
+#custom-ppd-status.performance {
+    color: #fb4934; /* Gruvbox red */
+    border-bottom-color: #fb4934;
+    background-color: rgba(251, 73, 52, 0.1);
+}
+
+#custom-ppd-status:hover {
+    background-color: rgba(60, 56, 54, 0.5);
+}
+
+#custom-powermenu {
+    color: #cc241d; /* Gruvbox red */
+    border-bottom-color: #cc241d;
+    padding: 3px 7px;
+    margin-right: 6px;
+    margin-left: 6px;
+    border-bottom: 2px solid;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }

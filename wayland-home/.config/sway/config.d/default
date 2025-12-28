@@ -14,7 +14,7 @@ set $right  l
 set $term alacritty
 
 # Application launcher
-set $launcher fuzzel
+set $launcher rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
 
 # Application menu
 set $menu nwg-drawer

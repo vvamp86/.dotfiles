@@ -2,8 +2,8 @@
 WINIT_X11_SCALE_FACTOR = "1.0"
 
 [window]
-decorations = "None" 
-opacity = 1.0
+decorations = "None"
+opacity = 0.8
 title = "Terminal"
 padding = {x = 0, y = 0}
 
@@ -22,7 +22,7 @@ background = "#141617"
 black = "#181818"
 red = "#f2594b"
 green = "#b0b846"
-yellow = "#e9b143" 
+yellow = "#e9b143"
 blue = "#80aa9e"
 magenta = "#d3869b"
 cyan = "#8bba7f"

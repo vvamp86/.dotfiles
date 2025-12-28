@@ -1,42 +1,41 @@
 #!/usr/bin/env bash
-BLANK='#28282800'        # Transparent Gruvbox background (Dark0 + 00 alpha)
-CLEAR='#92837422'        # Inactive ring (Gruvbox Gray + low alpha)
-DEFAULT='#ebdbb2cc'      # Default ring color (Gruvbox Light1 + 80% alpha)
-TEXT='#ebdbb2ff'         # Time/Date/Text color (Gruvbox Light1, opaque)
-WRONG='#fb4934cc'        # Wrong password (Gruvbox Red + 80% alpha)
-VERIFYING='#b8bb26cc'    # Verifying ring (Gruvbox Green + 80% alpha)
-TYPING='#076678cc'       # Typing color in the ring (Gruvbox Blue + 80% alpha)
 
-PICTURE=/tmp/i3lock.png
-
-# IF POSSIBLE IN THE FUTURE, DISABLE NOTIFICATION FOR THIS
-flameshot full -p $PICTURE
-
-BLUR="5x4"
-
-magick "$PICTURE" -blur "$BLUR" \( -size $(identify -format "%wx%h" "$PICTURE") xc:'rgba(0,0,0,0.5)' \) \
--compose over -composite "$PICTURE"
+BLANK='#28282800'        # Transparent Gruvbox background
+CLEAR='#92837422'        # Inactive ring
+DEFAULT='#ebdbb2cc'      # Default ring
+TEXT='#ebdbb2ff'         # Text color
+WRONG='#fb4934cc'        # Wrong password
+VERIFYING='#b8bb26cc'    # Verifying
+TYPING='#076678cc'       # Typing highlight
 
 swaylock \
---image "$PICTURE" \
---ring-ver-color "$VERIFYING" \
---inside-ver-color "$CLEAR" \
-\
---ring-wrong-color "$WRONG" \
---inside-wrong-color "$CLEAR" \
-\
---ring-color "$DEFAULT" \
---inside-color "$BLANK" \
---line-color "$BLANK" \
---separator-color "$DEFAULT" \
-\
---text-color "$TEXT" \
---key-hl-color "$TYPING" \
---bs-hl-color "$WRONG" \
-\
---clock \
---indicator \
---time-str "%H:%M:%S" \
---date-str "%A, %Y-%m-%d"
-
-rm $PICTURE
+  --font "FiraCode Nerd Font"     \
+  \
+  --screenshots                   \
+  --effect-blur 8x5               \
+  --effect-vignette 0.4:0.6       \
+  \
+  --inside-ver-color=$CLEAR       \
+  --ring-ver-color=$VERIFYING     \
+  \
+  --inside-wrong-color=$CLEAR     \
+  --ring-wrong-color=$WRONG       \
+  \
+  --inside-color=$BLANK           \
+  --ring-color=$DEFAULT           \
+  --line-color=$BLANK             \
+  --separator-color=$DEFAULT      \
+  \
+  --text-ver-color=$TEXT          \
+  --text-wrong-color=$TEXT        \
+  --text-color=$TEXT              \
+  --layout-text-color=$TEXT       \
+  --key-hl-color=$TYPING          \
+  --bs-hl-color=$WRONG            \
+  \
+  --clock \
+  --indicator \
+  --indicator-radius 80 \
+  --indicator-thickness 8 \
+  --timestr "%H:%M:%S" \
+  --datestr "%A, %Y-%m-%d"
