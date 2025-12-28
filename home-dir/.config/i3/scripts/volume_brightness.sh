@@ -67,22 +67,22 @@ function get_volume_icon {
 function get_keyboard_brightness_icon {
     kb_brightness=$(get_keyboard_brightness)
     if [ "$kb_brightness" -eq 0 ] ; then
-        keyboard_brightness_icon=""  # unfilled circle
+        keyboard_brightness_icon="󰃞"  # unfilled circle
     elif [ "$kb_brightness" -lt 50 ] ; then
-        keyboard_brightness_icon=""  # fa-adjust (low brightness)
+        keyboard_brightness_icon="󰃟"  # fa-adjust (low brightness)
     else
-        keyboard_brightness_icon=""  # full circle (high brightness)
+        keyboard_brightness_icon="󰃠"  # full circle (high brightness)
     fi
 }
 
 function get_screen_brightness_icon {
     sc_brightness=$(get_screen_brightness)
     if [ "$sc_brightness" -eq 0 ] ; then
-        screen_brightness_icon=""  # unfilled circle
+        screen_brightness_icon="󰃞"  # unfilled circle
     elif [ "$sc_brightness" -lt 50 ] ; then
-        screen_brightness_icon=""  # fa-adjust (low brightness)
+        screen_brightness_icon="󰃟"  # fa-adjust (low brightness)
     else
-        screen_brightness_icon=""  # full circle (high brightness)
+        screen_brightness_icon="󰃠"  # full circle (high brightness)
     fi
 }
 

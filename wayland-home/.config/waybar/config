@@ -30,6 +30,15 @@
     "custom/powermenu"
   ],
 
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-click": "brightnessctl set 5%+",
+    "on-click-right": "brightnessctl set 5%-",
+    "on-scroll-up": "brightnessctl set 0.5%+",
+    "on-scroll-down": "brightnessctl set 0.5%-"
+  },
+
   "wireplumber": {
     "tooltip": false,
     "scroll-step": 2,
