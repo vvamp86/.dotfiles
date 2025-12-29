@@ -21,6 +21,9 @@ eval "$(zoxide init bash)"
 export EDITOR=nvim
 export VISUAL=nvim
 
+# Export Brave as default browser
+export BROWSER=brave
+
 # set GTK2
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
@@ -30,8 +33,8 @@ export MANPAGER="nvim +Man!"
 # terminal environment
 export TERMINAL=alacritty
 
-# wofi export
-export MENU='wofi -dmenu -theme mytheme -config ~/.config/wofi/style.css'
+# rofi export
+export MENU='rofi -dmenu -theme mytheme -config ~/.config/rofi/config.rasi'
 
 # keyboard exports
 export GTK_IM_MODULE=fcitx
@@ -42,6 +45,22 @@ export GLFW_IM_MODULE=fcitx # GLFW works better with ibus but can try fcitx
 
 # For `pipx`
 export PATH="$PATH:/home/sudowoodo/.local/bin"
+
+# for `nvm` (nodejs version manager)
+source /usr/share/nvm/init-nvm.sh
+
+# for Anaconda
+[ -f /opt/anaconda/etc/profile.d/conda.sh ] && source /opt/anaconda/etc/profile.d/conda.sh
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=true
+
+# for ocaml's `opam`
+eval $(opam env --switch=default)
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 ########################
 # Replacement Commands #
@@ -59,6 +78,7 @@ alias ps='procs'
 alias cd='z'        # zoxide
 alias top='btop'
 
+
 ##############
 # Shorthands #
 ##############
@@ -66,12 +86,17 @@ alias top='btop'
 # nvim shortcut
 # alias nvchad='NVIM_APPNAME="nvchad" nvim' # Old shortcut
 alias nv='nvim'
+alias n='!nvim'
+
+# zathura shortcut
+alias za='zathura'
 
 # yazi shortcut
 alias yz="yazi"
 
 # Suspend & Hibernate Shorthand
 alias sus='cd | systemctl suspend'
+alias suspend=sus
 # alias hib='cd | systemctl hibernate'  # Not in use
 
 # Rank Arch Mirrors
@@ -118,3 +143,21 @@ log_dmesg() {
   sudo dmesg -wT | tee "$log_file"
 }
 
+function codediff() {
+    local file1="$1"
+    local file2="$2"
+
+    # Simple comment removal for common languages
+    case "${file1##*.}" in
+        py|pl|rb|sh)
+            diff <(grep -v '^[[:space:]]*#' "$file1") <(grep -v '^[[:space:]]*#' "$file2")
+            ;;
+        c|cpp|java|js)
+            diff <(grep -v '^[[:space:]]*//' "$file1" | grep -v '^[[:space:]]*/\*' | grep -v '\*/') \
+                 <(grep -v '^[[:space:]]*//' "$file2" | grep -v '^[[:space:]]*/\*' | grep -v '\*/')
+            ;;
+        *)
+            echo "Unsupported file type"
+            ;;
+    esac
+}

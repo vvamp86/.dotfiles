@@ -44,7 +44,6 @@ return {
     - There's a lot to be changed in i3wm config to sway defaults
     - workspace maanger change
     - get bluetooth working & get workarounds for other tray icons
-    - rofi -> wofi
     - xclip -> wl-clipboard
     - xdotool -> prob swaymsg scripts
     - feh -> swayimg
@@ -70,5 +69,5 @@ Consider Doing the Following too for waybar:
     -  fa-window-close-o [&#xf2d4;]4.7 fa-window-maximize [&#xf2d0;]4.7 fa-window-minimize [&#xf2d1;]4.7
 - add spotify interaction in bar: 
 - time-shift save button: 
-- battery settings: 
+- [x] battery settings: 
 - diagnostic settings of the device hardware: 
