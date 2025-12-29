@@ -119,7 +119,6 @@ window#waybar.hidden {
 /* ======================================================== */
 /* Network module */
 /* ======================================================== */
-/*
 #network {
   color: #fe8019;
   border-bottom-color: #fe8019;
@@ -129,7 +128,6 @@ window#waybar.hidden {
   color: #cc241d;
   border-bottom-color: #cc241d;
 }
-*/
 
 /* ======================================================== */
 /* Audio module */
