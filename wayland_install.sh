@@ -39,7 +39,8 @@ if [[ "$download" == [yY] ]]; then
     procs tldr fd duf dust zoxide fprintd \
     zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter \
     xdotool fcitx5 stow plymouth myrepos qt5ct qt6ct kvantum \
-    kvantum-qt5 wofi swaybg swaymsg waybar
+    kvantum-qt5 rofi swaybg swaymsg waybar mako \
+    satty wl-clipboard nwg-drawer grim slurp cava
 
   ### AUR Packages
   print_step "Installing AUR packages"
@@ -52,7 +53,8 @@ if [[ "$download" == [yY] ]]; then
     timeshift quickemu swaylock-effects texlive-full \
     autotiling r unipicker spicetify-cli python-pylatexenc \
     kvantum-theme-gruvbox-git interception-tools \
-    interception-caps2esc tmux-plugin-manager
+    interception-caps2esc tmux-plugin-manager \
+    swaylock-effects-git
 fi
 
 ###########################
