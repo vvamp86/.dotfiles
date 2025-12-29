@@ -319,7 +319,7 @@
     #################
     # Launch the file explorers
     bindsym $mod+Shift+f exec thunar
-    bindsym $mod+y exec --no-startup-id alacritty -e yazi
+    bindsym $mod+y exec --no-startup-id alacritty -T sway_yazi -e yazi
 
     # Talk
     bindsym $mod+n exec --no-startup-id vesktop

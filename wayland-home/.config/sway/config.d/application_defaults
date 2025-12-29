@@ -1,6 +1,6 @@
 # Idle Behavior
 exec_always swayidle \
-    timeout 300 'swaylock \
+    timeout 500 'swaylock \
         --font "FiraCode Nerd Font"     \
         --screenshots                   \
         --effect-blur 8x5               \
@@ -25,7 +25,7 @@ exec_always swayidle \
         --indicator-thickness 8         \
         --timestr "%H:%M:%S"            \
         --datestr "%A, %Y-%m-%d"'       \
-    timeout 600 'systemctl suspend' \
+    timeout 1000 'systemctl suspend' \
     before-sleep 'swaylock -f       \
         --color=#000000cc           \
         --inside-color=#282828cc    \
@@ -100,7 +100,7 @@ for_window [app_id="spotify"] move to scratchpad
 # Disabled Options #
 ####################
 # bind program to workspace and focus to them on startup:
-# assign [class="alacrity"] $ws1
+# assign [class="alacritty"] $ws1
 # assign [class="(?i)brave"] $ws2
 # assign [class="Thunar"] $ws3
 # assign [class="thunderbird"] $ws4

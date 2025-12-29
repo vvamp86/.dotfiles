@@ -17,9 +17,6 @@ exec swayidle idlehint 1
 # Desktop notifications
 exec mako
 
-# Start foot server
-exec_always --no-startup-id $term
-
 # Autotiling
 exec autotiling
 
