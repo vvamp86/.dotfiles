@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-TYPING='#076678cc'       # Typing highlight
-
 swaylock \
   --font "FiraCode Nerd Font"     \
   \

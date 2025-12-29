@@ -22,4 +22,47 @@ set $menu nwg-drawer
 # Power Menu
 set $powermenu ~/.config/sway/scripts/powermenu.sh
 
-set $lock ~/.config/sway/scripts/blur-lock
+# Locks
+# set $fancy_lock swaylock            \
+#     --font "FiraCode Nerd Font"     \
+#     --screenshots                   \
+#     --effect-blur 8x5               \
+#     --effect-vignette 0.4:0.6       \
+#     --inside-ver-color='#92837422'  \
+#     --ring-ver-color='#b8bb26cc'    \
+#     --inside-wrong-color='#92837422'\
+#     --ring-wrong-color='#fb4934cc'  \
+#     --inside-color='#28282800'      \
+#     --ring-color='#ebdbb2cc'        \
+#     --line-color='#28282800'        \
+#     --separator-color='#ebdbb2cc'   \
+#     --text-ver-color='#ebdbb2ff'    \
+#     --text-wrong-color='#ebdbb2ff'  \
+#     --text-color='#ebdbb2ff'        \
+#     --layout-text-color='#ebdbb2ff' \
+#     --key-hl-color='#076678cc'      \
+#     --bs-hl-color='#fb4934cc'       \
+#     --clock                         \
+#     --indicator                     \
+#     --indicator-radius 80           \
+#     --indicator-thickness 8         \
+#     --timestr "%H:%M:%S"            \
+#     --datestr "%A, %Y-%m-%d"'
+#
+# set $basic_lock swaylock -f     \
+#     --color=#000000cc           \
+#     --inside-color=#282828cc    \
+#     --ring-color=#ebdbb2cc      \
+#     --ring-ver-color='#b8bb26cc'\
+#     --line-color=#282828cc      \
+#     --separator-color=#ebdbb2cc \
+#     --text-color=#ebdbb2ff      \
+#     --key-hl-color=#076678cc    \
+#     --bs-hl-color=#fb4934cc     \
+#     --clock                     \
+#     --indicator                 \
+#     --indicator-radius 80       \
+#     --indicator-thickness 8     \
+#     --timestr "%H:%M:%S"        \
+#     --datestr "%A, %Y-%m-%d"    \
+#     --font "FiraCode Nerd Font"
