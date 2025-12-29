@@ -29,6 +29,7 @@ window#waybar.hidden {
 #custom-updates,
 #tray,
 #network,
+#disk,
 #wireplumber,
 #battery,
 #backlight,
@@ -38,59 +39,51 @@ window#waybar.hidden {
 #custom-launcher,
 #custom-bluetooth,
 #mpris,
+#workspaces,
+#mode,
 #custom-ppd-status,
 #custom-powermenu {
   font-family: FiraCode Nerd Font;
-  font-size: 10px;
+  font-size: 12px;
   color: #282828;
   margin-right: 6px;
   margin-left: 6px;
-  padding: 2px 0px;
-  border-bottom: 3px solid;
+  padding: 0px 0px;
+  border-bottom: 2.5px solid;
   margin-top: 0.5px;
   margin-bottom: 0.5px;
 }
 
 /* ======================================================== */
-/* workspaces module */
+/* sway modules */
 /* ======================================================== */
-#workspaces {
-  font-family: FiraCode Nerd Font;
-  font-size: 10px;
-  font-weight: 600;
-  color: #282828;
-  padding: 3px 7px;
-  border-bottom: 2px solid;
-  margin-top: 2px;
-  margin-right: 1px;
-  margin-left: 1px;
-  padding: 0;
-}
-
 #workspaces button {
   color: #ebdbb2;
   border-radius: 0;
-  margin-bottom: 3px;
-  margin-top: 3px;
-  margin-right: 1px;
-  margin-left: 1px;
-  min-width: 20px;
-  padding: 0 2px;
+  margin-bottom: 0.5px;
+  margin-top: 0.5px;
+  margin-right: 2px;
+  margin-left: 2px;
+  min-width: 10px;
+  padding: 0px 0px;
 }
 
 #workspaces button:hover {
-  background: #79740e;
+  background: #473c29;
 }
 
 #workspaces button.active {
-  background: #b8bb26;
-  color: #282828;
+  background: #3c3836;
+  color: #3c3836;
   font-weight: bold;
-  box-shadow: 0 0 5px rgba(184, 187, 38, 0.5);
-
 }
 
 #workspaces button.urgent {
+  background: #ea6962;
+}
+
+#mode {
+  color: #ebdbb2;
   background: #ea6962;
 }
 
@@ -121,6 +114,7 @@ window#waybar.hidden {
 /* ======================================================== */
 /* Network module */
 /* ======================================================== */
+/*
 #network {
   color: #fe8019;
   border-bottom-color: #fe8019;
@@ -130,14 +124,14 @@ window#waybar.hidden {
   color: #cc241d;
   border-bottom-color: #cc241d;
 }
-
+*/
 
 /* ======================================================== */
 /* Audio module */
 /* ======================================================== */
 #wireplumber {
-  color: #689d6a;
-  border-bottom-color: #689d6a;
+  color: #7daea3;
+  border-bottom-color: #7daea3;
 }
 
 #wireplumber.muted {
@@ -157,8 +151,8 @@ window#waybar.hidden {
 /* memory */
 /* ======================================================== */
 #memory {
-  color: #689d6a;
-  border-bottom-color: #689d6a;
+  color: #d3869b;
+  border-bottom-color: #d38b9b;
 }
 
 /* ======================================================== */
@@ -170,39 +164,47 @@ window#waybar.hidden {
 }
 
 /* ======================================================== */
+/* storage */
+/* ======================================================== */
+#disk {
+  color: #e78a4e;
+  border-bottom-color: #e78a4e;
+}
+
+/* ======================================================== */
 /* battery */
 /* ======================================================== */
 #battery {
-  color: #98971a;
-  border-bottom-color: #98971a;
+  color: #89b482;
+  border-bottom-color: #89b482;
 }
 
-#battery.charging, #battery.plugged {
-  color: #b8bb26;
-  border-bottom-color: #b8bb26;
+#battery.charging,
+#battery.plugged {
+  color: #89b482;
+  border-bottom-color: #89b482;
+  background: #333e34;
+
 }
 
 #battery.critical:not(.charging) {
-  color: #cc241d;
-  border-bottom-color: #cc241d;
+  color: #fb4934;
+  border-bottom-color: #fb4934;
 }
 
 /* ======================================================== */
 /* clock */
 /* ======================================================== */
 #clock {
-  color: #8ec07c;
-  border-bottom-color: #8ec07c;
+  color: #a9b665;
+  border-bottom-color: #a9b665;
 }
 
 /* ======================================================== */
 /* tray */
 /* ======================================================== */
 #tray {
-  padding: 3px 7px;
-  margin-left: 6px;
-  margin-right: 6px;
-  border-bottom-color: #fbf1c7;
+  border-bottom-color: #ddc7a1;
 }
 
 /* ======================================================== */
@@ -216,18 +218,22 @@ window#waybar.hidden {
 /* ======================================================== */
 /* custom-bluetooth */
 /* ======================================================== */
+/*
 #custom-bluetooth {
   color: #458588;
   border-bottom-color: #458588;
 }
+*/
 
 /* ======================================================== */
 /* custom-updates */
 /* ======================================================== */
+/*
 #custom-updates {
   color: #fabd2f;
   border-bottom-color: #fabd2f;
 }
+*/
 
 /* ======================================================== */
 /* Media player */
@@ -285,7 +291,7 @@ window#waybar.hidden {
 }
 
 #custom-ppd-status.balanced {
-    color: #fabd2f; /* Gruvbox yellow */
+    color: #fabd2f;
     border-bottom-color: #fabd2f;
     background-color: rgba(250, 189, 47, 0.1);
 }
@@ -301,7 +307,7 @@ window#waybar.hidden {
 }
 
 #custom-powermenu {
-    color: #cc241d; /* Gruvbox red */
+    color: #cc241d;
     border-bottom-color: #cc241d;
 }
 
@@ -309,10 +315,9 @@ window#waybar.hidden {
 /* Application Launchers                                    */
 /* ======================================================== */
 #custom-terminal {
-    color: #83a598;  /* Your original color */
+    color: #83a598;
     border-bottom-color: #83a598;
 }
-
 #custom-terminal:hover {
     background-color: rgba(131, 165, 152, 0.2);
 }
@@ -321,7 +326,6 @@ window#waybar.hidden {
     color: #fb4934;
     border-bottom-color: #fb4934;
 }
-
 #custom-browser:hover {
     background-color: rgba(251, 73, 52, 0.2);
 }
@@ -330,7 +334,6 @@ window#waybar.hidden {
     color: #d3869b;
     border-bottom-color: #d3869b;
 }
-
 #custom-files:hover {
     background-color: rgba(211, 134, 155, 0.2);
 }
@@ -339,7 +342,6 @@ window#waybar.hidden {
     color: #fabd2f;
     border-bottom-color: #fabd2f;
 }
-
 #custom-mail:hover {
     background-color: rgba(250, 189, 47, 0.2);
 }
@@ -348,7 +350,6 @@ window#waybar.hidden {
     color: #458588;
     border-bottom-color: #458588;
 }
-
 #custom-text:hover {
     background-color: rgba(69, 133, 136, 0.2);
 }
@@ -357,7 +358,6 @@ window#waybar.hidden {
     color: #b8bb26;
     border-bottom-color: #b8bb26;
 }
-
 #custom-music:hover {
     background-color: rgba(184, 187, 38, 0.2);
 }
@@ -366,7 +366,6 @@ window#waybar.hidden {
     color: #924f79;
     border-bottom-color: #924f79;
 }
-
 #custom-notes:hover {
     background-color: rgba(146, 79, 121, 0.2);
 }

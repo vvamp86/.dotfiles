@@ -9,7 +9,7 @@ case "$current_profile" in
         icon=" "  # Battery saver icon
         ;;
     "balanced")
-        icon=" "  # Balanced icon
+        icon="  "  # Balanced icon
         ;;
     "performance")
         icon=" "  # Performance icon

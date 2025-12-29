@@ -5,8 +5,9 @@
 
   "modules-left": [
     "custom/launcher",
-    "sway/workspaces"
-/*  "sway/mode",    */
+    "clock",
+    "sway/workspaces",
+    "sway/mode"
 /*  "sway/window",  */
   ],
 
@@ -22,11 +23,11 @@
   ],
 
   "modules-right": [
-    "clock",
-    "backlight",
     "wireplumber",
+    "backlight",
     "cpu",
     "memory",
+    "disk",
     "tray",
     "custom/ppd-status",
     "battery",
@@ -119,6 +120,12 @@
     "max-length": 20
   },
 
+  "disk": {
+    "format": "󰋊  {used}/{total}",
+    "path": "/",
+    "interval": 30
+  },
+
   "custom/launcher": {
     "format": " ",
     "on-click": "rofi -show window -config ~/.config/rofi/rofidmenu.rasi",
@@ -163,16 +170,16 @@
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
-        "1": "1",
-        "2": "2",
-        "3": "3",
-        "4": "4",
-        "5": "5",
-        "6": "6",
-        "7": "7",
-        "8": "8",
-        "9": "9",
-        "10": "10"
+        "1": "󰎤",
+        "2": "󰎧",
+        "3": "󰎪",
+        "4": "󰎭",
+        "5": "󰎱",
+        "6": "󰎳",
+        "7": "󰎶",
+        "8": "󰎹",
+        "9": "󰎼",
+        "10": "󰎿",
     },
     "active": "",
     "sort-by-number": true
