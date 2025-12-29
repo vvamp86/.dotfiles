@@ -13,7 +13,6 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 # Idle configuration
 exec swayidle idlehint 1
-exec_always swayidle -w before-sleep "gtklock -d"
 
 # Desktop notifications
 exec mako
@@ -47,13 +46,6 @@ exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
 exec_always --no-startup-id autotiling
 
 exec --no-startup-id /usr/bin/dunst
-
-exec swayidle -w \
-    timeout 480 'swaylock -f' \
-    timeout 600 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f'
-
 
 exec --no-startup-id sleep 1 && swaybg -i /usr/share/backgrounds/wallpaper.png -m fill
 

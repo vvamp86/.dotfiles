@@ -205,6 +205,7 @@ read -p "Update Spotify Appearance with Spicetify? (must login in spotify first)
 if [[ "$spicetify" == [yY] ]]; then
   sudo chmod a+wr /opt/spotify
   sudo chmod -R a+wr /opt/spotify/Apps
+  spicetify backup
   spicetify backup apply
   sudo chmod a-w /opt/spotify
   sudo chmod -R a-w /opt/spotify/Apps

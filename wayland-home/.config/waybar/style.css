@@ -249,8 +249,7 @@ window#waybar.hidden {
 }
 
 #mpris:hover {
-  color: #98971a;
-  border-bottom-color: #98971a;
+  background: #504945;
 }
 
 /* ======================================================== */
