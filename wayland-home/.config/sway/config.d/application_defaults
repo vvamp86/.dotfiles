@@ -1,3 +1,25 @@
+# Idle Behavior
+exec_always swayidle \
+    timeout 300 '~/.config/sway/scripts/blur-lock' \
+    timeout 600 'systemctl suspend' \
+    before-sleep 'swaylock -f       \
+        --color=#000000cc           \
+        --inside-color=#282828cc    \
+        --ring-color=#ebdbb2cc      \
+        --ring-ver-color='#b8bb26cc'    \
+        --line-color=#282828cc      \
+        --separator-color=#ebdbb2cc \
+        --text-color=#ebdbb2ff      \
+        --key-hl-color=#076678cc    \
+        --bs-hl-color=#fb4934cc     \
+        --clock                     \
+        --indicator                 \
+        --indicator-radius 80       \
+        --indicator-thickness 8     \
+        --timestr "%H:%M:%S"        \
+        --datestr "%A, %Y-%m-%d"    \
+        --font "FiraCode Nerd Font"'
+
 ##########################
 # Custom windowing rules #
 ##########################

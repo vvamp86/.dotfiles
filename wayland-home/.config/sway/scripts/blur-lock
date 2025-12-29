@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-BLANK='#28282800'        # Transparent Gruvbox background
-CLEAR='#92837422'        # Inactive ring
-DEFAULT='#ebdbb2cc'      # Default ring
-TEXT='#ebdbb2ff'         # Text color
-WRONG='#fb4934cc'        # Wrong password
-VERIFYING='#b8bb26cc'    # Verifying
 TYPING='#076678cc'       # Typing highlight
 
 swaylock \
@@ -15,23 +9,23 @@ swaylock \
   --effect-blur 8x5               \
   --effect-vignette 0.4:0.6       \
   \
-  --inside-ver-color=$CLEAR       \
-  --ring-ver-color=$VERIFYING     \
+  --inside-ver-color='#92837422'  \
+  --ring-ver-color='#b8bb26cc'    \
   \
-  --inside-wrong-color=$CLEAR     \
-  --ring-wrong-color=$WRONG       \
+  --inside-wrong-color='#92837422'\
+  --ring-wrong-color='#fb4934cc'  \
   \
-  --inside-color=$BLANK           \
-  --ring-color=$DEFAULT           \
-  --line-color=$BLANK             \
-  --separator-color=$DEFAULT      \
+  --inside-color='#28282800'      \
+  --ring-color='#ebdbb2cc'        \
+  --line-color='#28282800'        \
+  --separator-color='#ebdbb2cc'   \
   \
-  --text-ver-color=$TEXT          \
-  --text-wrong-color=$TEXT        \
-  --text-color=$TEXT              \
-  --layout-text-color=$TEXT       \
-  --key-hl-color=$TYPING          \
-  --bs-hl-color=$WRONG            \
+  --text-ver-color='#ebdbb2ff'    \
+  --text-wrong-color='#ebdbb2ff'  \
+  --text-color='#ebdbb2ff'        \
+  --layout-text-color='#ebdbb2ff' \
+  --key-hl-color='#076678cc'      \
+  --bs-hl-color='#fb4934cc'       \
   \
   --clock \
   --indicator \

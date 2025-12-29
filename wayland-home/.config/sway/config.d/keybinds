@@ -10,7 +10,7 @@
     # Open the power menu
     bindsym $mod+Shift+e exec --no-startup-id $powermenu
 
-    # Power Profiles menu switcher (wofi)
+    # Power Profiles menu switcher (rofi)
     bindsym $mod+Shift+p exec --no-startup-id ~/.config/sway/scripts/power-profiles
 
     # Kill focused window
@@ -346,11 +346,11 @@
 ######################### Old Stuff #
 #####################################
 
-## wofi bindings for window menu ($mod+t)
+## rofi bindings for window menu ($mod+t)
 bindsym $mod+t exec --no-startup-id rofi -show window \
         -config ~/.config/rofi/rofidmenu.rasi
 
-## wofi bindings to manage clipboard (install wofi-greenclip from the AUR)
+## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
 exec --no-startup-id greenclip daemon>/dev/null
 bindsym $mod+c exec --no-startup-id rofi -mode "clipboard:greenclip print"\
         -config ~/.config/rofi/rofidmenu.rasi
@@ -361,8 +361,5 @@ bindsym $mod+Shift+n exec --no-startup-id ~/.config/sway/scripts/empty_workspace
 # lock by blurring the screen:
 bindsym $mod+Shift+Mod1+l exec --no-startup-id ~/.config/sway/scripts/blur-lock
 
-# lock in case after sleep
-exec --no-startup-id xss-lock -l ~/.config/sway/scripts/blur-lock
-
-# keybinding in fancy wofi (automated):
+# keybinding in fancy rofi (automated):
 bindsym F1 exec --no-startup-id ~/.config/sway/scripts/keyhint-2

@@ -22,3 +22,4 @@ set $menu nwg-drawer
 # Power Menu
 set $powermenu ~/.config/sway/scripts/powermenu.sh
 
+set $lock ~/.config/sway/scripts/blur-lock
