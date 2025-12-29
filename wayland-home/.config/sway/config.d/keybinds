@@ -340,7 +340,11 @@
     # Screenshots #
     ###############
     # bindsym Print exec --no-startup-id flameshot gui
-    bindsym Print exec grim -g "$(slurp)"
+    bindsym Print exec sh -c '                          \
+      tmp=$(mktemp --suffix=.png) &&                    \
+      grim -g "$(slurp)" "$tmp" &&                      \
+      satty --filename "$tmp" &&                        \
+      rm "$tmp"'
 
 #####################################
 ######################### Old Stuff #

@@ -57,6 +57,11 @@ window#waybar.hidden {
 /* ======================================================== */
 /* sway modules */
 /* ======================================================== */
+#workspaces {
+  color: #ebdbb2;
+  border-bottom-color: #ebdbb2;
+}
+
 #workspaces button {
   color: #ebdbb2;
   border-radius: 0;
@@ -72,9 +77,9 @@ window#waybar.hidden {
   background: #473c29;
 }
 
-#workspaces button.active {
-  background: #3c3836;
-  color: #3c3836;
+#workspaces button.focused {
+  background: #d8a657;
+  color: #141617;
   font-weight: bold;
 }
 
