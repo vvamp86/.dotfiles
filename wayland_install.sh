@@ -31,29 +31,91 @@ read -p "Download all Packages? [y/N]: " download
 if [[ "$download" == [yY] ]]; then
   print_step "Installing pacman packages"
   sudo pacman -Syu --needed --noconfirm \
-    alacritty sway neovim picom starship git \
-    ttf-firacode-nerd xclip dunst brightnessctl flameshot \
-    fwupd blueman rate-mirrors keepassxc qemu-full \
-    easyeffects calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 \
-    clamav tmux feh yazi btop bat eza remake nftables \
-    procs tldr fd duf dust zoxide fprintd \
-    zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter \
-    xdotool fcitx5 stow plymouth myrepos qt5ct qt6ct kvantum \
-    kvantum-qt5 rofi swaybg swaymsg waybar mako \
-    satty wl-clipboard nwg-drawer grim slurp cava
+    alacritty \
+    sway \
+    neovim \
+    picom \
+    starship \
+    git \
+    ttf-firacode-nerd \
+    xclip \
+    dunst \
+    brightnessctl \
+    fwupd \
+    blueman \
+    rate-mirrors \
+    keepassxc \
+    qemu-full \
+    easyeffects \
+    calf \
+    lsp-plugins-lv2 \
+    zam-plugins-lv2 \
+    mda.lv2 \
+    clamav \
+    tmux \
+    feh \
+    yazi \
+    btop \
+    bat \
+    eza \
+    remake \
+    nftables \
+    procs \
+    tldr \
+    fd \
+    duf \
+    dust \
+    zoxide \
+    fprintd \
+    zathura \
+    zathura-pdf-mupdf \
+    lightdm \
+    lightdm-gtk-greeter \
+    xdotool \
+    fcitx5 \
+    stow \
+    plymouth \
+    myrepos \
+    qt5ct \
+    qt6ct \
+    kvantum \
+    kvantum-qt5 \
+    rofi \
+    swaybg \
+    swaymsg \
+    waybar \
+    mako \
+    wl-clipboard \
+    grim \
+    slurp \
+    satty
+#   cava # cool audio visualizer, not necessary
 
   ### AUR Packages
   print_step "Installing AUR packages"
   paru -S --needed \
     gruvbox-material-gtk-theme-git \
     gruvbox-material-icon-theme-git \
+    kvantum-theme-gruvbox-git \
+    interception-tools \
+    interception-caps2esc \
     xcursor-simp1e-gruvbox-dark \
-    vencord-bin obsidian cloudflare-warp-bin \
-    proton-vpn-gtk-app brave-bin spotify-adblock \
-    timeshift quickemu swaylock-effects texlive-full \
-    autotiling r unipicker spicetify-cli python-pylatexenc \
-    kvantum-theme-gruvbox-git interception-tools \
-    interception-caps2esc tmux-plugin-manager \
+    vencord-bin \
+    obsidian \
+    cloudflare-warp-bin \
+    proton-vpn-gtk-app \
+    brave-bin \
+    spotify-adblock \
+    timeshift \
+    quickemu \
+    swaylock-effects \
+    texlive-full \
+    autotiling \
+    r \
+    unipicker \
+    spicetify-cli \
+    python-pylatexenc \
+    tmux-plugin-manager \
     swaylock-effects-git
 fi
 

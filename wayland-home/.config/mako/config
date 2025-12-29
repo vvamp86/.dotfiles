@@ -1,0 +1,28 @@
+font=FiraCode Nerd Font 10
+
+background-color=#ddc7a1
+text-color=#282828
+width=250
+
+height=150
+anchor=bottom-right
+padding=3
+margin=3
+max-visible=5
+
+format=<b>%s</b>\n%b
+
+progress-color=over #7daea380
+icon-path=/usr/share/icons/Gruvbox-Material-Dark
+max-icon-size=30
+layer=overlay
+
+border-size=3
+border-radius=0
+border-color=#282828
+
+default-timeout=3000
+
+[urgency=high]
+ignore-timeout=1
+border-color=#ea6962
