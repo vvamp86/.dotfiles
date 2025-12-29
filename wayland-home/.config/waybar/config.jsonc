@@ -110,8 +110,9 @@
     },
 
   "clock": {
-    "format": "  {:%H:%M  •  󰃭  %d/%m/%Y}",
-    "tooltip": false
+    "format": "  {:%H:%M:%S  •  󰃭  %d/%m/%Y}",
+    "tooltip": false,
+    "interval": 1
   },
 
   "tray": {
@@ -174,6 +175,7 @@
       "playing": "⏸"
     },
     "max-length": 40,
+    "interval": 1,
     "tooltip": true
   },
 
@@ -191,7 +193,7 @@
         "7": "7",
         "8": "8",
         "9": "9",
-        "10": "10",
+        "10": " ",
     },
     "active": "",
     "sort-by-number": true
