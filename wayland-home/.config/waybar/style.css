@@ -120,8 +120,8 @@ window#waybar.hidden {
 /* Network module */
 /* ======================================================== */
 #network {
-  color: #fe8019;
-  border-bottom-color: #fe8019;
+  color: #e78a4e;
+  border-bottom-color: #e78a4e;
 }
 
 #network.disconnected {
@@ -170,8 +170,8 @@ window#waybar.hidden {
 /* storage */
 /* ======================================================== */
 #disk {
-  color: #e78a4e;
-  border-bottom-color: #e78a4e;
+  color: #fe8019;
+  border-bottom-color: #fe8019;
 }
 
 /* ======================================================== */
