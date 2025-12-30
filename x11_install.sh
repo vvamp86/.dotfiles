@@ -59,52 +59,7 @@ fi
 ### Wallpaper Choice :D ###
 ###########################
 
-read -p "Set Wallpaper? [y/N]: " wallpaper
-if [[ "$wallpaper" == [yY] ]]; then
-  # Default directory is current dir or use first argument
-  WP="$HOME/.dotfiles/wallpapers"
-
-  # Get sorted list of files only (ignore dirs)
-  mapfile -t files < <(find "$WP" -maxdepth 1 -type f | sort)
-
-  # Check if files were found
-  if [[ ${#files[@]} -eq 0 ]]; then
-    print_step "No files found in $WP"
-    exit 1
-  fi
-
-  # Display files with numbers
-  echo "Files in $WP:"
-  for i in "${!files[@]}"; do
-    printf "[%2d] %s\n" "$((i + 1))" "${files[i]##*/}"
-  done
-
-  # Prompt user for selection
-  read -p "Enter file number: " num
-
-  # Validate input
-  if ! [[ "$num" =~ ^[0-9]+$ ]] || (( num < 1 || num > ${#files[@]} )); then
-    print_step "Invalid selection."
-    exit 1
-  fi
-
-  # Output the selected file
-  WALL="${files[$((num - 1))]}"
-  print_step "You selected: $WALL"
-
-  sudo rm -rf /usr/share/backgrounds/
-  sudo mkdir -p /usr/share/backgrounds/
-  sudo cp $WALL /usr/share/backgrounds/wallpaper.png
-
-  # Blurred Background Image Creation
-  print_step "Creating Blurred Background Image"
-  PICTURE="/usr/share/backgrounds/wallpaper.png"
-  OUTPUT="/usr/share/backgrounds/wallpaper-blur.png"
-  BLUR="5x4"
-
-  sudo magick "$PICTURE" -blur "$BLUR" \( -size $(identify -format "%wx%h" "$PICTURE") xc:'rgba(0,0,0,0.5)' \) \
-  -compose over -composite "$OUTPUT"
-fi
+./wallpaper_selector.sh
 
 #######################
 ### Enable Services ###
@@ -181,7 +136,8 @@ if [[ "$symlinked" == [yY] ]]; then
 
   # Clean up existing conflicting files/directories if needed
   print_step "Removing existing dotfiles to prevent conflict"
-  CONFIGS=(alacritty i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot yazi zathura spicetify qt5ct qt6ct Kvantum)
+  CONFIGS=(alacritty btop i3 nvim picom dunst rofi gtk-3.0 gtk-4.0 flameshot yazi zathura spicetify qt5ct qt6ct Kvantum)
+  WAYLAND_CONFIGS=(sway waybar mako)
   FILES=(.bashrc .profile .Xresources .gtkrc-2.0 .tmux.conf .xprofile .config/starship.toml .config/vesktop/themes/gruvbox-material-dark.theme.css .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml )
 
   for config in "${CONFIGS[@]}"; do
@@ -195,6 +151,12 @@ if [[ "$symlinked" == [yY] ]]; then
   # Run stow from within the home-dir folder
   cd "$DOTFILES"
   stow --target="$HOME" home-dir
+
+  for config in "${WAYLAND_CONFIGS[@]}"; do
+    rm -rf "$HOME/.config/$config"
+  done
+
+  stow --target="$HOME" legacy-x11
 fi
 
 

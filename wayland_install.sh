@@ -13,13 +13,13 @@ print_step() {
 }
 
 ###############################################################################
-print_step "Initial Importance"
+print_step "Initial Important Installs"
 
 ###########################
 ### Confirm paru exists ###
 ###########################
 if ! command -v paru &> /dev/null; then
-  print_step "Installing paru (AUR helper)"
+  print_step "Installing \`paru\` (AUR helper)"
   sudo pacman -S --needed --noconfirm paru
 fi
 
@@ -31,92 +31,87 @@ read -p "Download all Packages? [y/N]: " download
 if [[ "$download" == [yY] ]]; then
   print_step "Installing pacman packages"
   sudo pacman -Syu --needed --noconfirm \
-    alacritty \
-    sway \
-    neovim \
-    picom \
-    starship \
-    git \
+    sway              \
+    swaybg            \
+    swaymsg           \
+    waybar            \
+    alacritty         \
+    neovim            \
+    starship          \
+    git               \
     ttf-firacode-nerd \
-    xclip \
-    dunst \
-    brightnessctl \
-    fwupd \
-    blueman \
-    rate-mirrors \
-    keepassxc \
-    qemu-full \
-    easyeffects \
-    calf \
-    lsp-plugins-lv2 \
-    zam-plugins-lv2 \
-    mda.lv2 \
-    clamav \
-    tmux \
-    feh \
-    yazi \
-    btop \
-    bat \
-    eza \
-    remake \
-    nftables \
-    procs \
-    tldr \
-    fd \
-    duf \
-    dust \
-    zoxide \
-    fprintd \
-    zathura \
-    zathura-pdf-mupdf \
-    lightdm \
+    qemu-full         \
+    fwupd             \
+    lightdm           \
     lightdm-gtk-greeter \
-    xdotool \
-    fcitx5 \
-    stow \
-    plymouth \
-    myrepos \
-    qt5ct \
-    qt6ct \
-    kvantum \
-    kvantum-qt5 \
-    rofi \
-    swaybg \
-    swaymsg \
-    waybar \
-    mako \
-    wl-clipboard \
-    grim \
-    slurp \
+    plymouth          \
+    brightnessctl     \
+    blueman           \
+    rate-mirrors      \
+    keepassxc         \
+    easyeffects       \
+    calf              \
+    lsp-plugins-lv2   \
+    zam-plugins-lv2   \
+    mda.lv2           \
+    clamav            \
+    tmux              \
+    yazi              \
+    btop              \
+    bat               \
+    eza               \
+    remake            \
+    nftables          \
+    procs             \
+    tldr              \
+    fd                \
+    duf               \
+    dust              \
+    zoxide            \
+    fprintd           \
+    zathura           \
+    zathura-pdf-mupdf \
+    fcitx5            \
+    stow              \
+    myrepos           \
+    qt5ct             \
+    qt6ct             \
+    kvantum           \
+    kvantum-qt5       \
+    rofi              \
+    mako              \
+    wl-clipboard      \
+    grim              \
+    slurp             \
     satty
 #   cava # cool audio visualizer, not necessary
 
   ### AUR Packages
   print_step "Installing AUR packages"
-  paru -S --needed \
-    gruvbox-material-gtk-theme-git \
+  paru -S --needed                  \
+    quickemu                        \
+    timeshift                       \
+    gruvbox-material-gtk-theme-git  \
     gruvbox-material-icon-theme-git \
-    kvantum-theme-gruvbox-git \
-    interception-tools \
-    interception-caps2esc \
-    xcursor-simp1e-gruvbox-dark \
-    vencord-bin \
-    obsidian \
-    cloudflare-warp-bin \
-    proton-vpn-gtk-app \
-    brave-bin \
-    spotify-adblock \
-    timeshift \
-    quickemu \
-    swaylock-effects \
-    texlive-full \
-    autotiling \
-    r \
-    unipicker \
-    spicetify-cli \
-    python-pylatexenc \
-    tmux-plugin-manager \
-    swaylock-effects-git
+    kvantum-theme-gruvbox-git       \
+    xcursor-simp1e-gruvbox-dark     \
+    interception-tools              \
+    interception-caps2esc           \
+    cloudflare-warp-bin             \
+    proton-vpn-gtk-app              \
+    autotiling                      \
+    swaylock-effects-git            \
+    vencord-bin                     \
+    obsidian                        \
+    brave-bin                       \
+    spotify-adblock                 \
+    spicetify-cli                   \
+    swaylock-effects                \
+    tmux-plugin-manager             \
+    texlive-full                    \
+    python-pylatexenc               \
+    unipicker                       \
+    r
 fi
 
 ###########################
@@ -200,8 +195,8 @@ if [[ "$symlinked" == [yY] ]]; then
 
   # Clean up existing conflicting files/directories if needed
   print_step "Removing existing dotfiles to prevent conflict"
-  CONFIGS=(alacritty btop gtk-3.0 gtk-4.0 Kvantum mako nvim qt5ct qt6ct rofi spicetify sway waybar yazi zathura )
-  FILES=(.bashrc .profile .Xresources .gtkrc-2.0 .tmux.conf .xprofile .config/starship.toml .config/vesktop/themes/gruvbox-material-dark.theme.css .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml )
+  CONFIGS=(alacritty btop gtk-3.0 gtk-4.0 Kvantum mako nvim qt5ct qt6ct rofi spicetify sway waybar yazi zathura)
+  FILES=(.bashrc .profile .Xresources .gtkrc-2.0 .tmux.conf .xprofile .config/starship.toml .config/vesktop/themes/gruvbox-material-dark.theme.css )
 
   for config in "${CONFIGS[@]}"; do
     rm -rf "$HOME/.config/$config"
