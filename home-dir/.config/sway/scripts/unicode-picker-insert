@@ -2,6 +2,6 @@
 
 symbol=$(unipicker --command 'rofi -dmenu -p "Unicode" -config ~/.config/rofi/rofidmenu.rasi' | head -n 1)
 if [ -n "$symbol" ]; then
-    xdotool type "$symbol" # using xdotool for X11
+    printf "%s" "$symbol" | wl-copy
     # wtype "$symbol" # alternative for Wayland
 fi

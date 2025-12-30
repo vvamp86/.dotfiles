@@ -47,10 +47,17 @@
         bindsym $mod+plus exec --no-startup-id ~/.config/sway/scripts/language-selector
 
         # Launch the clipboard manager
-        bindsym $mod+Ctrl+v exec cliphist list | fuzzel -d -w 90 -l 30 -p "Select an entry to copy it to your clipboard buffer:"| cliphist decode | wl-copy
+        bindsym $mod+Ctrl+c exec sh -c '                                                    \
+            cliphist list |                                                                 \
+            rofi -dmenu -p "Select entry to copy:" -config ~/.config/rofi/rofidmenu.rasi |  \
+            cliphist decode |                                                               \
+            wl-copy'
 
         # Delete an entry from the clipboard manager
-        bindsym $mod+Ctrl+x exec cliphist list | fuzzel -d -w 90 -l 30 -t cc9393ff -S cc9393ff -p "Select an entry to delete it from cliphist:"| cliphist delete
+        bindsym $mod+Ctrl+x exec sh -c '                                                        \
+            cliphist list |                                                                     \
+            rofi -dmenu -p "Select entry to delete:" -config ~/.config/rofi/rofidmenu.rasi |       \
+            cliphist delete'
         # Note: you can clear all cliphist entries by running `cliphist wipe`
 
         # open unicode selector
@@ -352,11 +359,6 @@
 
 ## rofi bindings for window menu ($mod+t)
 bindsym $mod+t exec --no-startup-id rofi -show window \
-        -config ~/.config/rofi/rofidmenu.rasi
-
-## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
-exec --no-startup-id greenclip daemon>/dev/null
-bindsym $mod+c exec --no-startup-id rofi -mode "clipboard:greenclip print"\
         -config ~/.config/rofi/rofidmenu.rasi
 
 # open new empty workspace

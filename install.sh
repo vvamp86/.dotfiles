@@ -43,8 +43,8 @@ if [[ "$download" == [yY] ]]; then
     qemu-full         \
     fwupd             \
     pcmanfm           \
-    lightdm           \
-    lightdm-gtk-greeter \
+    greetd            \
+    greetd-tuigreet   \
     plymouth          \
     brightnessctl     \
     blueman           \
@@ -82,6 +82,7 @@ if [[ "$download" == [yY] ]]; then
     rofi              \
     mako              \
     wl-clipboard      \
+    cliphist          \
     grim              \
     slurp             \
     satty
