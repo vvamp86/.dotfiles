@@ -31,28 +31,82 @@ read -p "Download all Packages? [y/N]: " download
 if [[ "$download" == [yY] ]]; then
   print_step "Installing pacman packages"
   sudo pacman -Syu --needed --noconfirm \
-    alacritty i3-wm neovim picom starship git \
-    ttf-firacode-nerd xclip dunst brightnessctl flameshot \
-    fwupd blueman rate-mirrors keepassxc qemu-full \
-    easyeffects calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 \
-    clamav tmux feh yazi btop bat eza remake nftables \
-    procs tldr fd duf dust zoxide fprintd \
-    zathura zathura-pdf-mupdf lightdm lightdm-gtk-greeter \
-    xdotool fcitx5 stow plymouth myrepos qt5ct qt6ct kvantum \
+    alacritty           \
+    i3-wm               \
+    neovim              \
+    picom               \
+    starship            \
+    git                 \
+    ttf-firacode-nerd   \
+    xclip               \
+    dunst               \
+    brightnessctl       \
+    flameshot           \
+    fwupd               \
+    blueman             \
+    rate-mirrors        \
+    keepassxc           \
+    qemu-full           \
+    easyeffects         \
+    calf                \
+    lsp-plugins-lv2     \
+    zam-plugins-lv2     \
+    mda.lv2             \
+    clamav              \
+    tmux                \
+    feh                 \
+    yazi                \
+    btop                \
+    bat                 \
+    eza                 \
+    remake              \
+    nftables            \
+    procs               \
+    tldr                \
+    fd                  \
+    duf                 \
+    dust                \
+    zoxide              \
+    fprintd             \
+    zathura             \
+    zathura-pdf-mupdf   \
+    lightdm             \
+    lightdm-gtk-greeter \
+    xdotool             \
+    fcitx5              \
+    stow                \
+    plymouth            \
+    myrepos             \
+    qt5ct               \
+    qt6ct               \
+    kvantum             \
     kvantum-qt5
 
   ### AUR Packages
   print_step "Installing AUR packages"
   paru -S --needed \
-    gruvbox-material-gtk-theme-git \
+    interception-tools              \
+    interception-caps2esc           \
+    kvantum-theme-gruvbox-git       \
+    gruvbox-material-gtk-theme-git  \
     gruvbox-material-icon-theme-git \
-    xcursor-simp1e-gruvbox-dark \
-    vencord-bin obsidian cloudflare-warp-bin \
-    proton-vpn-gtk-app brave-bin spotify-adblock \
-    timeshift quickemu i3lock-color texlive-full \
-    autotiling r unipicker spicetify-cli python-pylatexenc \
-    kvantum-theme-gruvbox-git interception-tools \
-    interception-caps2esc tmux-plugin-manager
+    xcursor-simp1e-gruvbox-dark     \
+    vencord-bin                     \
+    obsidian                        \
+    cloudflare-warp-bin             \
+    proton-vpn-gtk-app              \
+    brave-bin                       \
+    spotify-adblock                 \
+    timeshift                       \
+    quickemu                        \
+    i3lock-color                    \
+    texlive-full                    \
+    autotiling                      \
+    r                               \
+    unipicker                       \
+    spicetify-cli                   \
+    python-pylatexenc               \
+    tmux-plugin-manager
 fi
 
 ###########################
