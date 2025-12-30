@@ -1,0 +1,6 @@
+[Unit]
+Description=Timeshift monthly snapshot
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/timeshift --create --comments "monthly snapshot" --tags M

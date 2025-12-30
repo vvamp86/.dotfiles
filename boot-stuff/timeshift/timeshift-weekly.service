@@ -1,0 +1,6 @@
+[Unit]
+Description=Timeshift weekly snapshot
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/timeshift --create --comments "weekly snapshot" --tags W

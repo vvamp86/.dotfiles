@@ -1,0 +1,7 @@
+[Unit]
+Description=Timeshift 8-hour snapshot
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/timeshift --create --comments "8h snapshot" --tags H

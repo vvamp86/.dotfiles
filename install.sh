@@ -42,6 +42,7 @@ if [[ "$download" == [yY] ]]; then
     ttf-firacode-nerd \
     qemu-full         \
     fwupd             \
+    pcmanfm           \
     lightdm           \
     lightdm-gtk-greeter \
     plymouth          \
@@ -71,7 +72,7 @@ if [[ "$download" == [yY] ]]; then
     fprintd           \
     zathura           \
     zathura-pdf-mupdf \
-    fcitx5            \
+    fcitx5-im         \
     stow              \
     myrepos           \
     qt5ct             \

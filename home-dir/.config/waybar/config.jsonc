@@ -274,7 +274,7 @@
   "custom/files": {
     "format": " ",
     "tooltip": "File Manager",
-    "on-click": "swaymsg exec thunar ~/",
+    "on-click": "swaymsg exec pcmanfm ~/",
     "on-click-right": "alacritty -T waybar_yazi -e yazi",
     "interval": "once"
   },

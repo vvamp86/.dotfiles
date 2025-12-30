@@ -1,0 +1,9 @@
+[Unit]
+Description=Timeshift weekly snapshot timer
+
+[Timer]
+OnCalendar=Mon,Thu 02:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

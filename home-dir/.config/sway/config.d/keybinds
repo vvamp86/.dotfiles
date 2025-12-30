@@ -318,7 +318,7 @@
     # App shortcuts #
     #################
     # Launch the file explorers
-    bindsym $mod+Shift+f exec thunar
+    bindsym $mod+Shift+f exec pcmanfm
     bindsym $mod+y exec --no-startup-id alacritty -T sway_yazi -e yazi
 
     # Talk
@@ -363,7 +363,7 @@ bindsym $mod+c exec --no-startup-id rofi -mode "clipboard:greenclip print"\
 bindsym $mod+Shift+n exec --no-startup-id ~/.config/sway/scripts/empty_workspace
 
 # lock by blurring the screen:
-bindsym $mod+Shift+Mod1+l exec --no-startup-id ~/.config/sway/scripts/blur-lock
+bindsym $mod+Shift+Mod1+l exec swaylock
 
 # keybinding in fancy rofi (automated):
 bindsym F1 exec --no-startup-id ~/.config/sway/scripts/keyhint-2

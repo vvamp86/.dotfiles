@@ -43,3 +43,4 @@ i3lock -i $PICTURE \
 --date-str="%A, %Y-%m-%d"
 
 trap 'rm -f $PICTURE' EXIT
+

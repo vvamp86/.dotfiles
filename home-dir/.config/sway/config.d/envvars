@@ -1,0 +1,3 @@
+set $GTK_IM_MODULE fcitx5
+set $QT_IM_MODULE fcitx5
+

@@ -1,48 +1,8 @@
 # Idle Behavior
-exec_always swayidle \
-    timeout 500 'swaylock \
-        --font "FiraCode Nerd Font"     \
-        --screenshots                   \
-        --effect-blur 8x5               \
-        --effect-vignette 0.4:0.6       \
-        --inside-ver-color='#92837422'  \
-        --ring-ver-color='#b8bb26cc'    \
-        --inside-wrong-color='#92837422'\
-        --ring-wrong-color='#fb4934cc'  \
-        --inside-color='#28282800'      \
-        --ring-color='#ebdbb2cc'        \
-        --line-color='#28282800'        \
-        --separator-color='#ebdbb2cc'   \
-        --text-ver-color='#ebdbb2ff'    \
-        --text-wrong-color='#ebdbb2ff'  \
-        --text-color='#ebdbb2ff'        \
-        --layout-text-color='#ebdbb2ff' \
-        --key-hl-color='#076678cc'      \
-        --bs-hl-color='#fb4934cc'       \
-        --clock                         \
-        --indicator                     \
-        --indicator-radius 80           \
-        --indicator-thickness 8         \
-        --timestr "%H:%M:%S"            \
-        --datestr "%A, %Y-%m-%d"'       \
-    timeout 1000 'systemctl suspend' \
-    before-sleep 'swaylock -f       \
-        --color=#000000cc           \
-        --inside-color=#282828cc    \
-        --ring-color=#ebdbb2cc      \
-        --ring-ver-color='#b8bb26cc'\
-        --line-color=#282828cc      \
-        --separator-color=#ebdbb2cc \
-        --text-color=#ebdbb2ff      \
-        --key-hl-color=#076678cc    \
-        --bs-hl-color=#fb4934cc     \
-        --clock                     \
-        --indicator                 \
-        --indicator-radius 80       \
-        --indicator-thickness 8     \
-        --timestr "%H:%M:%S"        \
-        --datestr "%A, %Y-%m-%d"    \
-        --font "FiraCode Nerd Font"'
+exec_always swayidle                    \
+    timeout 500  'swaylock'             \
+    timeout 1000 'systemctl suspend'    \
+    after-resume 'swaylock'
 
 ##########################
 # Custom windowing rules #
@@ -61,7 +21,7 @@ for_window [window_role="About"]                floating enable
 for_window [title="File Operation Progress"]    floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
 for_window [app_id="floating_shell_portrait"]   floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
 for_window [title="Picture in picture"]         floating enable, sticky enable
-for_window [title="waybar_htop"]                floating enable, resize set width 70 ppt height 70 ppt
+for_window [title="waybar_btop"]                floating enable, resize set width 70 ppt height 70 ppt
 for_window [title="waybar_nmtui"]               floating enable
 for_window [title="Save File"]                  floating enable
 
