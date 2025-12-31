@@ -64,7 +64,7 @@ where:
 
 This script depends on:
   - systemd,
-  - i3,
+  - i3 or sway,
   - rofi or zenity."
 
 # Check whether the user-defined launcher is valid
@@ -114,20 +114,20 @@ typeset -A menu
 # Menu with keys/commands
 
 menu=(
-  [ Shutdown]="systemctl poweroff"
-  [ Reboot]="systemctl reboot"
-  [ UEFI/BIOS]="systemctl reboot --firmware-setup"
-  [ Suspend]="systemctl suspend"
+  [ Cancel]=""
   [ Hibernate]="systemctl hibernate"
   [ Lock]="~/.config/sway/scripts/blur-lock"
   [ Logout]="swaymsg exit"
-  [ Cancel]=""
+  [ Reboot]="systemctl reboot"
+  [ Shutdown]="systemctl poweroff"
+  [ Suspend]="systemctl suspend"
+  [ UEFI/BIOS]="systemctl reboot --firmware-setup"
 )
 
 menu_nrows=${#menu[@]}
 
 # Menu entries that may trigger a confirmation message
-menu_confirm="Shutdown Reboot Hibernate Suspend Halt Logout"
+menu_confirm="Shutdown Reboot Hibernate Suspend Halt Logout UEFI/BIOS"
 
 launcher_exe=""
 launcher_options=""

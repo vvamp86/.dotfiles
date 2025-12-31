@@ -3,14 +3,12 @@
  * Maintainer: joekamprad [joekamprad //a_t// endeavouros.com]
  *******************************************************/
 configuration {
-    font:             "FiraCode Nerd Font 10";
-    show-icons:       false;
-    icon-theme:       "Gruvbox-Material-Dark";
-    scroll-method:    0;
-    disable-history:  false;
-    fullscreen:       false;
-    hide-scrollbar:   true;
-    sidebar-mode:     false;
+    font:            "FiraCode Nerd Font 10";
+    show-icons:      false;
+    icon-theme:      "Gruvbox-Material-Dark";
+    scroll-method:   0;
+    disable-history: false;
+    sidebar-mode:    false;
 }
 
 @import "~/.config/rofi/config.rasi"
@@ -22,7 +20,7 @@ window {
     border:           0;
     padding:          10;
     transparency:     "real";
-    width:            170px;
+    width:            140px;
     location:         east;
     /*y-offset:       18;*/
     /*x-offset:       850;*/
@@ -30,6 +28,7 @@ window {
 listview {
     lines:   4;
     columns: 1;
+    scrollbar: false;
 }
 element {
     border:  0;
@@ -116,7 +115,12 @@ inputbar {
 }
 textbox-prompt-colon {
     expand:     false;
-    str:        "Set Power Profile:";
+    str:        ":";
     margin:     0px 0.3em 0em 0em;
     text-color: @normal-foreground;
+}
+
+/*removes the text input line*/
+mainbox {
+  children: [listview];
 }

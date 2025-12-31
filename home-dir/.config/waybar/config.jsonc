@@ -54,7 +54,7 @@
   "wireplumber": {
     "tooltip": false,
     "format": "{icon} {volume}%",
-    "format-muted": "󰝟 muted",
+    "format-muted": "󰝟 Muted",
     "format-bluetooth": " {icon} {volume}%",
     "format-headphones": " {volume}%",
     "on-click": "pavucontrol",
@@ -93,7 +93,7 @@
     "tooltip-format-wifi": "{essid}",
     "format-ethernet": "󰈀  {bandwidthDownBits:()} 󰶡{bandwidthUpBits:>} 󰶣",
     "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
-    "format-disconnected": "  Disconnected",
+    "format-disconnected": "  D/C",
     "on-click": "alacritty -T waybar_nmtui -e nmtui",
     "interval": 2
   },
