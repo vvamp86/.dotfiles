@@ -44,7 +44,7 @@
     # Advanced Basics #
     ###################
         # Language Selection
-        bindsym $mod+plus exec --no-startup-id ~/.config/sway/scripts/language-selector
+        bindsym $mod+equal exec --no-startup-id ~/.config/sway/scripts/language-selector
 
         # Launch the clipboard manager
         bindsym $mod+Ctrl+c exec sh -c '                                                    \
