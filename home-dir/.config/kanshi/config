@@ -1,11 +1,15 @@
-profile right-full-hd {
+profile displayport-main {
   output eDP-1 mode 2256x1504 position 0,0
-  output HDMI-A-1 mode 1920x1080 position 1920,0
+  output DisplayPort-1 mode 1920x1200 position 1920,0
   exec swaymsg workspace 1, move workspace to output '"eDP-1"'
 }
 
 profile laptop-only {
   output eDP-1 mode 2256x1504 position 0,0
-  output HDMI-A-1 disable
-  output DP-1 disable
+  output DisplayPort-1 disable
+}
+
+profile displayport-only {
+  output DisplayPort-1 mode 1920x1200 position 0.0
+  output eDP-1 disable
 }
