@@ -33,40 +33,43 @@ return {
 - then obsidian.nvim will detect properly :D
 
 # Things to Include:
-- battery manager
-- control manager
-- nvim keyboard
-- nvim for Latex, R, & Obsidian
-- plover stenography
-- customize bootloader (partially completed)
-    - [-] add a way to choose screen size in full_setup.sh script to fix this
-- straighten X11 and have options to switch to wayland
-    - There's a lot to be changed in i3wm config to sway defaults
-    - workspace maanger change
-    - get bluetooth working & get workarounds for other tray icons
+- [ ] battery manager
+- [ ] control manager
+- [ ] nvim keyboard
+- [ ] nvim for Latex, R, & Obsidian
+    - [x] latex
+    - [ ] r
+    - [ ] obsidian
+- [ ] plover stenography
+- [ ] customize bootloader (partially completed)
+    - [ ] add a way to choose screen size in full_setup.sh script to fix this
+- [ ] straighten X11 and have options to switch to wayland
+    - [ ] There's a lot to be changed in i3wm config to sway defaults
+    - [ ] workspace maanger change
+    - [ ] get bluetooth working & get workarounds for other tray icons
     - [x] xclip -> wl-clipboard
     - [x] xdotool -> prob swaymsg scripts
     - [x] feh -> swayimg
-    - lightdm-gtk-greeter & lightdm  -> greetd & gtkgreet
+    - [ ] lightdm-gtk-greeter & lightdm  -> greetd & ~gtk~tuigreet (needs customization)
     - [x] i3lock-color - swaylock-effects
     - [x] picom deleted as it is useless
     - [x] consider replacing the remainder of xfce tools
-- get scrolling artifacts fixed
-- nvim efficiencies needed:
-    - Vimtex concealer / auto replacement with unicode characters
-    - Latex Suite Shorthands in vimtex
-    - html rendering
-    - paste relative to indentation
-    - latex to unicode
-    - luasnips for latex
-- keep currently opened applications as cache as a list after reboot / restart for simple continuation
+- [x] get scrolling artifacts fixed
+- [ ] nvim efficiencies needed:
+    - [ ] Vimtex concealer / auto replacement with unicode characters
+    - [ ] Latex Suite Shorthands in vimtex
+    - [ ] html rendering
+    - [ ] paste relative to indentation
+    - [ ] latex to unicode
+    - [ ] luasnips for latex
+- [ ] keep currently opened applications as cache as a list after reboot / restart for simple continuation
     - maybe tmux equivalent with resurrect?
 
 
 Consider Doing the Following too for waybar:
-- Add Options to restore previous sessions:
+- [x] Add Options to restore previous sessions:
     -  fa-window-close-o [&#xf2d4;]4.7 fa-window-maximize [&#xf2d0;]4.7 fa-window-minimize [&#xf2d1;]4.7
 - [x] add spotify interaction in bar: 
-- time-shift save button: 
+- [ ] time-shift save button: 
 - [x] battery settings: 
-- diagnostic settings of the device hardware: 
+- [ ] diagnostic settings of the device hardware: 
