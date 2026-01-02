@@ -1,7 +1,6 @@
 {
   "layer": "top",
   "position": "bottom",
-  "output": ["HDMI-A-1", "DP-1", "eDP-1"],
 
   "modules-left": [
     "custom/launcher",
