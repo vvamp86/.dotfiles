@@ -1,8 +1,9 @@
 # Idle Behavior
-exec_always swayidle                    \
-    timeout 500  'swaylock'             \
-    timeout 1000 'systemctl suspend'    \
-    after-resume 'swaylock'
+exec_always swayidle -w \
+  timeout 500 'swaylock -f' \
+  timeout 1000 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  before-sleep 'swaylock -f'
 
 ##########################
 # Custom windowing rules #

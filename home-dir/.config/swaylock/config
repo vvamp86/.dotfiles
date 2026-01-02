@@ -1,5 +1,4 @@
 ignore-empty-password
-daemonize
 indicator
 clock
 timestr=%H:%M:%S
@@ -19,13 +18,13 @@ indicator-idle-visible
 indicator-radius=90
 indicator-thickness=9
 
-inside-color=28282800
-inside-clear-color=28282800
-inside-caps-lock-color=28282800
-inside-ver-color=28282800
-inside-wrong-color=28282800
+inside-color=282828ff
+inside-clear-color=282828ff
+inside-caps-lock-color=282828ff
+inside-ver-color=282828ff
+inside-wrong-color=282828ff
 
-layout-bg-color=28282800
+layout-bg-color=282828ff
 layout-text-color=ebdbb2ff
 
 line-color=00000000
