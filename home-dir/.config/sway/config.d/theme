@@ -5,7 +5,9 @@ exec_always ~/.config/sway/scripts/import-gnome-settings
 output eDP-1 scale 1
 
 # Thin borders:
-smart_borders on
+# Uncomment to get rid of borders when there is only a single application
+#smart_borders on
+#default_border normal
 
 #border indicator on windows:
 default_border pixel 1
@@ -32,7 +34,6 @@ for_window [shell="x_wayland"] title_format "%class - %title"
 # Window Colors #
 #################
 # Define colors variables:
-set $darkbluetrans  #0d3138e6
 set $darkblue       #0d3138
 set $lightblue      #80aa9e
 set $urgentred      #fb4934
@@ -48,9 +49,10 @@ set $orange         #8a5328
 # define colors for windows:
 #class                      border      bground     text        indicator       child_border
 client.focused              $lightblue  $darkblue   $white      $orange         $orange
-client.unfocused            $darkblue   $darkblue   $grey       $darkgrey       $darkgrey
 client.focused_inactive     $darkblue   $darkblue   $grey       $black          $black
+client.unfocused            $darkblue   $darkblue   $grey       $darkgrey       $darkgrey
 client.urgent               $urgentred  $urgentred  $white      $yellowbrown    $yellowbrown
+client.placeholder          $darkblue   $darkblue   $grey       $orange         $orange
 client.background           $white
 
 ##############
