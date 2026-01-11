@@ -43,7 +43,7 @@ exec eos-welcome --startdelay=3
 exec_always --no-startup-id autotiling
 
 # Background
-exec --no-startup-id sleep 1 && swaybg -i /usr/share/backgrounds/wallpaper.png -m fill
+exec_always --no-startup-id sleep 1 && swaybg -i /usr/share/backgrounds/wallpaper.png -m fill
 
 # reads and executes .desktop files
 exec --no-startup-id dex --autostart --environment sway
@@ -52,13 +52,13 @@ exec --no-startup-id dex --autostart --environment sway
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Display configuration manager
-exec kanshi
+exec_always kanshi
 
 #############################################
 # autostart applications/services on login: #
 #############################################
-exec_always --no-startup-id sh -c "sleep 1 && swaymsg 'workspace $ws1; exec vesktop'"
-exec_always --no-startup-id sh -c "sleep 1 && env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --enable-features=UseOzonePlatform"
-exec_always --no-startup-id sh -c "sleep 2 && swaymsg 'workspace $ws2; exec obsidian'"
-exec_always --no-startup-id sh -c "sleep 2 && swaymsg 'workspace $ws2; exec brave'"
+exec --no-startup-id sh -c "sleep 1 && swaymsg 'workspace $ws1; exec vesktop'"
+exec --no-startup-id sh -c "sleep 1 && env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --enable-features=UseOzonePlatform"
+exec --no-startup-id sh -c "sleep 2 && swaymsg 'workspace $ws2; exec obsidian'"
+exec --no-startup-id sh -c "sleep 2 && swaymsg 'workspace $ws2; exec brave'"
 

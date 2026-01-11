@@ -57,7 +57,11 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable
 ####################
 # scratchpad rules #
 ####################
-for_window [app_id="spotify"] move to scratchpad
+for_window [app_id="spotify"] \
+  move to scratchpad,         \
+  resize set 80 ppt 80 ppt,   \
+  move position center
+
 assign [app_id="vesktop"] $ws1
 
 ####################

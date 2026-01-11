@@ -1,6 +1,6 @@
 profile DP-1-main {
-  output eDP-1 mode 2256x1504 position 0,0
-  output DP-1 mode 1920x1200 position 2256,0
+  output eDP-1 enable mode 2256x1504 position 0,0
+  output DP-1 enable mode 1920x1200 position 2256,0
   exec swaymsg workspace 1, move workspace to output 'eDP-1'
   exec swaymsg workspace 3, move workspace to output 'DP-1'
   exec swaymsg workspace 4, move workspace to output 'DP-1'
@@ -13,8 +13,8 @@ profile DP-1-main {
 }
 
 profile DP-2-main {
-  output eDP-1 mode 2256x1504 position 0,0
-  output DP-2 mode 1920x1200 position 2256,0
+  output eDP-1 enable mode 2256x1504 position 0,0
+  output DP-2 enable mode 1920x1200 position 2256,0
   exec swaymsg workspace 1, move workspace to output 'eDP-1'
   exec swaymsg workspace 3, move workspace to output 'DP-2'
   exec swaymsg workspace 4, move workspace to output 'DP-2'
@@ -28,8 +28,8 @@ profile DP-2-main {
 }
 
 profile DP-3-main {
-  output eDP-1 mode 2256x1504 position 0,0
-  output DP-3 mode 1920x1200 position 2256,0
+  output eDP-1 enable mode 2256x1504 position 0,0
+  output DP-3 enable mode 1920x1200 position 2256,0
   exec swaymsg workspace 1, move workspace to output 'eDP-1'
   exec swaymsg workspace 3, move workspace to output 'DP-3'
   exec swaymsg workspace 4, move workspace to output 'DP-3'
@@ -43,7 +43,7 @@ profile DP-3-main {
 }
 
 profile laptop-only {
-  output eDP-1 mode 2256x1504 position 0,0
+  output eDP-1 enable mode 2256x1504 position 0,0
 }
 
 
