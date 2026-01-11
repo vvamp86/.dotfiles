@@ -1,3 +1,5 @@
+include ~/.config/sway/config.d/default
+
 # Idle Behavior
 exec_always swayidle -w \
   timeout 500 'swaylock -f' \
@@ -56,6 +58,7 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable
 # scratchpad rules #
 ####################
 for_window [app_id="spotify"] move to scratchpad
+assign [app_id="vesktop"] $ws1
 
 ####################
 # Disabled Options #

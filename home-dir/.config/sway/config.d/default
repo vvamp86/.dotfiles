@@ -66,3 +66,32 @@ set $powermenu ~/.config/sway/scripts/powermenu.sh
 #     --timestr "%H:%M:%S"        \
 #     --datestr "%A, %Y-%m-%d"    \
 #     --font "FiraCode Nerd Font"
+
+##############
+# Workspaces #
+##############
+    # Workspace bindings are using bindcode instead of bindsym for better Azerty compatibility.
+    # https://github.com/EndeavourOS-Community-Editions/sway/pull/81
+    # Use wev to find keycodes for setting up other bindings this way.
+
+    # Define names for default workspaces for which we configure key bindings later on.
+    # We use variables to avoid repeating the names in multiple places.
+    set $ws1    "1"
+    set $ws2    "2"
+    set $ws3    "3"
+    set $ws4    "4"
+    set $ws5    "5"
+    set $ws6    "6"
+    set $ws7    "7"
+    set $ws8    "8"
+    set $ws9    "9"
+    set $ws10   "10"
+
+#   set $ws1    "1:    "
+#   set $ws2    "2:    "
+#   set $ws3    "3:    "
+#   set $ws4    "4:    "
+#   set $ws5    "5:    "
+#   set $ws6    "6:    "
+#   set $ws7    "7:    "
+
