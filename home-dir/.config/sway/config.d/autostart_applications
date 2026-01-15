@@ -6,6 +6,9 @@ include ~/.config/sway/config.d/default
 # Auth with polkit-gnome:
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+# Start gnome-keyring daemon:
+#exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+
 # Import environment variables for user systemd service manager
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 

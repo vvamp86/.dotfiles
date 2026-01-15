@@ -5,7 +5,7 @@ exec_always swayidle -w \
   timeout 500 'swaylock -f' \
   timeout 1000 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
-  before-sleep 'swaylock -f'
+  before-sleep 'playerctl -a pause && swaylock -f'
 
 ##########################
 # Custom windowing rules #
