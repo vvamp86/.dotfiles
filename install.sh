@@ -33,7 +33,6 @@ if [[ "$download" == [yY] ]]; then
   sudo pacman -Syu --needed --noconfirm \
     sway              \
     swaybg            \
-    swaymsg           \
     waybar            \
     \
     alacritty         \

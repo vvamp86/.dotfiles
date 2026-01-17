@@ -56,12 +56,6 @@ export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=true
 # for ocaml's `opam`
 eval $(opam env --switch=default)
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 ########################
 # Replacement Commands #
 ########################
