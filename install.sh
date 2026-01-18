@@ -203,7 +203,7 @@ if [[ "$symlinked" == [yY] ]]; then
 
   # Clean up existing conflicting files/directories if needed
   print_step "Removing existing dotfiles to prevent conflict"
-  CONFIGS=(alacritty btop gtk-3.0 gtk-4.0 kanshi Kvantum mako nvim qt5ct qt6ct rofi spicetify sway swaylock waybar yazi zathura)
+  CONFIGS=(alacritty btop gtk-3.0 gtk-4.0 kanshi Kvantum mako nvim qt5ct qt6ct rofi spicetify vesktop sway swaylock waybar yazi zathura)
   FILES=(.bashrc .profile .Xresources .gtkrc-2.0 .tmux.conf .xprofile .config/starship.toml .config/vesktop/themes/gruvbox-material-dark.theme.css )
 
   for config in "${CONFIGS[@]}"; do
