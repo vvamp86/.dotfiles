@@ -88,7 +88,10 @@ if [[ "$download" == [yY] ]]; then
     cliphist          \
     grim              \
     slurp             \
-    satty
+    satty             \
+    \
+    opam              \
+    nvm
 #   cava # cool audio visualizer, not necessary
 
   ### AUR Packages
