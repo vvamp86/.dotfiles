@@ -23,7 +23,7 @@ set $menu nwg-drawer
 set $powermenu ~/.config/sway/scripts/powermenu
 
 # swaylock comand
-set $swaylock ~/.config/sway/scripts/swaylock
+set $swaylock ~/.config/sway/scripts/swaylock.sh
 
 ##############
 # Workspaces #

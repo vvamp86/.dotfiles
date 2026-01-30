@@ -342,7 +342,7 @@ bindsym $mod+t exec --no-startup-id rofi -show window \
 bindsym $mod+Shift+n exec --no-startup-id ~/.config/sway/scripts/empty_workspace
 
 # lock by blurring the screen:
-bindsym $mod+Shift+Mod1+l exec swaylock
+bindsym $mod+Shift+Mod1+l exec $swaylock
 
 # keybinding in fancy rofi (automated):
 bindsym F1 exec --no-startup-id ~/.config/sway/scripts/keyhint-2
