@@ -20,10 +20,10 @@ set $launcher rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
 set $menu nwg-drawer
 
 # Power Menu
-set $powermenu ~/.config/sway/scripts/powermenu.sh
+set $powermenu ~/.config/sway/scripts/powermenu
 
 # swaylock comand
-set $swaylock ~/.config/sway/scripts/swaylock.sh
+set $swaylock ~/.config/sway/scripts/swaylock
 
 ##############
 # Workspaces #
