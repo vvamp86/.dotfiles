@@ -1,0 +1,2 @@
+#!/bin/sh
+rg -q '^swaylock$' /proc/*/comm || swaylock -f

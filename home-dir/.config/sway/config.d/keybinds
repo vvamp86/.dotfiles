@@ -26,7 +26,7 @@ include ~/.config/sway/config.d/default
     bindsym $mod+Shift+d exec $menu
 
     # Lock screen
-    bindsym $mod+f1 exec gtklock
+    # bindsym $mod+f1 exec gtklock
 
     # Activities
     bindsym $mod+Shift+s exec ~/.config/sway/scripts/window_switcher.sh
@@ -342,7 +342,7 @@ bindsym $mod+t exec --no-startup-id rofi -show window \
 bindsym $mod+Shift+n exec --no-startup-id ~/.config/sway/scripts/empty_workspace
 
 # lock by blurring the screen:
-bindsym $mod+Shift+Mod1+l exec swaylock
+bindsym $mod+Shift+Mod1+l exec $swaylock
 
 # keybinding in fancy rofi (automated):
 bindsym F1 exec --no-startup-id ~/.config/sway/scripts/keyhint-2
