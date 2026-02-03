@@ -1,0 +1,30 @@
+#!/bin/bash
+# Detect terminal name from parent process
+TERMINAL_PID=$(ps -o ppid= -p $$ | tr -d ' ')
+TERMINAL_NAME=$(ps -o comm= -p $TERMINAL_PID | xargs basename)
+TERMINAL_NAME=$(echo "$TERMINAL_NAME" | sed -E 's/[-\.][0-9].*$//')
+
+# Create session name
+SESSION="${TERMINAL_NAME}_$(date +%Y-%m-%d_%H:%M:%S)"
+export TMUX_SESSION="$SESSION"
+exec tmux new -A -s "$SESSION"
+
+# Create a trap to save session on exit
+cleanup() {
+    if [ -n "$TMUX_SESSION" ] && tmux has-session -t "$TMUX_SESSION" 2>/dev/null; then
+        SESSION_DIR="$HOME/.tmux/saved_sessions"
+        mkdir -p "$SESSION_DIR"
+
+        # Save window layout
+        tmux list-windows -t "$TMUX_SESSION" -F '#{window_index} #{window_name} #{window_layout}' \
+            > "$SESSION_DIR/${TMUX_SESSION}_layout.txt"
+
+        echo "Saved session: $TMUX_SESSION"
+    fi
+}
+
+# Trap both exit and SIGTERM (for kill command)
+trap cleanup EXIT TERM INT
+
+# Launch tmux
+exec tmux new -A -s "$SESSION"

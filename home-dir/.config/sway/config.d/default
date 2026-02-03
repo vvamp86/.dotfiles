@@ -25,6 +25,11 @@ set $powermenu ~/.config/sway/scripts/powermenu
 # swaylock comand
 set $swaylock ~/.config/sway/scripts/swaylock.sh
 
+# Browsers
+# primary & secondary
+set $primary_browser /usr/bin/brave
+set $secondary_browser /usr/bin/librewolf
+
 ##############
 # Workspaces #
 ##############

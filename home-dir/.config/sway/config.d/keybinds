@@ -6,8 +6,11 @@ include ~/.config/sway/config.d/default
 ##########
 # Basics #
 ##########
-    # Launch the terminal
-    bindsym $mod+Return exec --no-startup-id $term
+    # Launch tmux terminal
+    bindsym $mod+Return exec --no-startup-id $term -e ~/.config/sway/scripts/tmux-launcher
+
+    # Launch default terminal
+    bindsym $mod+Shift+Return exec --no-startup-id $term
 
     # Open the power menu
     bindsym $mod+Shift+e exec --no-startup-id $powermenu
@@ -19,17 +22,14 @@ include ~/.config/sway/config.d/default
     bindsym $mod+q kill
     bindsym Ctrl+q kill
 
+    # tmux kill & save
+    bindsym $mod+Shift+q exec pkill -P $(ps -o ppid= -p $(tmux display-message -p '#{client_pid}')) 2>/dev/null || kill
+
     # Start your launcher
     bindsym $mod+d exec $launcher
 
     # Menu
     bindsym $mod+Shift+d exec $menu
-
-    # Lock screen
-    # bindsym $mod+f1 exec gtklock
-
-    # Activities
-    bindsym $mod+Shift+s exec ~/.config/sway/scripts/window_switcher.sh
 
     # Move windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -315,7 +315,8 @@ include ~/.config/sway/config.d/default
     bindsym $mod+m exec --no-startup-id env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --enable-features=UseOzonePlatform
 
     # Launch the browser
-    bindsym $mod+w exec --no-startup-id /usr/bin/brave
+    bindsym $mod+w exec --no-startup-id $primary_browser
+    bindsym $mod+shift+w exec --no-startup-id $secondary_browser
 
     # File viewer
     bindsym $mod+z exec --no-startup-id zathura
@@ -344,5 +345,3 @@ bindsym $mod+Shift+n exec --no-startup-id ~/.config/sway/scripts/empty_workspace
 # lock by blurring the screen:
 bindsym $mod+Shift+Mod1+l exec $swaylock
 
-# keybinding in fancy rofi (automated):
-bindsym F1 exec --no-startup-id ~/.config/sway/scripts/keyhint-2

@@ -51,6 +51,9 @@ exec_always --no-startup-id sleep 1 && swaybg -i /usr/share/backgrounds/wallpape
 # reads and executes .desktop files
 exec --no-startup-id dex --autostart --environment sway
 
+# tmux background saver
+exec_always ~/.config/sway/scripts/tmux-session-saver.sh &
+
 # Privilege for GUIs
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 

@@ -155,3 +155,22 @@ function codediff() {
             ;;
     esac
 }
+
+
+function matrun() {
+    local file="$1"
+    # Check if file exists
+    if [[ ! -f "$file" ]]; then
+        echo "Error: File '$file' does not exist" >&2
+        return 1
+    fi
+    # Check if file is readable
+    if [[ ! -r "$file" ]]; then
+        echo "Error: File '$file' is not readable" >&2
+        return 1
+    fi
+    # Run MATLAB with error checking
+    matlab -nodisplay -nosplash -nodesktop -r "try, run('$file'); catch ME, fprintf('Error in %s: %s\n', ME.stack(1).name, ME.message); exit(1); end; exit"
+    # Return MATLAB's exit code
+    return $?
+}
