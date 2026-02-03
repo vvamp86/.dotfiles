@@ -1,13 +1,4 @@
-EndeavourOS i3wm Keybindings cheat sheet:
-
---> to update this run the following command:
-wget --backups=1 https://raw.githubusercontent.com/endeavouros-team/endeavouros-i3wm-setup/main/.config/i3/keybindings -P ~/.config/i3/
-
-All sources and updates are available at GitHub:
-https://github.com/endeavouros-team/endeavouros-i3wm-setup
-
-For reference consult our WIKI:
-https://discovery.endeavouros.com/window-tiling-managers/i3-wm/
+vvamp86 Sway Keybindings cheat sheet:
 
  = windows key
 
@@ -42,11 +33,11 @@ F1
 # full keybinding list in editor:
 +F1
 
-# change window focus
-+j focus left
-+k focus down
-+b focus up
-+o focus right
+# change window focus (follows vi)
++h focus left
++j focus down
++k focus up
++l focus right
 
 # alternatively, you can use the cursor keys:
 +Left focus left
@@ -101,8 +92,8 @@ F1
 +p
 
 ## App shortcuts
-+w starts Brave
-+n starts Thunar
-+o starts Obsidian
 +m starts Spotify
++n starts Vesktop
++o starts Obsidian
++w starts Brave
  Button screenshot

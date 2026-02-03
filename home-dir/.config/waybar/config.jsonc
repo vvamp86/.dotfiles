@@ -237,7 +237,7 @@
 /* Power Related                                            */
 /* ======================================================== */
   "custom/ppd-status": {
-    "exec": "~/.config/sway/scripts/ppd-status",
+    "exec": "~/.config/waybar/custom_modules/ppd-status",
     "return-type": "json",
     "format": "{}",
     "interval": 5,
