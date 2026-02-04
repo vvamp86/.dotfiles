@@ -1,2 +1,2 @@
 #!/bin/sh
-sh -c "rg -q '^swaylock$' /proc/*/comm || killall swaylock || swaylock -f"
+sh -c "killall swaylock || swaylock -f"

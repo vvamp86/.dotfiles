@@ -7,10 +7,10 @@ include ~/.config/sway/config.d/default
 # Basics #
 ##########
     # Launch tmux terminal
-    bindsym $mod+Return exec --no-startup-id $term -e ~/.config/sway/scripts/tmux-launcher
+    bindsym $mod+Shift+Return exec --no-startup-id $term -e ~/.config/sway/scripts/tmux-launcher
 
     # Launch default terminal
-    bindsym $mod+Shift+Return exec --no-startup-id $term
+    bindsym $mod+Return exec --no-startup-id $term
 
     # Open the power menu
     bindsym $mod+Shift+e exec --no-startup-id $powermenu
