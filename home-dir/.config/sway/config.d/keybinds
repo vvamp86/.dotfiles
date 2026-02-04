@@ -42,6 +42,9 @@ include ~/.config/sway/config.d/default
     # restart sway inplace (preserves your layout/session, can be used to update i3)
     bindsym $mod+Shift+Mod1+r restart
 
+    # Bum keybind to launch updater
+    bindsym $mod+u exec --no-startup-id $term -e ~/.config/sway/scripts/update.sh
+
     ###################
     # Advanced Basics #
     ###################
@@ -63,7 +66,7 @@ include ~/.config/sway/config.d/default
         # Note: you can clear all cliphist entries by running `cliphist wipe`
 
         # open unicode selector
-        bindsym $mod+u exec --no-startup-id ~/.config/sway/scripts/unicode-picker-insert
+        bindsym $mod+Shift+u exec --no-startup-id ~/.config/sway/scripts/unicode-picker-insert
 
     ############
     # Movement #
