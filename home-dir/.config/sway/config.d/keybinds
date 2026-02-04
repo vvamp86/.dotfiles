@@ -338,7 +338,6 @@ include ~/.config/sway/config.d/default
     bindsym Shift+Print exec sh -c '                    \
       tmp=$(mktemp --suffix=.png) &&                    \
       grim -g "$(slurp)" "$tmp" &&                      \
-      satty --filename "$tmp" &&                        \
       ~/.config/sway/scripts/img2clip.sh "$tmp" &&      \
       rm "$tmp"'
 

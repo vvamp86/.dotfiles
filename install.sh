@@ -224,7 +224,10 @@ fi
 #########################
 read -p "Get dependencies for img2clip.sh? [y/N]: " itc
 if [[ "$itc" == [yY] ]]; then
-  pipx install pix2text
+  conda create -n ocr-env python=3.12 -y
+  conda activate ocr-env
+  pip install nougat-ocr
+
   paru -S --needed                  \
     tesseract                       \
     tesseract-data-eng              \
