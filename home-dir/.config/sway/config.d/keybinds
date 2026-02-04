@@ -334,6 +334,14 @@ include ~/.config/sway/config.d/default
       satty --filename "$tmp" &&                        \
       rm "$tmp"'
 
+    # For getting images to ASCII, markdown, and LaTeX
+    bindsym Shift+Print exec sh -c '                    \
+      tmp=$(mktemp --suffix=.png) &&                    \
+      grim -g "$(slurp)" "$tmp" &&                      \
+      satty --filename "$tmp" &&                        \
+      ~/.config/sway/scripts/img2clip.sh "$tmp" &&      \
+      rm "$tmp"'
+
 #####################################
 ######################### Old Stuff #
 #####################################

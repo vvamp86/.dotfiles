@@ -219,6 +219,17 @@ if [[ "$symlinked" == [yY] ]]; then
   stow --target="$HOME" home-dir
 fi
 
+#########################
+### Setup img2clip.sh ###
+#########################
+read -p "Get dependencies for img2clip.sh? [y/N]: " itc
+if [[ "$itc" == [yY] ]]; then
+  pipx install pix2text
+  paru -S --needed                  \
+    tesseract                       \
+    tesseract-data-eng              \
+    caca-utils
+fi
 
 ########################
 ### Spicetify Update ###
