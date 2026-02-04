@@ -37,7 +37,7 @@ exec nm-applet --indicator
 exec sleep 2 && firewall-applet
 
 # Welcome App
-exec eos-welcome --startdelay=3
+# exec eos-welcome --startdelay=3
 
 # Sway Fader
 # exec python3 ~/.config/sway/scripts/swayfader.py

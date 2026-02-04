@@ -23,6 +23,7 @@ exec_always {
 #     xkb_layout "us,gb"
 #     xkb_options "grp:alt_shift_toggle"
 # }
+
 # # Assign the same binding to "pkill -RTMIN+1 waybar" to send signal to
 # # the Waybar keyboard module (so the module shows the updated layout).
 # # This example uses Alt + left Shift.

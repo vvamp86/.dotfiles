@@ -7,10 +7,10 @@
 
 # PS1='[\u@\h \W]\$ ' # Legacy
 
-# Starship
+# Starship for pretties
 eval "$(starship init bash)"
 
-# Zoxide
+# Zoxide for better cd
 eval "$(zoxide init bash)"
 
 ###########
