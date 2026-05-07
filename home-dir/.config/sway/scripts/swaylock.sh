@@ -1,2 +1,2 @@
 #!/bin/sh
-sh -c "killall swaylock || swaylock -f"
+sh -c "swaylock"

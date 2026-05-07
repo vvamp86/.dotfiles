@@ -25,10 +25,37 @@ set $powermenu ~/.config/sway/scripts/powermenu
 # swaylock comand
 set $swaylock ~/.config/sway/scripts/swaylock.sh
 
+########################
+# Application Defaults #
+########################
 # Browsers
 # primary & secondary
 set $primary_browser /usr/bin/brave
 set $secondary_browser /usr/bin/librewolf
+
+# Music
+# primary & secondary
+set $primary_music env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify
+set $secondary_music youtube-music
+
+# PDF Viewer
+# primary & secondary
+set $primary_pdf_viewer zathura
+set $secondary_pdf_viewer sioyek
+
+# File Explorers
+set $primary_file_explorer pcmanfm
+set $secondary_file_explorer $term -T sway_yazi -e yazi
+
+# Note Platform:
+set $primary_notes obsidian
+set $secondary_notes $term -T sway_neovim -e nvim
+
+# Messaging
+set $primary_messaging vesktop
+set $secondary_messaging evolution
+set $tertiary_messaging slack
+
 
 ##############
 # Workspaces #

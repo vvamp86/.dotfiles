@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+REAL_TMUX="/usr/bin/tmux"
+TMUX_LAUNCHER="$HOME/.config/sway/scripts/tmux-launcher"
+
+# If this is a session-creation command, redirect it
+case "$1" in
+  new|new-session|neww|new-window)
+    exec "$TMUX_LAUNCHER" "$@"
+    ;;
+  *)
+    exec "$REAL_TMUX" "$@"
+    ;;
+esac
