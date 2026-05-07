@@ -6,7 +6,7 @@ include ~/.config/sway/config.d/default
 #   timeout 1000 'swaymsg "output * dpms off"'  \
 #   timeout 3000 'systemctl suspend'            \
 #   resume 'swaymsg "output * dpms on"'         \
-#   before-sleep 'playerctl -a pause || true; $swaylock'
+exec_always swayidle -w before-sleep playerctl -a pause
 
 ##########################
 # Custom windowing rules #
