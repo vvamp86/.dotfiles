@@ -70,8 +70,8 @@ alias df='duf'
 alias find='fd'
 alias ps='procs'
 alias cd='z'        # zoxide
-alias top='btop'
 
+alias top='btop'
 
 ##############
 # Shorthands #

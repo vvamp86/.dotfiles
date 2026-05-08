@@ -2,7 +2,7 @@ vvamp86 Sway Keybindings cheat sheet:
 
  = windows key
 
-# start alacritty
+# start terminal
 +Return
 
 # kill focused window
@@ -92,7 +92,8 @@ F1
 +p
 
 ## App shortcuts
-+m starts Spotify
++m starts primary_music
++shift+m starts secondary_music
 +n starts Vesktop
 +o starts Obsidian
 +w starts Brave
