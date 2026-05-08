@@ -216,7 +216,7 @@ if [[ "$symlinked" == [yY] ]]; then
 
   # Run stow from within the home-dir folder
   cd "$DOTFILES"
-  stow --target="$HOME" home-dir
+  stow --adopt --target="$HOME" home-dir
 fi
 
 #########################
