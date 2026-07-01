@@ -62,7 +62,7 @@ eval $(opam env --switch=default)
 alias cat='bat'
 alias make='remake'
 alias ls='eza'
-alias grep='rg'     # ripgrep
+# alias grep='rg'     # ripgrep
 alias yay='paru'    # paru for efficiency
 
 alias du='dust'

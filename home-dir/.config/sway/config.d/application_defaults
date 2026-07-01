@@ -58,17 +58,22 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable
 ####################
 # scratchpad rules #
 ####################
-for_window [class="Spotify"] \
+for_window [class="Spotify"]  \
   move to scratchpad,         \
   resize set 80 ppt 80 ppt,   \
   move position center
 
 for_window [class="com.github.th_ch.youtube_music"] \
-  move to scratchpad,         \
-  resize set 80 ppt 80 ppt,   \
+  move to scratchpad,                               \
+  resize set 80 ppt 80 ppt,                         \
   move position center
 
-assign [app_id="vesktop"] $ws1
+#######################
+# workspace app rules #
+#######################
+assign [app_id="vesktop"]   $ws1
+assign [app_id="obsidian"]  $ws2
+assign [app_id="sioyek"]    $ws2
 
 ####################
 # Disabled Options #
