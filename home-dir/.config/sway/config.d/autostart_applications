@@ -67,4 +67,4 @@ exec --no-startup-id sh -c "sleep 1 && swaymsg 'workspace $ws1; exec $primary_me
 exec --no-startup-id sh -c "sleep 1 && $primary_music"
 exec --no-startup-id sh -c "sleep 2 && swaymsg 'workspace $ws2; exec $primary_notes'"
 exec --no-startup-id sh -c "sleep 2 && swaymsg 'workspace $ws2; exec $primary_browser'"
-
+exec --no-startup-id sh -c "sleep 2 && swaymsg 'workspace $ws2; exec $secondary_pdf_viewer'"
