@@ -49,7 +49,7 @@ bindsym $mod+u exec --no-startup-id $term -e ~/.config/sway/scripts/update.sh
 # Advanced Basics #
 ###################
 # Language Selection
-bindsym $mod+equal exec --no-startup-id ~/.config/sway/scripts/language-selector
+bindsym $mod+Alt+equal exec --no-startup-id ~/.config/sway/scripts/language-selector
 
 # Launch the clipboard manager
 bindsym $mod+Ctrl+c exec sh -c '                                                    \
@@ -125,7 +125,7 @@ bindsym {
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
-bindsym $mod+Alt+plus exec $workspace_mover
+bindsym $mod+equal exec $workspace_mover
 
 bindcode {
     # Switch to workspace
