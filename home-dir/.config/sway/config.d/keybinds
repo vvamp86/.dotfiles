@@ -125,6 +125,8 @@ bindsym {
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
+bindsym $mod+Alt+plus exec $workspace_mover
+
 bindcode {
     # Switch to workspace
     $mod+10 workspace number $ws1

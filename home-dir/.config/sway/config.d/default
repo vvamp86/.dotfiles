@@ -22,6 +22,9 @@ set $menu nwg-drawer
 # Power Menu
 set $powermenu ~/.config/sway/scripts/powermenu
 
+# Window Mover
+set $workspace_mover ~/.config/sway/scripts/sway-move-workspace-menu
+
 # swaylock comand
 set $swaylock ~/.config/sway/scripts/swaylock.sh
 
