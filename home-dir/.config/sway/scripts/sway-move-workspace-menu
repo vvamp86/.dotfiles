@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# List active outputs with resolution
+CURRENT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+LIST=$(swaymsg -t get_outputs | jq -r --arg cur "$CURRENT" '
+  .[] | select(.active and .name != $cur) |
+  "\(.name)  \(.current_mode.width)x\(.current_mode.height)"
+')
+[ -z "$LIST" ] && exit 1
+
+CHOSEN=$(printf '%s\n' "$LIST" \
+  | rofi -dmenu -i -p "Move workspace to" \
+         -config ~/.config/rofi/rofidmenu.rasi)
+
+[ -z "$CHOSEN" ] && exit 0
+
+OUTPUT=$(awk '{print $1}' <<< "$CHOSEN")
+
+swaymsg move workspace to output "$OUTPUT"
+notify-send "Workspace moved" "→ $OUTPUT"
